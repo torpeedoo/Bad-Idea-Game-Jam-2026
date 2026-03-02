@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dxsxt0bchwxhu"]
+
+[ext_resource type="Script" uid="uid://dmokhfwnau2jl" path="res://Machines/Interaction/Button/button.gd" id="1_isc8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
+size = Vector2(40, 40)
+
+[node name="Button" type="Node2D" unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "button_up_sprite", "button_down_sprite")]
+script = ExtResource("1_isc8r")
+interaction_area = NodePath("Area2D")
+button_up_sprite = NodePath("Button/up")
+button_down_sprite = NodePath("Button/down")
+
+[node name="BG" type="Node2D" parent="." unique_id=261675697]
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=554504963]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1.0528602e-07, 0.15267366, 0.08149063, 1)
+
+[node name="Button" type="Node2D" parent="." unique_id=1588033695]
+
+[node name="down" type="ColorRect" parent="Button" unique_id=2051285326]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.5330367, 0.5330367, 0.5330367, 1)
+
+[node name="up" type="ColorRect" parent="Button" unique_id=271485351]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1965859506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=645561118]
+shape = SubResource("RectangleShape2D_wudi0")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bhjmx4mk43pi7"]
+
+[ext_resource type="PackedScene" uid="uid://btq0dk4lkt3jv" path="res://Machines/Interaction/Dial/Dial.tscn" id="1_uhlg7"]
+[ext_resource type="PackedScene" uid="uid://dxsxt0bchwxhu" path="res://Machines/Interaction/Button/Button.tscn" id="2_i2t0e"]
+[ext_resource type="PackedScene" uid="uid://ode4m2gq0be4" path="res://Machines/Interaction/Dragable Object/DragableObject.tscn" id="3_fqe5a"]
+[ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="4_i2t0e"]
+
+[node name="InteractionTest" type="Node2D" unique_id=171200832]
+
+[node name="seek_dial" parent="." unique_id=2135038461 instance=ExtResource("1_uhlg7")]
+position = Vector2(180, 174)
+scale = Vector2(4.2841496, 4.2995353)
+
+[node name="seek_dial2" parent="." unique_id=2019009471 instance=ExtResource("1_uhlg7")]
+position = Vector2(180.00002, 424.99997)
+scale = Vector2(4.2841496, 4.2995353)
+
+[node name="Button" parent="." unique_id=1919514698 instance=ExtResource("2_i2t0e")]
+position = Vector2(443.99997, 174.00003)
+scale = Vector2(5.995247, 5.742255)
+
+[node name="DragableObject" parent="." unique_id=1660247377 instance=ExtResource("3_fqe5a")]
+position = Vector2(723.00006, 128)
+scale = Vector2(6.7820187, 5.7045608)
+
+[node name="radio" parent="." unique_id=909828567 instance=ExtResource("4_i2t0e")]
+position = Vector2(827, 462)

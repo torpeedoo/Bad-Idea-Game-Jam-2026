@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://btq0dk4lkt3jv"]
+
+[ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="1_0y5rg"]
+
+[node name="dial" type="Node2D" unique_id=2135038461 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
+script = ExtResource("1_0y5rg")
+knob = NodePath("knob")
+knob_point = NodePath("knob/knob_point")
+middle_point = NodePath("middle_pooint")
+
+[node name="knob" type="Marker2D" parent="." unique_id=1862592574]
+
+[node name="knob_point" type="Marker2D" parent="knob" unique_id=323614719]
+position = Vector2(0, -25)
+
+[node name="ColorRect" type="ColorRect" parent="knob" unique_id=1612735489]
+z_index = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -25.0
+offset_right = 5.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="BG_sprite" type="Node2D" parent="." unique_id=1445610982]
+
+[node name="ColorRect" type="ColorRect" parent="BG_sprite" unique_id=52574912]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.16078432, 0.39215687, 1, 1)
+
+[node name="middle_pooint" type="Marker2D" parent="." unique_id=581374145]
+position = Vector2(0, -25)
