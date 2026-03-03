@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvcgm78i0vtrg" path="res://Machines/Radio/RadioManager.gd" id="1_2o24j"]
 [ext_resource type="Texture2D" uid="uid://npklr4oucu0x" path="res://Machines/Radio/Art/RadioBase.png" id="2_7se1i"]
-[ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/Stations/Core/Radio_static.mp3" id="3_55gqe"]
+[ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/SFX/Radio_static.mp3" id="3_55gqe"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
 [ext_resource type="Texture2D" uid="uid://b4g1wrqva2d7h" path="res://Machines/Radio/Art/Radio_dial_move.png" id="4_iiayk"]
 [ext_resource type="Texture2D" uid="uid://ugqbdxabb5r6" path="res://Machines/Radio/Art/Radio_dials_base.png" id="5_ecaeb"]
@@ -13,6 +13,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_31kwd"]
 atlas = ExtResource("7_y45h1")
 region = Rect2(384.56638, 448.31018, 332.35098, 474.36877)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sspr3"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(1274.469, 427.0455, 83.03833, 39.653137)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_af75l"]
 atlas = ExtResource("7_y45h1")
@@ -26,8 +30,8 @@ region = Rect2(1389.1145, 766.6028, 119.527466, 93.572876)
 atlas = ExtResource("7_y45h1")
 region = Rect2(1394.9762, 769.0503, 111.96179, 88.63641)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
-size = Vector2(40, 95)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecaeb"]
+size = Vector2(27, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecaeb"]
 atlas = ExtResource("7_y45h1")
@@ -47,11 +51,13 @@ meter_marker = NodePath("Frequency Meter/meter_marker")
 meter_start_marker = NodePath("Frequency Meter/meter_start")
 meter_end_marker = NodePath("Frequency Meter/meter_end")
 
-[node name="radio_base" type="Sprite2D" parent="." unique_id=684387340]
+[node name="BaseSprites" type="Node2D" parent="." unique_id=1965795898]
+
+[node name="radio_base" type="Sprite2D" parent="BaseSprites" unique_id=684387340]
 scale = Vector2(0.275, 0.275)
 texture = ExtResource("2_7se1i")
 
-[node name="speaker" type="Sprite2D" parent="." unique_id=492360517]
+[node name="speaker" type="Sprite2D" parent="BaseSprites" unique_id=492360517]
 texture_filter = 1
 position = Vector2(-107, 35)
 scale = Vector2(0.3, 0.3)
@@ -94,10 +100,16 @@ texture = ExtResource("4_iiayk")
 
 [node name="BG_sprite" type="Node2D" parent="tune_dial" unique_id=1445610982]
 
-[node name="Sprite2D" type="Sprite2D" parent="tune_dial/BG_sprite" unique_id=333836920]
+[node name="dial_base" type="Sprite2D" parent="tune_dial/BG_sprite" unique_id=333836920]
 texture_filter = 1
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("5_ecaeb")
+
+[node name="tune_label" type="Sprite2D" parent="tune_dial/BG_sprite" unique_id=825065905]
+texture_filter = 1
+position = Vector2(22, -27.333332)
+scale = Vector2(0.31, 0.31)
+texture = SubResource("AtlasTexture_sspr3")
 
 [node name="middle_pooint" type="Marker2D" parent="tune_dial" unique_id=581374145]
 position = Vector2(0, -25)
@@ -136,8 +148,8 @@ texture = SubResource("AtlasTexture_45ecp")
 [node name="Area2D" type="Area2D" parent="Switch" unique_id=1965859506]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/Area2D" unique_id=645561118]
-position = Vector2(0, 1.5)
-shape = SubResource("RectangleShape2D_wudi0")
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ecaeb")
 
 [node name="Click" type="AudioStreamPlayer" parent="Switch" unique_id=883877666]
 stream = ExtResource("9_45ecp")
@@ -148,7 +160,7 @@ volume_db = -5.474
 [node name="BG" type="Sprite2D" parent="Frequency Meter" unique_id=1641357825]
 z_index = -1
 texture_filter = 1
-position = Vector2(-0.12, -67)
+position = Vector2(-0.12, -67.59)
 scale = Vector2(0.28, 0.28)
 texture = SubResource("AtlasTexture_ecaeb")
 
@@ -177,4 +189,5 @@ text = "LABEL"
 stream = ExtResource("3_55gqe")
 volume_db = -25.544
 autoplay = true
+bus = &"Radio"
 parameters/looping = true

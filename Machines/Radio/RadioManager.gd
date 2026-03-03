@@ -47,13 +47,13 @@ func _update_meter():
 	var t = inverse_lerp(min_freq, max_freq, frequency)
 	t = clamp(t, 0.0, 1.0)
 	
-	meter_target_position = meter_start_marker.position.lerp(
-		meter_end_marker.position,
-		t
-	)
+	meter_target_position = meter_start_marker.position.lerp(meter_end_marker.position, t)
 
 func _fade_stations():
 	var strongest_signal := 0.0
+	
+	if station_audiostreams.size() == 0:
+		return
 	
 	for i in range(stations.size()):
 		var station = stations[i]
@@ -97,6 +97,7 @@ func _load_stations():
 		temp_station.stream = _station.audiostream
 		temp_station.stream.loop = true
 		temp_station.volume_db = -80
+		temp_station.bus = "Radio"
 		add_child(temp_station)
 		temp_station.play()
 		station_audiostreams.append(temp_station)

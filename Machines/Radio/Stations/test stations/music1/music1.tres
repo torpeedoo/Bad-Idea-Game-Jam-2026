@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_yrag0")
 station_name = "music1"
-station_freq = 80.0
+station_freq = 10.0
 bandwith = 1.0
+am_fm = 0
 audiostream = ExtResource("1_73mgi")
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

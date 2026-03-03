@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dwomqkwph38nk"]
+
+[ext_resource type="PackedScene" uid="uid://dxsxt0bchwxhu" path="res://Machines/Interaction/Button/Button.tscn" id="1_a031b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beb2r"]
+size = Vector2(60, 20)
+
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112]
+
+[node name="BG" type="Node2D" parent="." unique_id=796875959]
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=1259109160]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -20.0
+offset_right = 50.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Button" parent="." unique_id=1919514698 instance=ExtResource("1_a031b")]
+position = Vector2(34, 0)
+scale = Vector2(0.355, 0.355)
+
+[node name="TapeInput" type="Node2D" parent="." unique_id=283723973]
+
+[node name="ColorRect" type="ColorRect" parent="TapeInput" unique_id=1088904477]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.44
+offset_top = -10.0
+offset_right = 22.560001
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.48570347, 0.48570353, 0.48570347, 1)
+
+[node name="Area2D" type="Area2D" parent="TapeInput" unique_id=972501130]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapeInput/Area2D" unique_id=446298481]
+position = Vector2(-7, 0)
+shape = SubResource("RectangleShape2D_beb2r")

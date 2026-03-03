@@ -1,15 +1,17 @@
 [gd_scene format=3 uid="uid://dxsxt0bchwxhu"]
 
 [ext_resource type="Script" uid="uid://dmokhfwnau2jl" path="res://Machines/Interaction/Button/button.gd" id="1_isc8r"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="2_wb1vl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
 size = Vector2(40, 40)
 
-[node name="Button" type="Node2D" unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "button_up_sprite", "button_down_sprite")]
+[node name="Button" type="Node2D" unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "button_up_sprite", "button_down_sprite", "click_sfx")]
 script = ExtResource("1_isc8r")
 interaction_area = NodePath("Area2D")
 button_up_sprite = NodePath("Button/up")
 button_down_sprite = NodePath("Button/down")
+click_sfx = NodePath("click_sfx")
 
 [node name="BG" type="Node2D" parent="." unique_id=261675697]
 
@@ -63,3 +65,8 @@ mouse_filter = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=645561118]
 shape = SubResource("RectangleShape2D_wudi0")
+
+[node name="click_sfx" type="AudioStreamPlayer" parent="." unique_id=876089687]
+stream = ExtResource("2_wb1vl")
+volume_db = -13.063
+pitch_scale = 0.58
