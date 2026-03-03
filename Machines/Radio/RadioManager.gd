@@ -8,12 +8,14 @@ extends Node
 @export var meter_marker: Sprite2D
 @export var meter_start_marker: Marker2D
 @export var meter_end_marker: Marker2D
+@export var recorder: Node
 
 @export_category("Params")
 @export var stations: Array[Station] = []
 @export_range(88.0, 106.0, 0.2) var frequency
 @export var am_fm: Station.AM_FM = Station.AM_FM.FM
 
+var current_station: Array = []
 var meter_target_position: Vector2
 var am_bounds: Array = [0, 18]
 var fm_bounds: Array = [80, 110]
@@ -75,7 +77,7 @@ func _fade_stations():
 		strongest_signal = max(strongest_signal, strength)
 		
 		if strongest_signal == strength:
-			GameState.set_current_station(i, strength)
+			if recorder: recorder.set_current_station(station, strength)
 		
 		if strength > 0.001:
 			player.volume_db = linear_to_db(strength)
@@ -129,3 +131,6 @@ func _update_freq():
 	_update_display()
 	_update_meter()
 	_fade_stations()
+
+func get_current_station():
+	return current_station

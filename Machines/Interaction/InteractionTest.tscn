@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://ca33qi606c2oh" path="res://Machines/Radio/Stations/test stations/morse/Loop-able Morse Code.mp3" id="6_n8s42"]
 [ext_resource type="Resource" uid="uid://d2p8hbo5a1uyv" path="res://Machines/Radio/Stations/test stations/music1/music1.tres" id="7_6u05i"]
 [ext_resource type="PackedScene" uid="uid://c0lkwx5emg58d" path="res://Machines/Interaction/Switch/Switch.tscn" id="7_n8s42"]
+[ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="9_q6k2m"]
 
 [sub_resource type="Resource" id="Resource_6u05i"]
 script = ExtResource("5_cxftv")
@@ -35,15 +36,15 @@ scale = Vector2(5.995247, 5.742255)
 position = Vector2(723.00006, 128)
 scale = Vector2(6.7820187, 5.7045608)
 
-[node name="radio" parent="." unique_id=909828567 instance=ExtResource("4_i2t0e")]
+[node name="radio" parent="." unique_id=909828567 node_paths=PackedStringArray("recorder") instance=ExtResource("4_i2t0e")]
 position = Vector2(1213, 680)
 scale = Vector2(2.965, 2.965)
+recorder = NodePath("../TapeRecorder")
 stations = Array[ExtResource("5_cxftv")]([SubResource("Resource_6u05i"), ExtResource("7_6u05i")])
 
 [node name="Switch" parent="." unique_id=2043333564 instance=ExtResource("7_n8s42")]
 position = Vector2(418, 468)
 scale = Vector2(5, 5)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=179495149]
-offset_right = 1920.0
-offset_bottom = 1080.0
+[node name="TapeRecorder" parent="." unique_id=1686385112 instance=ExtResource("9_q6k2m")]
+position = Vector2(433, 843)

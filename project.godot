@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout="uid://brjwp763gyu1o"
 
-[autoload]
-
-GameState="*uid://dom8w4nc3m5ws"
-
 [display]
 
 window/size/viewport_width=1920

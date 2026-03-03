@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://dwomqkwph38nk"]
 
 [ext_resource type="PackedScene" uid="uid://dxsxt0bchwxhu" path="res://Machines/Interaction/Button/Button.tscn" id="1_a031b"]
+[ext_resource type="Script" uid="uid://su2o7b3x6rt" path="res://Machines/Tape Recorder/TapeRecorder.gd" id="1_beb2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beb2r"]
 size = Vector2(60, 20)
 
 [node name="TapeRecorder" type="Node2D" unique_id=1686385112]
+script = ExtResource("1_beb2r")
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 
