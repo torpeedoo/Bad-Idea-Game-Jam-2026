@@ -4,6 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://dxsxt0bchwxhu" path="res://Machines/Interaction/Button/Button.tscn" id="2_i2t0e"]
 [ext_resource type="PackedScene" uid="uid://ode4m2gq0be4" path="res://Machines/Interaction/Dragable Object/DragableObject.tscn" id="3_fqe5a"]
 [ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="4_i2t0e"]
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="5_cxftv"]
+[ext_resource type="AudioStream" uid="uid://ca33qi606c2oh" path="res://Machines/Radio/Stations/test stations/morse/Loop-able Morse Code.mp3" id="6_n8s42"]
+[ext_resource type="Resource" uid="uid://d2p8hbo5a1uyv" path="res://Machines/Radio/Stations/test stations/music1/music1.tres" id="7_6u05i"]
+[ext_resource type="PackedScene" uid="uid://c0lkwx5emg58d" path="res://Machines/Interaction/Switch/Switch.tscn" id="7_n8s42"]
+
+[sub_resource type="Resource" id="Resource_6u05i"]
+script = ExtResource("5_cxftv")
+station_name = "Morse"
+station_freq = 90.0
+bandwith = 1.0
+audiostream = ExtResource("6_n8s42")
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
 
 [node name="InteractionTest" type="Node2D" unique_id=171200832]
 
@@ -25,3 +37,8 @@ scale = Vector2(6.7820187, 5.7045608)
 
 [node name="radio" parent="." unique_id=909828567 instance=ExtResource("4_i2t0e")]
 position = Vector2(827, 462)
+stations = Array[ExtResource("5_cxftv")]([SubResource("Resource_6u05i"), ExtResource("7_6u05i")])
+
+[node name="Switch" parent="." unique_id=2043333564 instance=ExtResource("7_n8s42")]
+position = Vector2(418, 468)
+scale = Vector2(5, 5)

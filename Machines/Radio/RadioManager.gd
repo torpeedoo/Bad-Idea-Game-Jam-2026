@@ -1,34 +1,97 @@
 extends Node
 
-@export var seek_dial: Dial
+@export_category("References")
 @export var tune_dial: Dial
 @export var freq_display: Label
+@export var static_audio: AudioStreamPlayer
+@export var am_fm_switch: CustomSwitch
 
-var stations: Array
+@export_category("Params")
+@export var stations: Array[Station] = []
+@export_range(88.0, 106.0, 0.2) var frequency
+@export var am_fm: Station.AM_FM = Station.AM_FM.FM
 
-var frequency: float = 0.0
+var am_bounds: Array = [0, 18]
+var fm_bounds: Array = [80, 110]
+var station_audiostreams: Array[AudioStreamPlayer] = []
 
 func _ready():
-	if seek_dial:
-		seek_dial.moved_dial.connect(update_freq)
 	if tune_dial:
-		tune_dial.moved_dial.connect(update_freq)
+		_am_fm_change()
+		tune_dial.moved_dial.connect(_update_freq)
+	if am_fm_switch:
+		am_fm_switch.clicked.connect(_am_fm_change)
+	if stations:
+		_load_stations()
 
-func load_stations():
-	#TODO#
-	#load stations from the level manager
-	pass
+func _fade_stations():
+	var strongest_signal := 0.0
+	
+	for i in range(stations.size()):
+		var station = stations[i]
+		
+		if am_fm != station.am_fm:
+			
+			if station_audiostreams.size() > i:
+				station_audiostreams[i].volume_db = -80
+			
+			continue
+		
+		var player = station_audiostreams[i]
+		
+		var distance = abs(frequency - station.station_freq)
+		var strength = clamp(1.0 - (distance / station.bandwith), 0.0, 1.0)
+		
+		strength = strength * strength
+		
+		strongest_signal = max(strongest_signal, strength)
+		
+		if strength > 0.001:
+			player.volume_db = linear_to_db(strength)
+		else:
+			player.volume_db = -80.0
+	
+	# Static gets louder when no station is strong
+	if static_audio:
+		var static_strength = clamp(1.0 - strongest_signal, 0.0, 1.0)
+		
+		if static_strength > 0.001:
+			static_audio.volume_db = linear_to_db(static_strength)
+		else:
+			static_audio.volume_db = -80.0
 
-func update_display():
+func _load_stations():
+	station_audiostreams = []
+	
+	for _station in stations:
+		var temp_station = AudioStreamPlayer.new()
+		temp_station.name = _station.station_name + "_audiostream"
+		temp_station.stream = _station.audiostream
+		temp_station.stream.loop = true
+		temp_station.volume_db = -80
+		add_child(temp_station)
+		temp_station.play()
+		station_audiostreams.append(temp_station)
+
+func _update_display():
 	freq_display.text = str(snapped(frequency, 0.01))
 
-func update_freq():
-	frequency = floor(seek_dial.get_val()) + tune_dial.get_val()
-	update_display()
-
-func fade_stations():
-	#TODO#
-	#Not quite sure how to audios based on their station value yet.
-	#Maybe remap station value to volume level for two closest stations?
-	#Or find absolute distance from current frequency to closest two stations fo their volume level.
-	pass
+func _am_fm_change():
+	if am_fm_switch.switch_state == true:
+		am_fm = Station.AM_FM.AM
+	elif am_fm_switch.switch_state == false:
+		am_fm = Station.AM_FM.FM
+	
+	if am_fm == Station.AM_FM.FM:
+		tune_dial.min_val = fm_bounds[0]
+		tune_dial.max_val = fm_bounds[1]
+	elif am_fm == Station.AM_FM.AM:
+		tune_dial.min_val = am_bounds[0]
+		tune_dial.max_val = am_bounds[1]
+		
+	_update_freq()
+		
+func _update_freq():
+	frequency = tune_dial.get_val()
+	_update_display()
+	_fade_stations()

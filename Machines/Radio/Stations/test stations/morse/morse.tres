@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://bw4g0itkjodg4"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_3oixi"]
+[ext_resource type="AudioStream" uid="uid://ca33qi606c2oh" path="res://Machines/Radio/Stations/test stations/morse/Loop-able Morse Code.mp3" id="1_aem4n"]
+
+[resource]
+script = ExtResource("1_3oixi")
+station_name = "Morse"
+station_freq = 89.8
+bandwith = 0.2
+audiostream = ExtResource("1_aem4n")
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

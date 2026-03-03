@@ -1,43 +1,82 @@
 [gd_scene format=3 uid="uid://bnryh240opje2"]
 
 [ext_resource type="Script" uid="uid://dvcgm78i0vtrg" path="res://Machines/Radio/RadioManager.gd" id="1_2o24j"]
-[ext_resource type="PackedScene" uid="uid://btq0dk4lkt3jv" path="res://Machines/Interaction/Dial/Dial.tscn" id="1_koy6x"]
+[ext_resource type="Texture2D" uid="uid://npklr4oucu0x" path="res://Machines/Radio/Art/RadioBase.png" id="2_7se1i"]
+[ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/Stations/Core/Radio_static.mp3" id="3_55gqe"]
+[ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
+[ext_resource type="PackedScene" uid="uid://c0lkwx5emg58d" path="res://Machines/Interaction/Switch/Switch.tscn" id="4_55gqe"]
+[ext_resource type="Texture2D" uid="uid://b4g1wrqva2d7h" path="res://Machines/Radio/Art/Radio_dial_move.png" id="4_iiayk"]
+[ext_resource type="Texture2D" uid="uid://ugqbdxabb5r6" path="res://Machines/Radio/Art/Radio_dials_base.png" id="5_ecaeb"]
 
-[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("seek_dial", "tune_dial", "freq_display")]
+[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch")]
 script = ExtResource("1_2o24j")
-seek_dial = NodePath("seek_dial")
 tune_dial = NodePath("tune_dial")
 freq_display = NodePath("Label")
+static_audio = NodePath("Static")
+am_fm_switch = NodePath("Switch")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2085331680]
-anchors_preset = 8
+[node name="radio_base" type="Sprite2D" parent="." unique_id=684387340]
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("2_7se1i")
+
+[node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
+position = Vector2(79, 29)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("3_siki7")
+knob = NodePath("knob")
+knob_point = NodePath("knob/knob_point")
+middle_point = NodePath("middle_pooint")
+
+[node name="knob" type="Marker2D" parent="tune_dial" unique_id=1862592574]
+
+[node name="knob_point" type="Marker2D" parent="tune_dial/knob" unique_id=323614719]
+position = Vector2(0, -25)
+
+[node name="ColorRect" type="ColorRect" parent="tune_dial/knob" unique_id=1612735489]
+visible = false
+z_index = 1
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -150.0
-offset_top = -100.0
-offset_right = 150.0
-offset_bottom = 100.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_top = -25.0
+offset_right = 5.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 mouse_filter = 1
-color = Color(0.9427782, 0.32525826, 0.40626672, 1)
 
-[node name="seek_dial" parent="." unique_id=2135038461 instance=ExtResource("1_koy6x")]
-position = Vector2(25, -35)
-min_val = 80.0
-max_val = 180.0
-MAX_DIST = 500
+[node name="Sprite2D" type="Sprite2D" parent="tune_dial/knob" unique_id=120106768]
+z_index = 1
+texture_filter = 1
+rotation = -1.7941985
+scale = Vector2(0.235, 0.235)
+texture = ExtResource("4_iiayk")
 
-[node name="tune_dial" parent="." unique_id=1981570356 instance=ExtResource("1_koy6x")]
-position = Vector2(95, -35)
-max_val = 1.0
-MAX_DIST = 500
+[node name="BG_sprite" type="Node2D" parent="tune_dial" unique_id=1445610982]
+
+[node name="Sprite2D" type="Sprite2D" parent="tune_dial/BG_sprite" unique_id=333836920]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_ecaeb")
+
+[node name="middle_pooint" type="Marker2D" parent="tune_dial" unique_id=581374145]
+position = Vector2(0, -25)
+
+[node name="Switch" parent="." unique_id=1919514698 instance=ExtResource("4_55gqe")]
+position = Vector2(1, 30)
 
 [node name="Label" type="Label" parent="." unique_id=181814676]
+visible = false
 offset_left = -98.0
 offset_top = -49.0
 offset_right = -50.0
 offset_bottom = -26.0
 text = "LABEL"
+
+[node name="Static" type="AudioStreamPlayer" parent="." unique_id=2068942875]
+stream = ExtResource("3_55gqe")
+volume_db = -25.544
+autoplay = true
+parameters/looping = true

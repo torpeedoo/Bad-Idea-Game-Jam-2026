@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://c0lkwx5emg58d"]
+
+[ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="1_wu4bc"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="2_nmij2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
+size = Vector2(40, 40)
+
+[node name="Switch" type="Node2D" unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "switch_up_sprite", "switch_down_sprite", "click_sfx")]
+script = ExtResource("1_wu4bc")
+interaction_area = NodePath("Area2D")
+switch_up_sprite = NodePath("Button/up")
+switch_down_sprite = NodePath("Button/down")
+click_sfx = NodePath("Click")
+
+[node name="BG" type="Node2D" parent="." unique_id=261675697]
+
+[node name="ColorRect" type="ColorRect" parent="BG" unique_id=554504963]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.8117647, 0.15294118, 0.08235294, 1)
+
+[node name="Button" type="Node2D" parent="." unique_id=1588033695]
+
+[node name="down" type="ColorRect" parent="Button" unique_id=2051285326]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.5330367, 0.5330367, 0.5330367, 1)
+
+[node name="up" type="ColorRect" parent="Button" unique_id=271485351]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1965859506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=645561118]
+shape = SubResource("RectangleShape2D_wudi0")
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=883877666]
+stream = ExtResource("2_nmij2")
+volume_db = -5.474
