@@ -74,10 +74,14 @@ func _fade_stations():
 		
 		strongest_signal = max(strongest_signal, strength)
 		
+		if strongest_signal == strength:
+			GameState.set_current_station(i, strength)
+		
 		if strength > 0.001:
 			player.volume_db = linear_to_db(strength)
 		else:
 			player.volume_db = -80.0
+		
 	
 	# Static gets louder when no station is strong
 	if static_audio:
