@@ -2,20 +2,40 @@
 
 [ext_resource type="Script" uid="uid://dvcgm78i0vtrg" path="res://Machines/Radio/RadioManager.gd" id="1_2o24j"]
 [ext_resource type="Texture2D" uid="uid://npklr4oucu0x" path="res://Machines/Radio/Art/RadioBase.png" id="2_7se1i"]
-[ext_resource type="Texture2D" uid="uid://bblaxhsvn7myl" path="res://Machines/Radio/Art/speaker.png" id="3_45ecp"]
 [ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/Stations/Core/Radio_static.mp3" id="3_55gqe"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
 [ext_resource type="Texture2D" uid="uid://b4g1wrqva2d7h" path="res://Machines/Radio/Art/Radio_dial_move.png" id="4_iiayk"]
 [ext_resource type="Texture2D" uid="uid://ugqbdxabb5r6" path="res://Machines/Radio/Art/Radio_dials_base.png" id="5_ecaeb"]
 [ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="6_ipn1w"]
-[ext_resource type="Texture2D" uid="uid://dkn32d4wa7lf3" path="res://Machines/Radio/Art/switch_base.png" id="7_y45h1"]
-[ext_resource type="Texture2D" uid="uid://bm78kx5v48qex" path="res://Machines/Radio/Art/switch_knob.png" id="8_af75l"]
+[ext_resource type="Texture2D" uid="uid://bn2h3ka0gn8yd" path="res://Machines/Radio/Art/RadioButtons.png" id="7_y45h1"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_45ecp"]
-[ext_resource type="Texture2D" uid="uid://lck1y6ypm1bv" path="res://Machines/Radio/Art/meter_bg.png" id="10_af75l"]
-[ext_resource type="Texture2D" uid="uid://bwunw3foxapt5" path="res://Machines/Radio/Art/meter_tik.png" id="11_45ecp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31kwd"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(384.56638, 448.31018, 332.35098, 474.36877)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af75l"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(1391.8076, 394.82306, 105.45459, 330.00018)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y45h1"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(1389.1145, 766.6028, 119.527466, 93.572876)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ecp"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(1394.9762, 769.0503, 111.96179, 88.63641)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
 size = Vector2(40, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ecaeb"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(446.48605, 215.04956, 1017.84326, 154.6091)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipn1w"]
+atlas = ExtResource("7_y45h1")
+region = Rect2(400.99026, 218.94962, 26.620026, 143.99011)
 
 [node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker")]
 script = ExtResource("1_2o24j")
@@ -33,9 +53,9 @@ texture = ExtResource("2_7se1i")
 
 [node name="speaker" type="Sprite2D" parent="." unique_id=492360517]
 texture_filter = 1
-position = Vector2(-109, 32)
+position = Vector2(-107, 35)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_45ecp")
+texture = SubResource("AtlasTexture_31kwd")
 
 [node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
 position = Vector2(32, 29)
@@ -95,23 +115,23 @@ click_sfx = NodePath("Click")
 [node name="Sprite2D" type="Sprite2D" parent="Switch/BG" unique_id=675870844]
 texture_filter = 1
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("7_y45h1")
+texture = SubResource("AtlasTexture_af75l")
 
 [node name="Button" type="Node2D" parent="Switch" unique_id=1588033695]
 
 [node name="UP" type="Sprite2D" parent="Switch/Button" unique_id=452333641]
 visible = false
 texture_filter = 1
-position = Vector2(-1.375, -25.75)
+position = Vector2(1, -25)
 scale = Vector2(0.275, 0.275)
-texture = ExtResource("8_af75l")
+texture = SubResource("AtlasTexture_y45h1")
 
 [node name="DOWN" type="Sprite2D" parent="Switch/Button" unique_id=1245542815]
 visible = false
 texture_filter = 1
-position = Vector2(-1.375, 24.25)
+position = Vector2(0, 24)
 scale = Vector2(0.275, 0.275)
-texture = ExtResource("8_af75l")
+texture = SubResource("AtlasTexture_45ecp")
 
 [node name="Area2D" type="Area2D" parent="Switch" unique_id=1965859506]
 
@@ -129,21 +149,21 @@ volume_db = -5.474
 z_index = -1
 texture_filter = 1
 position = Vector2(-0.12, -67)
-scale = Vector2(0.275, 0.275)
-texture = ExtResource("10_af75l")
+scale = Vector2(0.28, 0.28)
+texture = SubResource("AtlasTexture_ecaeb")
 
 [node name="meter_marker" type="Sprite2D" parent="Frequency Meter" unique_id=868957463]
 z_index = -1
 texture_filter = 1
-position = Vector2(-113, -67)
+position = Vector2(-193, -69)
 scale = Vector2(0.265, 0.265)
-texture = ExtResource("11_45ecp")
+texture = SubResource("AtlasTexture_ipn1w")
 
 [node name="meter_start" type="Marker2D" parent="Frequency Meter" unique_id=1923989720]
-position = Vector2(-121, -69)
+position = Vector2(-106, -69)
 
 [node name="meter_end" type="Marker2D" parent="Frequency Meter" unique_id=1916644263]
-position = Vector2(118, -69)
+position = Vector2(92, -69)
 
 [node name="Label" type="Label" parent="." unique_id=181814676]
 visible = false
