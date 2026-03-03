@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="2_nmij2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
-size = Vector2(40, 40)
+size = Vector2(40, 95)
 
 [node name="Switch" type="Node2D" unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "switch_up_sprite", "switch_down_sprite", "click_sfx")]
 script = ExtResource("1_wu4bc")

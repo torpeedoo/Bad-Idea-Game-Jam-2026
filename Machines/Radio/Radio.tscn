@@ -2,25 +2,43 @@
 
 [ext_resource type="Script" uid="uid://dvcgm78i0vtrg" path="res://Machines/Radio/RadioManager.gd" id="1_2o24j"]
 [ext_resource type="Texture2D" uid="uid://npklr4oucu0x" path="res://Machines/Radio/Art/RadioBase.png" id="2_7se1i"]
+[ext_resource type="Texture2D" uid="uid://bblaxhsvn7myl" path="res://Machines/Radio/Art/speaker.png" id="3_45ecp"]
 [ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/Stations/Core/Radio_static.mp3" id="3_55gqe"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
-[ext_resource type="PackedScene" uid="uid://c0lkwx5emg58d" path="res://Machines/Interaction/Switch/Switch.tscn" id="4_55gqe"]
 [ext_resource type="Texture2D" uid="uid://b4g1wrqva2d7h" path="res://Machines/Radio/Art/Radio_dial_move.png" id="4_iiayk"]
 [ext_resource type="Texture2D" uid="uid://ugqbdxabb5r6" path="res://Machines/Radio/Art/Radio_dials_base.png" id="5_ecaeb"]
+[ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="6_ipn1w"]
+[ext_resource type="Texture2D" uid="uid://dkn32d4wa7lf3" path="res://Machines/Radio/Art/switch_base.png" id="7_y45h1"]
+[ext_resource type="Texture2D" uid="uid://bm78kx5v48qex" path="res://Machines/Radio/Art/switch_knob.png" id="8_af75l"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_45ecp"]
+[ext_resource type="Texture2D" uid="uid://lck1y6ypm1bv" path="res://Machines/Radio/Art/meter_bg.png" id="10_af75l"]
+[ext_resource type="Texture2D" uid="uid://bwunw3foxapt5" path="res://Machines/Radio/Art/meter_tik.png" id="11_45ecp"]
 
-[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wudi0"]
+size = Vector2(40, 95)
+
+[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker")]
 script = ExtResource("1_2o24j")
 tune_dial = NodePath("tune_dial")
 freq_display = NodePath("Label")
 static_audio = NodePath("Static")
 am_fm_switch = NodePath("Switch")
+meter_marker = NodePath("Frequency Meter/meter_marker")
+meter_start_marker = NodePath("Frequency Meter/meter_start")
+meter_end_marker = NodePath("Frequency Meter/meter_end")
 
 [node name="radio_base" type="Sprite2D" parent="." unique_id=684387340]
 scale = Vector2(0.275, 0.275)
 texture = ExtResource("2_7se1i")
 
+[node name="speaker" type="Sprite2D" parent="." unique_id=492360517]
+texture_filter = 1
+position = Vector2(-109, 32)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_45ecp")
+
 [node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
-position = Vector2(79, 29)
+position = Vector2(32, 29)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("3_siki7")
 knob = NodePath("knob")
@@ -64,8 +82,68 @@ texture = ExtResource("5_ecaeb")
 [node name="middle_pooint" type="Marker2D" parent="tune_dial" unique_id=581374145]
 position = Vector2(0, -25)
 
-[node name="Switch" parent="." unique_id=1919514698 instance=ExtResource("4_55gqe")]
-position = Vector2(1, 30)
+[node name="Switch" type="Node2D" parent="." unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "switch_up_sprite", "switch_down_sprite", "click_sfx")]
+position = Vector2(111, 29)
+script = ExtResource("6_ipn1w")
+interaction_area = NodePath("Area2D")
+switch_up_sprite = NodePath("Button/UP")
+switch_down_sprite = NodePath("Button/DOWN")
+click_sfx = NodePath("Click")
+
+[node name="BG" type="Node2D" parent="Switch" unique_id=261675697]
+
+[node name="Sprite2D" type="Sprite2D" parent="Switch/BG" unique_id=675870844]
+texture_filter = 1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_y45h1")
+
+[node name="Button" type="Node2D" parent="Switch" unique_id=1588033695]
+
+[node name="UP" type="Sprite2D" parent="Switch/Button" unique_id=452333641]
+visible = false
+texture_filter = 1
+position = Vector2(-1.375, -25.75)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("8_af75l")
+
+[node name="DOWN" type="Sprite2D" parent="Switch/Button" unique_id=1245542815]
+visible = false
+texture_filter = 1
+position = Vector2(-1.375, 24.25)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("8_af75l")
+
+[node name="Area2D" type="Area2D" parent="Switch" unique_id=1965859506]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/Area2D" unique_id=645561118]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_wudi0")
+
+[node name="Click" type="AudioStreamPlayer" parent="Switch" unique_id=883877666]
+stream = ExtResource("9_45ecp")
+volume_db = -5.474
+
+[node name="Frequency Meter" type="Node2D" parent="." unique_id=264681861]
+
+[node name="BG" type="Sprite2D" parent="Frequency Meter" unique_id=1641357825]
+z_index = -1
+texture_filter = 1
+position = Vector2(-0.12, -67)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("10_af75l")
+
+[node name="meter_marker" type="Sprite2D" parent="Frequency Meter" unique_id=868957463]
+z_index = -1
+texture_filter = 1
+position = Vector2(-113, -67)
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("11_45ecp")
+
+[node name="meter_start" type="Marker2D" parent="Frequency Meter" unique_id=1923989720]
+position = Vector2(-121, -69)
+
+[node name="meter_end" type="Marker2D" parent="Frequency Meter" unique_id=1916644263]
+position = Vector2(118, -69)
 
 [node name="Label" type="Label" parent="." unique_id=181814676]
 visible = false

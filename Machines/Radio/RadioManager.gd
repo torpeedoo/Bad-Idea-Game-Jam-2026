@@ -5,17 +5,23 @@ extends Node
 @export var freq_display: Label
 @export var static_audio: AudioStreamPlayer
 @export var am_fm_switch: CustomSwitch
+@export var meter_marker: Sprite2D
+@export var meter_start_marker: Marker2D
+@export var meter_end_marker: Marker2D
 
 @export_category("Params")
 @export var stations: Array[Station] = []
 @export_range(88.0, 106.0, 0.2) var frequency
 @export var am_fm: Station.AM_FM = Station.AM_FM.FM
 
+var meter_target_position: Vector2
 var am_bounds: Array = [0, 18]
 var fm_bounds: Array = [80, 110]
 var station_audiostreams: Array[AudioStreamPlayer] = []
 
 func _ready():
+	if meter_marker and meter_start_marker:
+		meter_marker.position = meter_start_marker.position
 	if tune_dial:
 		_am_fm_change()
 		tune_dial.moved_dial.connect(_update_freq)
@@ -23,6 +29,28 @@ func _ready():
 		am_fm_switch.clicked.connect(_am_fm_change)
 	if stations:
 		_load_stations()
+
+func _process(delta):
+	if meter_marker and meter_target_position:
+		meter_marker.position = meter_marker.position.lerp(
+			meter_target_position,
+			delta * 8.0
+		)
+
+func _update_meter():
+	if not meter_marker or not meter_start_marker or not meter_end_marker:
+		return
+	
+	var min_freq = tune_dial.min_val
+	var max_freq = tune_dial.max_val
+	
+	var t = inverse_lerp(min_freq, max_freq, frequency)
+	t = clamp(t, 0.0, 1.0)
+	
+	meter_target_position = meter_start_marker.position.lerp(
+		meter_end_marker.position,
+		t
+	)
 
 func _fade_stations():
 	var strongest_signal := 0.0
@@ -90,8 +118,9 @@ func _am_fm_change():
 		tune_dial.max_val = am_bounds[1]
 		
 	_update_freq()
-		
+
 func _update_freq():
 	frequency = tune_dial.get_val()
 	_update_display()
+	_update_meter()
 	_fade_stations()
