@@ -30,3 +30,5 @@ scale = Vector2(4.36, 4.36)
 [node name="Tape" parent="." unique_id=1501833199 instance=ExtResource("6_cxftv")]
 position = Vector2(960, 189)
 scale = Vector2(2.185, 2.185)
+
+[editable path="TapeRecorder"]

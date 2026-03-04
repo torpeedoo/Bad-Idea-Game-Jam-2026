@@ -39,11 +39,19 @@ region = Rect2(1286.1401, 256.9947, 70.91199, 82.970764)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7qxf"]
 size = Vector2(18, 22)
 
-[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ri8ik"]
+size = Vector2(17, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82ad8"]
+atlas = ExtResource("2_ag8tt")
+region = Rect2(1583.0543, 258.44263, 66.85474, 81.609955)
+
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker")]
 script = ExtResource("1_beb2r")
 recorder_buttons = NodePath("Buttons")
 empty_bay_sprite = NodePath("TapeInput/Empty")
 loaded_bay_sprite = NodePath("TapeInput/Loaded")
+tape_location_marker = NodePath("TapeInput/TapeLocation")
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 
@@ -73,7 +81,7 @@ texture = SubResource("AtlasTexture_beb2r")
 [node name="TapeInput" type="Node2D" parent="." unique_id=283723973]
 position = Vector2(-11, 28)
 
-[node name="Area2D" type="Area2D" parent="TapeInput" unique_id=972501130]
+[node name="Area2D" type="Area2D" parent="TapeInput" unique_id=972501130 groups=["recorder"]]
 position = Vector2(3, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TapeInput/Area2D" unique_id=446298481]
@@ -93,24 +101,46 @@ position = Vector2(10.54, 20)
 scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_ag8tt")
 
-[node name="Buttons" type="Node2D" parent="." unique_id=1085934498 node_paths=PackedStringArray("record_interaction_area", "record_switch_down_sprite", "click_sfx")]
-script = ExtResource("3_ag8tt")
-record_interaction_area = NodePath("Area2D")
-record_switch_down_sprite = NodePath("Record_Down")
-click_sfx = NodePath("recordClick")
+[node name="TapeLocation" type="Marker2D" parent="TapeInput" unique_id=1554230635]
+position = Vector2(11, 20)
 
-[node name="Record_Down" type="Sprite2D" parent="Buttons" unique_id=891879674]
+[node name="Buttons" type="Node2D" parent="." unique_id=1085934498 node_paths=PackedStringArray("record_interaction_area", "record_switch_down_sprite", "click_sfx", "eject_interaction_area", "eject_button_down_sprite")]
+script = ExtResource("3_ag8tt")
+record_interaction_area = NodePath("RecordButton/Record_area")
+record_switch_down_sprite = NodePath("RecordButton/Record_Down")
+click_sfx = NodePath("recordClick")
+eject_interaction_area = NodePath("EjectButton/Area2D")
+eject_button_down_sprite = NodePath("EjectButton/Sprite2D")
+
+[node name="recordClick" type="AudioStreamPlayer" parent="Buttons" unique_id=269558225]
+stream = ExtResource("4_q7qxf")
+
+[node name="RecordButton" type="Node2D" parent="Buttons" unique_id=1142527272]
+
+[node name="Record_Down" type="Sprite2D" parent="Buttons/RecordButton" unique_id=891879674]
 visible = false
 texture_filter = 1
 position = Vector2(-46, -25)
 scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_7q2tj")
 
-[node name="Area2D" type="Area2D" parent="Buttons" unique_id=2083468962]
+[node name="Record_area" type="Area2D" parent="Buttons/RecordButton" unique_id=2083468962]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Area2D" unique_id=1449984954]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/RecordButton/Record_area" unique_id=1449984954]
 position = Vector2(-46, -25)
 shape = SubResource("RectangleShape2D_q7qxf")
 
-[node name="recordClick" type="AudioStreamPlayer" parent="Buttons" unique_id=269558225]
-stream = ExtResource("4_q7qxf")
+[node name="EjectButton" type="Node2D" parent="Buttons" unique_id=1222913403]
+
+[node name="Area2D" type="Area2D" parent="Buttons/EjectButton" unique_id=1245138518]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/EjectButton/Area2D" unique_id=783130940]
+position = Vector2(27.5, -25)
+shape = SubResource("RectangleShape2D_ri8ik")
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons/EjectButton" unique_id=987713024]
+visible = false
+texture_filter = 1
+position = Vector2(28, -25)
+scale = Vector2(0.275, 0.275)
+texture = SubResource("AtlasTexture_82ad8")

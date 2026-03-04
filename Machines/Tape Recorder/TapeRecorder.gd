@@ -1,11 +1,13 @@
 extends Node2D
+class_name Recorder
 
 @export_category("References")
 @export var recorder_buttons: RecorderButtons
 @export var empty_bay_sprite: Sprite2D
 @export var loaded_bay_sprite: Sprite2D
+@export var tape_location_marker: Marker2D
 
-var current_tape: Node
+var current_tape: Tape = null
 var current_station: Station = null
 var is_recording := false
 var recordings := {}
@@ -18,6 +20,10 @@ func set_current_station(station: Station, strength: float):
 		current_station = station
 	else:
 		current_station = null
+
+func eject_button_pressed():
+	if current_tape:
+		eject_tape()
 
 func record_button_pressed():
 	if recorder_buttons.recording_state == true:
@@ -36,12 +42,23 @@ func stop_recording():
 	_current_station_recording_duration = 0.0
 	
 	is_recording = false
-	
-	print("Recorded morse station with total duration %f" % _get_total_station_recordings("Morse"))
+
+func set_tape(tape: Tape):
+	current_tape = tape
+	current_tape.hide()
+	empty_bay_sprite.hide()
+	loaded_bay_sprite.show()
+
+func eject_tape():
+	current_tape.show()
+	current_tape = null
+	empty_bay_sprite.show()
+	loaded_bay_sprite.hide()
 
 func _ready():
 	if recorder_buttons:
 		recorder_buttons.clicked_record.connect(record_button_pressed)
+		recorder_buttons.eject_clicked.connect(eject_button_pressed)
 
 func _process(delta: float) -> void:
 	if not is_recording: return
@@ -56,14 +73,11 @@ func _process(delta: float) -> void:
 
 func _save_current_clip():
 	if _current_station_recording_duration > 0:
-		var recording_bit = {
-			"station": _current_station_recording,
-			"duration": _current_station_recording_duration
-		}
-		if _current_station_recording: recordings[_current_station_recording.station_name] = recording_bit
+		if current_tape:
+			current_tape.recorded_station = _current_station_recording
+			current_tape.recorded_duration = _current_station_recording_duration
 
-func _get_total_station_recordings(station_name: String) -> float:
-	var _recording = recordings.get(station_name)
-	if _recording: return _recording.get("duration")
-	else: return 0.0
+func get_tape_recording(tape: Tape):
+	if !tape: return
 	
+	return [tape.recorded_station, tape.recorded_duration]

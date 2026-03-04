@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://bcc26a7jp4lul"]
+
+[ext_resource type="Script" uid="uid://ceabxinoxwubf" path="res://Machines/Tape Recorder/Tape/Tape.gd" id="1_lg7by"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg7by"]
+size = Vector2(200, 100)
+
+[node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("home_location", "drag_area", "drag_parent")]
+script = ExtResource("1_lg7by")
+home_location = NodePath("Home/homeMarker")
+drag_area = NodePath("DraggingParent/Area2D")
+drag_parent = NodePath("DraggingParent")
+
+[node name="DraggingParent" type="Node2D" parent="." unique_id=1928265879]
+
+[node name="Area2D" type="Area2D" parent="DraggingParent" unique_id=308021021]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DraggingParent/Area2D" unique_id=964349857]
+shape = SubResource("RectangleShape2D_lg7by")
+
+[node name="ColorRect" type="ColorRect" parent="DraggingParent" unique_id=82299116]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.23392546, 0.23392546, 0.23392543, 1)
+
+[node name="Home" type="Node2D" parent="." unique_id=1591000356]
+
+[node name="ColorRect" type="ColorRect" parent="Home" unique_id=1077940461]
+z_index = -1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.3403393, 0.34033933, 0.3403393, 1)
+
+[node name="homeMarker" type="Marker2D" parent="Home" unique_id=1764554993]

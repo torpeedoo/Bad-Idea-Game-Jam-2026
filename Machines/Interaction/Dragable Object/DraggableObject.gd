@@ -1,6 +1,8 @@
 extends Node2D
 class_name DraggableObject
 
+signal drag_ended
+
 @export var home_location: Marker2D
 @export var drag_area: Area2D
 @export var drag_parent: Node
@@ -31,3 +33,4 @@ func drag_end():
 	dragging = false
 	if home_location:
 		drag_parent.global_position = home_location.global_position
+	
