@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://npklr4oucu0x"
-path="res://.godot/imported/RadioBase.png-031cf03c0433cba16c896d76f1e83b83.ctex"
+uid="uid://dijx215hfv7af"
+path="res://.godot/imported/tape_recorder_sheet.png-76e5a2f5eb5c14caebd7a417d8c8fc50.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Machines/Radio/Art/RadioBase.png"
-dest_files=["res://.godot/imported/RadioBase.png-031cf03c0433cba16c896d76f1e83b83.ctex"]
+source_file="res://Machines/Tape Recorder/Art/tape_recorder_sheet.png"
+dest_files=["res://.godot/imported/tape_recorder_sheet.png-76e5a2f5eb5c14caebd7a417d8c8fc50.ctex"]
 
 [params]
 

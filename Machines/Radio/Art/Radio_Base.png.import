@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cctr1s77sh23g"
-path="res://.godot/imported/RadioBaseNoStickers.png-eaa07f10457c44f78028f332d03d32d8.ctex"
+uid="uid://dgmrf37gntloe"
+path="res://.godot/imported/Radio_Base.png-336f438585d7bb64ba271d4aaa64617b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Machines/Radio/Art/RadioBaseNoStickers.png"
-dest_files=["res://.godot/imported/RadioBaseNoStickers.png-eaa07f10457c44f78028f332d03d32d8.ctex"]
+source_file="res://Machines/Radio/Art/Radio_Base.png"
+dest_files=["res://.godot/imported/Radio_Base.png-336f438585d7bb64ba271d4aaa64617b.ctex"]
 
 [params]
 

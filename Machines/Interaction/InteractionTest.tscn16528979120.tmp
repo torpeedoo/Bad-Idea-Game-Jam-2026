@@ -23,5 +23,5 @@ recorder = NodePath("../TapeRecorder")
 stations = Array[ExtResource("5_cxftv")]([SubResource("Resource_6u05i"), ExtResource("7_6u05i")])
 
 [node name="TapeRecorder" parent="." unique_id=1686385112 instance=ExtResource("9_q6k2m")]
-position = Vector2(365, 311)
+position = Vector2(336, 430)
 scale = Vector2(4.36, 4.36)

@@ -1,17 +1,29 @@
 extends Node2D
 
+@export_category("References")
+@export var recorder_buttons: RecorderButtons
+@export var empty_bay_sprite: Sprite2D
+@export var loaded_bay_sprite: Sprite2D
+
+var current_tape: Node
 var current_station: Station = null
-var is_recording = false
-var recordings = {}
+var is_recording := false
+var recordings := {}
 
 var _current_station_recording: Station = null
-var _current_station_recording_duration = 0.0
+var _current_station_recording_duration := 0.0
 
 func set_current_station(station: Station, strength: float):
 	if strength > 0.1:
 		current_station = station
 	else:
 		current_station = null
+
+func record_button_pressed():
+	if recorder_buttons.recording_state == true:
+		start_recording()
+	elif recorder_buttons.recording_state == false:
+		stop_recording()
 
 func start_recording(): 
 	recordings.clear()
@@ -27,11 +39,11 @@ func stop_recording():
 	
 	print("Recorded morse station with total duration %f" % _get_total_station_recordings("Morse"))
 
+func _ready():
+	if recorder_buttons:
+		recorder_buttons.clicked_record.connect(record_button_pressed)
+
 func _process(delta: float) -> void:
-	# For testing
-	if Input.is_action_just_pressed("recording"): start_recording()
-	if Input.is_action_just_released("recording"): stop_recording()
-	
 	if not is_recording: return
 	
 	if _current_station_recording == current_station:
@@ -48,7 +60,10 @@ func _save_current_clip():
 			"station": _current_station_recording,
 			"duration": _current_station_recording_duration
 		}
-		recordings[_current_station_recording.station_name] = recording_bit
+		if _current_station_recording: recordings[_current_station_recording.station_name] = recording_bit
 
 func _get_total_station_recordings(station_name: String) -> float:
-	return recordings[station_name]["duration"]
+	var _recording = recordings.get(station_name)
+	if _recording: return _recording.get("duration")
+	else: return 0.0
+	
