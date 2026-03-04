@@ -7,3 +7,4 @@ class_name Station
 enum AM_FM {AM, FM}
 @export var am_fm: AM_FM = AM_FM.FM
 @export var audiostream: AudioStream
+@export var broadcasting: bool

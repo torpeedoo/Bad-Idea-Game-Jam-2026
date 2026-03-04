@@ -60,7 +60,7 @@ func _fade_stations():
 	for i in range(stations.size()):
 		var station = stations[i]
 		
-		if am_fm != station.am_fm:
+		if am_fm != station.am_fm or !station.broadcasting:
 			
 			if station_audiostreams.size() > i:
 				station_audiostreams[i].volume_db = -80
