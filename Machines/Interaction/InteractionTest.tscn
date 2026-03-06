@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="6_cxftv"]
 [ext_resource type="AudioStream" uid="uid://ca33qi606c2oh" path="res://Machines/Radio/Stations/test stations/morse/Loop-able Morse Code.mp3" id="6_n8s42"]
 [ext_resource type="Resource" uid="uid://d2p8hbo5a1uyv" path="res://Machines/Radio/Stations/test stations/music1/music1.tres" id="7_6u05i"]
+[ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="7_n8s42"]
 [ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="9_q6k2m"]
 
 [sub_resource type="Resource" id="Resource_6u05i"]
@@ -13,6 +14,7 @@ station_name = "Morse"
 station_freq = 90.0
 bandwith = 1.0
 audiostream = ExtResource("6_n8s42")
+broadcasting = true
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
 
 [node name="InteractionTest" type="Node2D" unique_id=171200832]
@@ -30,3 +32,6 @@ scale = Vector2(4.36, 4.36)
 [node name="Tape" parent="." unique_id=1501833199 instance=ExtResource("6_cxftv")]
 position = Vector2(960, 189)
 scale = Vector2(2.185, 2.185)
+
+[node name="InventorySlot" parent="." unique_id=1937137941 instance=ExtResource("7_n8s42")]
+position = Vector2(1646, 221)

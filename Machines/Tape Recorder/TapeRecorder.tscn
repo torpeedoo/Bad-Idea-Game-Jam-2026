@@ -1,39 +1,40 @@
 [gd_scene format=3 uid="uid://dwomqkwph38nk"]
 
 [ext_resource type="Script" uid="uid://su2o7b3x6rt" path="res://Machines/Tape Recorder/TapeRecorder.gd" id="1_beb2r"]
-[ext_resource type="Texture2D" uid="uid://dijx215hfv7af" path="res://Machines/Tape Recorder/Art/tape_recorder_sheet.png" id="2_ag8tt"]
+[ext_resource type="Texture2D" uid="uid://b1cuyay5gj3tr" path="res://Machines/Tape Recorder/Art/tape recorder sheet.png" id="2_q7qxf"]
 [ext_resource type="Script" uid="uid://d12xmduwerhu6" path="res://Machines/Tape Recorder/RecorderButtons.gd" id="3_ag8tt"]
 [ext_resource type="AudioStream" uid="uid://dsr8ft48p1oaa" path="res://Machines/Interaction/SFX/Menu_click_1.mp3" id="4_q7qxf"]
+[ext_resource type="AudioStream" uid="uid://8b14yi3pnuv2" path="res://Machines/Tape Recorder/Audio/Item_pick up.mp3" id="5_ri8ik"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q7qxf"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(118.380554, 245.41937, 504.03174, 718.07263)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri8ik"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(730.15393, 756.2171, 464.28015, 189.34332)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5c4m"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(728.91437, 350.7235, 463.56134, 44.327576)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_beb2r"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(752.71826, 255.25247, 413.9746, 86.401215)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beb2r"]
 size = Vector2(130, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4rckl"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(715.1819, 435.27277, 490.90918, 290.90912)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ag8tt"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(1280.0137, 438.97388, 487.14624, 283.50317)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7q2tj"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(1286.1401, 256.9947, 70.91199, 82.970764)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7qxf"]
@@ -43,15 +44,16 @@ size = Vector2(18, 22)
 size = Vector2(17, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_82ad8"]
-atlas = ExtResource("2_ag8tt")
+atlas = ExtResource("2_q7qxf")
 region = Rect2(1583.0543, 258.44263, 66.85474, 81.609955)
 
-[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker")]
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio")]
 script = ExtResource("1_beb2r")
 recorder_buttons = NodePath("Buttons")
 empty_bay_sprite = NodePath("TapeInput/Empty")
 loaded_bay_sprite = NodePath("TapeInput/Loaded")
 tape_location_marker = NodePath("TapeInput/TapeLocation")
+tape_enter_audio = NodePath("Audio/TapeEnter")
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 
@@ -114,6 +116,7 @@ eject_button_down_sprite = NodePath("EjectButton/Sprite2D")
 
 [node name="recordClick" type="AudioStreamPlayer" parent="Buttons" unique_id=269558225]
 stream = ExtResource("4_q7qxf")
+volume_db = -9.23
 
 [node name="RecordButton" type="Node2D" parent="Buttons" unique_id=1142527272]
 
@@ -144,3 +147,9 @@ texture_filter = 1
 position = Vector2(28, -25)
 scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_82ad8")
+
+[node name="Audio" type="Node2D" parent="." unique_id=2040438272]
+
+[node name="TapeEnter" type="AudioStreamPlayer" parent="Audio" unique_id=792896410]
+stream = ExtResource("5_ri8ik")
+volume_db = -11.86

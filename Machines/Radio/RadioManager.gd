@@ -99,8 +99,9 @@ func _load_stations():
 	
 	for _station in stations:
 		var temp_station = AudioStreamPlayer.new()
+		
 		temp_station.name = _station.station_name + "_audiostream"
-		temp_station.stream = _station.audiostream
+		temp_station.stream = _station.current_song
 		temp_station.stream.loop = true
 		temp_station.volume_db = -80
 		temp_station.bus = "Radio"

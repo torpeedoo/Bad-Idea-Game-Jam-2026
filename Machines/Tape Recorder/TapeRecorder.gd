@@ -6,6 +6,7 @@ class_name Recorder
 @export var empty_bay_sprite: Sprite2D
 @export var loaded_bay_sprite: Sprite2D
 @export var tape_location_marker: Marker2D
+@export var tape_enter_audio: AudioStreamPlayer
 
 var current_tape: Tape = null
 var current_station: Station = null
@@ -42,9 +43,12 @@ func stop_recording():
 	_current_station_recording_duration = 0.0
 	
 	is_recording = false
+	
+	if get_tape_recording(current_tape): print("recorded: "+str(get_tape_recording(current_tape).get(1)))
 
 func set_tape(tape: Tape):
 	current_tape = tape
+	tape_enter_audio.play()
 	current_tape.hide()
 	empty_bay_sprite.hide()
 	loaded_bay_sprite.show()

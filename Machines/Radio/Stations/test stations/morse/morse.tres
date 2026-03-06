@@ -8,5 +8,5 @@ script = ExtResource("1_3oixi")
 station_name = "Morse"
 station_freq = 89.8
 bandwith = 0.2
-audiostream = ExtResource("1_aem4n")
+current_song = ExtResource("1_aem4n")
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

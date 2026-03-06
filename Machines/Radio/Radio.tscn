@@ -1,39 +1,51 @@
 [gd_scene format=3 uid="uid://bnryh240opje2"]
 
 [ext_resource type="Script" uid="uid://dvcgm78i0vtrg" path="res://Machines/Radio/RadioManager.gd" id="1_2o24j"]
-[ext_resource type="Texture2D" uid="uid://dgmrf37gntloe" path="res://Machines/Radio/Art/Radio_Base.png" id="2_siki7"]
+[ext_resource type="Texture2D" uid="uid://8yw25bh44us3" path="res://Machines/Radio/Art/Radio Base.png" id="2_siki7"]
 [ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/SFX/Radio_static.mp3" id="3_55gqe"]
-[ext_resource type="Texture2D" uid="uid://bno8wckeplyuo" path="res://Machines/Radio/Art/speaker.png" id="3_iiayk"]
+[ext_resource type="Texture2D" uid="uid://fa5o50mjcryb" path="res://Machines/Radio/Art/Radio Components.png" id="3_ecaeb"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
 [ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="6_ipn1w"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_45ecp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecaeb"]
-atlas = ExtResource("3_iiayk")
+atlas = ExtResource("3_ecaeb")
 region = Rect2(390.165, 456.592, 319.44003, 459.19504)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_45ecp"]
+atlas = ExtResource("3_ecaeb")
+region = Rect2(813.4442, 931.7226, 349.57874, 26.078735)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31kwd"]
+atlas = ExtResource("3_ecaeb")
+region = Rect2(1509.4259, 926.43066, 270.57434, 27.990479)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipn1w"]
-atlas = ExtResource("3_iiayk")
-region = Rect2(1071.804, 426.19995, 244.90405, 255.552)
+atlas = ExtResource("3_ecaeb")
+region = Rect2(1078.2727, 436.63635, 249.09082, 247.2727)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sspr3"]
+atlas = ExtResource("3_ecaeb")
+region = Rect2(1222.8423, 739.6843, 74.92114, 35.40796)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_siki7"]
-atlas = ExtResource("3_iiayk")
+atlas = ExtResource("3_ecaeb")
 region = Rect2(1392.575, 394.25595, 103.818115, 326.095)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iiayk"]
-atlas = ExtResource("3_iiayk")
+atlas = ExtResource("3_ecaeb")
 region = Rect2(1395.237, 738.985, 106.47998, 82.52203)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y45h1"]
-atlas = ExtResource("3_iiayk")
+atlas = ExtResource("3_ecaeb")
 region = Rect2(1399.23, 740.316, 103.81787, 81.19104)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ecaeb"]
 size = Vector2(27, 73)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_af75l"]
-atlas = ExtResource("3_iiayk")
-region = Rect2(1004, 726, 29, 139)
+atlas = ExtResource("3_ecaeb")
+region = Rect2(399.81818, 224, 29.090912, 137.2727)
 
 [node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker")]
 script = ExtResource("1_2o24j")
@@ -57,6 +69,30 @@ texture_filter = 1
 position = Vector2(-107, 35)
 scale = Vector2(0.3, 0.3)
 texture = SubResource("AtlasTexture_ecaeb")
+
+[node name="Antenna1" type="Sprite2D" parent="BaseSprites" unique_id=2036479789]
+visible = false
+texture_filter = 1
+position = Vector2(-87.797516, -175.0151)
+rotation = -0.98475057
+scale = Vector2(0.3, 0.3)
+texture = SubResource("AtlasTexture_45ecp")
+
+[node name="Antenna2" type="Sprite2D" parent="BaseSprites" unique_id=2006177014]
+visible = false
+texture_filter = 1
+position = Vector2(-35.797523, -254.01512)
+rotation = -0.98475057
+scale = Vector2(0.25, 0.25)
+texture = SubResource("AtlasTexture_45ecp")
+
+[node name="Antenna3" type="Sprite2D" parent="BaseSprites" unique_id=977869123]
+visible = false
+texture_filter = 1
+position = Vector2(6.2024918, -317.0151)
+rotation = -0.98475057
+scale = Vector2(0.25, 0.25)
+texture = SubResource("AtlasTexture_31kwd")
 
 [node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
 position = Vector2(32, 29)
@@ -87,8 +123,8 @@ grow_vertical = 0
 mouse_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="tune_dial/knob" unique_id=120106768]
-z_index = 1
 texture_filter = 1
+rotation = -1.7802359
 scale = Vector2(0.235, 0.235)
 texture = SubResource("AtlasTexture_ipn1w")
 
@@ -100,8 +136,9 @@ scale = Vector2(0.2, 0.2)
 
 [node name="tune_label" type="Sprite2D" parent="tune_dial/BG_sprite" unique_id=825065905]
 texture_filter = 1
-position = Vector2(22, -27.333332)
+position = Vector2(23.333334, -29.333332)
 scale = Vector2(0.31, 0.31)
+texture = SubResource("AtlasTexture_sspr3")
 
 [node name="middle_pooint" type="Marker2D" parent="tune_dial" unique_id=581374145]
 position = Vector2(0, -25)

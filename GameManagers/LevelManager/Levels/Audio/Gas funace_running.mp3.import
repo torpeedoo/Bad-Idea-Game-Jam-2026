@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bjgyyjxr5bwkr"
+path="res://.godot/imported/Gas funace_running.mp3-49dc0ad4083526d481f308a2fe9a0506.mp3str"
+
+[deps]
+
+source_file="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3"
+dest_files=["res://.godot/imported/Gas funace_running.mp3-49dc0ad4083526d481f308a2fe9a0506.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

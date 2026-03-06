@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://crpwj8aiferra"]
+
+[ext_resource type="Texture2D" uid="uid://b38iuljfs1cgc" path="res://GameManagers/LevelManager/Levels/Art/RoomBase.png" id="1_uhp57"]
+[ext_resource type="Texture2D" uid="uid://dytr8d5i7n7cf" path="res://GameManagers/LevelManager/Levels/Art/RoomBasePurpleShader.png" id="2_4dt5i"]
+[ext_resource type="Texture2D" uid="uid://b7mmwx7pidaah" path="res://GameManagers/LevelManager/Levels/Art/RoomProps1.png" id="3_growv"]
+[ext_resource type="Script" uid="uid://dhgyhl36wjd7c" path="res://GameManagers/LevelManager/Levels/TestLevel/lightFlicker.gd" id="3_ww147"]
+[ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="4_rnjt2"]
+[ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="5_viq1c"]
+[ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="6_b8y26"]
+[ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="7_b8y26"]
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="8_cteow"]
+[ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="8_sxjui"]
+[ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="9_tijcd"]
+[ext_resource type="Resource" uid="uid://bw4g0itkjodg4" path="res://Machines/Radio/Stations/test stations/morse/morse.tres" id="9_ww147"]
+[ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="10_b42tb"]
+[ext_resource type="Resource" uid="uid://c1ornyekd2ywx" path="res://Machines/Radio/Stations/rnb/RnB.tres" id="10_cteow"]
+[ext_resource type="AudioStream" uid="uid://bjgyyjxr5bwkr" path="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3" id="11_sxjui"]
+
+[node name="TestLevel" type="Node2D" unique_id=1230966180]
+
+[node name="Background" type="Node2D" parent="." unique_id=1960895492]
+
+[node name="Base" type="Node2D" parent="Background" unique_id=185936348]
+
+[node name="RoomBase" type="TextureRect" parent="Background/Base" unique_id=1413269379]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_uhp57")
+
+[node name="RoomBaseLighting" type="TextureRect" parent="Background/Base" unique_id=672071953]
+visible = false
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("2_4dt5i")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Base" unique_id=1759099537]
+z_index = -1
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+color = Color(0.17088804, 0.11258916, 0.10935765, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Base" unique_id=743670864]
+position = Vector2(959, 536)
+energy = 7.13
+texture = ExtResource("2_4dt5i")
+script = ExtResource("3_ww147")
+base_energy = 5.0
+flicker_strength = 0.4
+
+[node name="Props" type="Node2D" parent="Background" unique_id=855165347]
+
+[node name="Props1" type="TextureRect" parent="Background/Props" unique_id=1817163521]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_growv")
+
+[node name="Props2" type="TextureRect" parent="Background/Props" unique_id=911006635]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_rnjt2")
+
+[node name="Props3" type="TextureRect" parent="Background/Props" unique_id=1785365527]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_viq1c")
+
+[node name="Props4" type="TextureRect" parent="Background/Props" unique_id=452629189]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_b8y26")
+
+[node name="Interactables" type="Node2D" parent="." unique_id=241100467]
+
+[node name="radio" parent="Interactables" unique_id=909828567 node_paths=PackedStringArray("recorder") instance=ExtResource("7_b8y26")]
+position = Vector2(586, 864)
+scale = Vector2(1.5, 1.5)
+recorder = NodePath("../TapeRecorder")
+stations = Array[ExtResource("8_cteow")]([ExtResource("9_ww147"), ExtResource("10_cteow")])
+
+[node name="TapeRecorder" parent="Interactables" unique_id=1686385112 instance=ExtResource("8_sxjui")]
+position = Vector2(169, 687)
+scale = Vector2(2.3, 2.3)
+
+[node name="Tape" parent="Interactables" unique_id=1501833199 instance=ExtResource("9_tijcd")]
+position = Vector2(985, 771)
+
+[node name="InventorySlot" parent="Interactables" unique_id=1937137941 instance=ExtResource("10_b42tb")]
+position = Vector2(976, 931)
+
+[node name="Audio" type="Node2D" parent="." unique_id=1702804772]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=1356874992]
+stream = ExtResource("11_sxjui")
+volume_db = -13.046
+autoplay = true
+parameters/looping = true

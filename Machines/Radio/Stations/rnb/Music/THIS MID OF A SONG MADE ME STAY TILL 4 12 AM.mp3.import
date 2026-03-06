@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfqtm4t05reb7"
+path="res://.godot/imported/THIS MID OF A SONG MADE ME STAY TILL 4 12 AM.mp3-af68d380e5a8cb701070a4d9bb166483.mp3str"
+
+[deps]
+
+source_file="res://Machines/Radio/Stations/rnb/Music/THIS MID OF A SONG MADE ME STAY TILL 4 12 AM.mp3"
+dest_files=["res://.godot/imported/THIS MID OF A SONG MADE ME STAY TILL 4 12 AM.mp3-af68d380e5a8cb701070a4d9bb166483.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

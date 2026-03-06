@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8b14yi3pnuv2"
+path="res://.godot/imported/Item_pick up.mp3-785a53ab3c48c926c6f1e2fe37e05fae.mp3str"
+
+[deps]
+
+source_file="res://Machines/Tape Recorder/Audio/Item_pick up.mp3"
+dest_files=["res://.godot/imported/Item_pick up.mp3-785a53ab3c48c926c6f1e2fe37e05fae.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
