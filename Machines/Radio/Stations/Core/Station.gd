@@ -9,3 +9,14 @@ enum AM_FM {AM, FM}
 @export var current_song: AudioStream
 @export var song_list: Array[AudioStream]
 @export var broadcasting: bool = true
+
+var current_song_index: int = 0
+
+func init_station():
+	broadcasting = true
+	current_song_index = 0
+	current_song = song_list.get(current_song_index)
+
+func hour_passed():
+	current_song_index += 1
+	current_song = song_list.get(current_song_index)

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c8brtiypa404s"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_yntwp"]
+[ext_resource type="Resource" uid="uid://c1ornyekd2ywx" path="res://Machines/Radio/Stations/rnb/RnB.tres" id="2_6rt1h"]
+[ext_resource type="Script" uid="uid://cojbqltk7b08q" path="res://GameManagers/LevelManager/Levels/Core/LevelData.gd" id="2_t5e56"]
+[ext_resource type="Resource" uid="uid://d2p8hbo5a1uyv" path="res://Machines/Radio/Stations/test stations/music1/music1.tres" id="3_1i2e1"]
+
+[resource]
+script = ExtResource("2_t5e56")
+level_name = "TestLevel"
+level_stations = Array[ExtResource("1_yntwp")]([ExtResource("2_6rt1h"), ExtResource("3_1i2e1")])
+metadata/_custom_type_script = "uid://cojbqltk7b08q"

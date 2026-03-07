@@ -1,22 +1,27 @@
 [gd_scene format=3 uid="uid://crpwj8aiferra"]
 
+[ext_resource type="Script" uid="uid://bkxrbfdvk14vb" path="res://GameManagers/LevelManager/LevelManager.gd" id="1_sbl43"]
 [ext_resource type="Texture2D" uid="uid://b38iuljfs1cgc" path="res://GameManagers/LevelManager/Levels/Art/RoomBase.png" id="1_uhp57"]
 [ext_resource type="Texture2D" uid="uid://dytr8d5i7n7cf" path="res://GameManagers/LevelManager/Levels/Art/RoomBasePurpleShader.png" id="2_4dt5i"]
+[ext_resource type="Resource" uid="uid://c8brtiypa404s" path="res://GameManagers/LevelManager/Levels/TestLevel/testLevelData.tres" id="2_ew1i4"]
 [ext_resource type="Texture2D" uid="uid://b7mmwx7pidaah" path="res://GameManagers/LevelManager/Levels/Art/RoomProps1.png" id="3_growv"]
 [ext_resource type="Script" uid="uid://dhgyhl36wjd7c" path="res://GameManagers/LevelManager/Levels/TestLevel/lightFlicker.gd" id="3_ww147"]
 [ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="4_rnjt2"]
 [ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="5_viq1c"]
 [ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="6_b8y26"]
 [ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="7_b8y26"]
-[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="8_cteow"]
 [ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="8_sxjui"]
 [ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="9_tijcd"]
-[ext_resource type="Resource" uid="uid://bw4g0itkjodg4" path="res://Machines/Radio/Stations/test stations/morse/morse.tres" id="9_ww147"]
 [ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="10_b42tb"]
-[ext_resource type="Resource" uid="uid://c1ornyekd2ywx" path="res://Machines/Radio/Stations/rnb/RnB.tres" id="10_cteow"]
 [ext_resource type="AudioStream" uid="uid://bjgyyjxr5bwkr" path="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3" id="11_sxjui"]
 
-[node name="TestLevel" type="Node2D" unique_id=1230966180]
+[node name="TestLevel" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("radio", "recorder")]
+script = ExtResource("1_sbl43")
+start_time = 9
+end_time = 17
+level_data = ExtResource("2_ew1i4")
+radio = NodePath("Interactables/radio")
+recorder = NodePath("Interactables/TapeRecorder")
 
 [node name="Background" type="Node2D" parent="." unique_id=1960895492]
 
@@ -48,7 +53,7 @@ energy = 7.13
 texture = ExtResource("2_4dt5i")
 script = ExtResource("3_ww147")
 base_energy = 5.0
-flicker_strength = 0.4
+flicker_strength = 1.0
 
 [node name="Props" type="Node2D" parent="Background" unique_id=855165347]
 
@@ -82,7 +87,6 @@ texture = ExtResource("6_b8y26")
 position = Vector2(586, 864)
 scale = Vector2(1.5, 1.5)
 recorder = NodePath("../TapeRecorder")
-stations = Array[ExtResource("8_cteow")]([ExtResource("9_ww147"), ExtResource("10_cteow")])
 
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 instance=ExtResource("8_sxjui")]
 position = Vector2(169, 687)

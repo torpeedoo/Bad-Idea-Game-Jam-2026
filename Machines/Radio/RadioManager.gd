@@ -1,4 +1,5 @@
 extends Node
+class_name RadioManager
 
 @export_category("References")
 @export var tune_dial: Dial
@@ -29,8 +30,6 @@ func _ready():
 		tune_dial.moved_dial.connect(_update_freq)
 	if am_fm_switch:
 		am_fm_switch.clicked.connect(_am_fm_change)
-	if stations:
-		_load_stations()
 
 func _process(delta):
 	if meter_marker and meter_target_position:
@@ -97,8 +96,12 @@ func _fade_stations():
 func _load_stations():
 	station_audiostreams = []
 	
+	print(stations)
+	
 	for _station in stations:
 		var temp_station = AudioStreamPlayer.new()
+		
+		if !temp_station.stream: return
 		
 		temp_station.name = _station.station_name + "_audiostream"
 		temp_station.stream = _station.current_song
