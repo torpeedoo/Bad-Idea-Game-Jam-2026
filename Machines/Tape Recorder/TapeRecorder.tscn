@@ -47,13 +47,14 @@ size = Vector2(17, 22)
 atlas = ExtResource("2_q7qxf")
 region = Rect2(1583.0543, 258.44263, 66.85474, 81.609955)
 
-[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio")]
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio", "record_timer")]
 script = ExtResource("1_beb2r")
 recorder_buttons = NodePath("Buttons")
 empty_bay_sprite = NodePath("TapeInput/Empty")
 loaded_bay_sprite = NodePath("TapeInput/Loaded")
 tape_location_marker = NodePath("TapeInput/TapeLocation")
 tape_enter_audio = NodePath("Audio/TapeEnter")
+record_timer = NodePath("RecordTimer")
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 
@@ -153,3 +154,6 @@ texture = SubResource("AtlasTexture_82ad8")
 [node name="TapeEnter" type="AudioStreamPlayer" parent="Audio" unique_id=792896410]
 stream = ExtResource("5_ri8ik")
 volume_db = -11.86
+
+[node name="RecordTimer" type="Timer" parent="." unique_id=2006752267]
+one_shot = true

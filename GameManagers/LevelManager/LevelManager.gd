@@ -17,11 +17,10 @@ func _ready():
 	_init_timer()
 	current_time = start_time
 	if level_data: _load_level_data(level_data)
-	radio.stations = level_data.level_stations
-	radio._load_stations()
 
 func _hour_passed():
 	level_data.hour_passed()
+	radio._update_audiostreams()
 	current_time += 1
 	print("hour passed")
 	if current_time >= end_time:
@@ -33,6 +32,9 @@ func _reached_end_time():
 func _load_level_data(level_data: LevelData):
 	level_data.init_stations()
 	level_name = level_data.level_name
+	if radio:
+		radio.stations = get_stations()
+		radio._load_stations()
 
 func _init_timer():
 	hour_timer = Timer.new()

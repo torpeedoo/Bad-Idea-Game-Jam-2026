@@ -16,7 +16,7 @@ func init_station():
 	broadcasting = true
 	current_song_index = 0
 	current_song = song_list.get(current_song_index)
-
 func hour_passed():
 	current_song_index += 1
 	current_song = song_list.get(current_song_index)
+	print(current_song)

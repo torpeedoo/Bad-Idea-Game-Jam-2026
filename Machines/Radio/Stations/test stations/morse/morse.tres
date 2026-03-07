@@ -8,5 +8,5 @@ script = ExtResource("1_3oixi")
 station_name = "Morse"
 station_freq = 89.8
 bandwith = 0.2
-current_song = ExtResource("1_aem4n")
+song_list = Array[AudioStream]([ExtResource("1_aem4n")])
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

@@ -93,16 +93,22 @@ func _fade_stations():
 		else:
 			static_audio.volume_db = -80.0
 
+func _update_audiostreams():
+	if !station_audiostreams: return
+	var index := 0
+	
+	for stream in station_audiostreams:
+		stream.stream = stations.get(index).current_song
+		index += 1
+
 func _load_stations():
 	station_audiostreams = []
-	
-	print(stations)
 	
 	for _station in stations:
 		var temp_station = AudioStreamPlayer.new()
 		
-		if !temp_station.stream: return
-		
+		if !_station.current_song: return
+
 		temp_station.name = _station.station_name + "_audiostream"
 		temp_station.stream = _station.current_song
 		temp_station.stream.loop = true

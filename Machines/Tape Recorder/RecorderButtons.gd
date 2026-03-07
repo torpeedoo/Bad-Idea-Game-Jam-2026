@@ -27,6 +27,9 @@ func _process(delta):
 func record_switch():
 	recording_state = !recording_state
 	record_switch_down_sprite.visible = recording_state
+	record_interaction_area.visible = !recording_state
+	clicked_record.emit()
+	play_sfx()
 
 func unclick_eject():
 	play_sfx()
@@ -48,5 +51,3 @@ func on_eject_click(viewport: Node, input: InputEvent, shape_idx: int):
 func on_record_click(viewport: Node, input: InputEvent, shape_idx: int):
 	if input.is_action_pressed("lmb"):
 		record_switch()
-		play_sfx()
-		clicked_record.emit()

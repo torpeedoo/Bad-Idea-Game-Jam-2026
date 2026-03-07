@@ -7,6 +7,10 @@ class_name Recorder
 @export var loaded_bay_sprite: Sprite2D
 @export var tape_location_marker: Marker2D
 @export var tape_enter_audio: AudioStreamPlayer
+@export var record_timer: Timer
+
+@export_category("Params")
+@export var record_length: float
 
 var current_tape: Tape = null
 var current_station: Station = null
@@ -32,11 +36,14 @@ func record_button_pressed():
 	elif recorder_buttons.recording_state == false:
 		stop_recording()
 
-func start_recording(): 
+func start_recording():
+	if record_timer: record_timer.start(record_length)
 	recordings.clear()
 	is_recording = true
 
 func stop_recording():
+	if !is_recording: return
+	
 	_save_current_clip()
 	
 	_current_station_recording = null
@@ -45,6 +52,10 @@ func stop_recording():
 	is_recording = false
 	
 	if get_tape_recording(current_tape): print("recorded: "+str(get_tape_recording(current_tape).get(1)))
+
+func recording_time_up():
+	if is_recording:
+		recorder_buttons.record_switch()
 
 func set_tape(tape: Tape):
 	current_tape = tape
@@ -63,6 +74,8 @@ func _ready():
 	if recorder_buttons:
 		recorder_buttons.clicked_record.connect(record_button_pressed)
 		recorder_buttons.eject_clicked.connect(eject_button_pressed)
+	if record_timer:
+		record_timer.timeout.connect(recording_time_up)
 
 func _process(delta: float) -> void:
 	if not is_recording: return
