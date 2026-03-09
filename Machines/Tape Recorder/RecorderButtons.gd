@@ -25,6 +25,8 @@ func _process(delta):
 			unclick_eject()
 
 func record_switch():
+	
+	
 	recording_state = !recording_state
 	record_switch_down_sprite.visible = recording_state
 	record_interaction_area.visible = !recording_state
@@ -32,7 +34,7 @@ func record_switch():
 	play_sfx()
 
 func unclick_eject():
-	play_sfx()
+	#play_sfx()
 	eject_button_down_sprite.hide()
 	is_clicking_eject = false
 

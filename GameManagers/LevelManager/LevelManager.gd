@@ -9,6 +9,7 @@ class_name LevelManager
 @export var radio: RadioManager
 @export var recorder: Recorder
 
+var madness_level: int
 var level_name: String = ""
 var hour_timer: Timer
 var current_time: int

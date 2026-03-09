@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1cuyay5gj3tr"
-path="res://.godot/imported/tape recorder sheet.png-f677c279736b16b6bf78b3e0e33d5f99.ctex"
+uid="uid://cthun3370ei6k"
+path="res://.godot/imported/Button sheets.png-d06a0911dc796b7d6f95fab99aa11310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Machines/Tape Recorder/Art/tape recorder sheet.png"
-dest_files=["res://.godot/imported/tape recorder sheet.png-f677c279736b16b6bf78b3e0e33d5f99.ctex"]
+source_file="res://Art/Button sheets.png"
+dest_files=["res://.godot/imported/Button sheets.png-d06a0911dc796b7d6f95fab99aa11310.ctex"]
 
 [params]
 

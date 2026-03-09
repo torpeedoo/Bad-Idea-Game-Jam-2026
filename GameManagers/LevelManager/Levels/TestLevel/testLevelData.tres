@@ -9,4 +9,5 @@
 script = ExtResource("2_t5e56")
 level_name = "TestLevel"
 level_stations = Array[ExtResource("1_yntwp")]([ExtResource("2_6rt1h"), ExtResource("3_1i2e1")])
+anomaly_stations = Array[ExtResource("1_yntwp")]([ExtResource("2_6rt1h")])
 metadata/_custom_type_script = "uid://cojbqltk7b08q"

@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="9_tijcd"]
 [ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="10_b42tb"]
 [ext_resource type="AudioStream" uid="uid://bjgyyjxr5bwkr" path="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3" id="11_sxjui"]
+[ext_resource type="PackedScene" uid="uid://4f4yhgemlpn5" path="res://Machines/TapeSubmit/TapeSubmit.tscn" id="15_ww147"]
+[ext_resource type="AudioStream" uid="uid://c42ix5gw1rrou" path="res://GameManagers/LevelManager/Levels/Audio/Crying_moaning_ambience_2.mp3" id="16_sbl43"]
 
 [node name="TestLevel" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("radio", "recorder")]
 script = ExtResource("1_sbl43")
@@ -34,7 +36,6 @@ offset_bottom = 1080.0
 texture = ExtResource("1_uhp57")
 
 [node name="RoomBaseLighting" type="TextureRect" parent="Background/Base" unique_id=672071953]
-visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -48,6 +49,7 @@ mouse_filter = 1
 color = Color(0.17088804, 0.11258916, 0.10935765, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Background/Base" unique_id=743670864]
+z_index = -1
 position = Vector2(959, 536)
 energy = 7.13
 texture = ExtResource("2_4dt5i")
@@ -98,10 +100,19 @@ position = Vector2(985, 771)
 [node name="InventorySlot" parent="Interactables" unique_id=1937137941 instance=ExtResource("10_b42tb")]
 position = Vector2(976, 931)
 
+[node name="TapeSubmit" parent="Interactables" unique_id=466805757 node_paths=PackedStringArray("level_manager") instance=ExtResource("15_ww147")]
+position = Vector2(1473, 804)
+level_manager = NodePath("../..")
+
 [node name="Audio" type="Node2D" parent="." unique_id=1702804772]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=1356874992]
 stream = ExtResource("11_sxjui")
 volume_db = -13.046
 autoplay = true
+parameters/looping = true
+
+[node name="MadnessAmbiance1" type="AudioStreamPlayer" parent="Audio" unique_id=454969409]
+stream = ExtResource("16_sbl43")
+volume_db = -9.123
 parameters/looping = true

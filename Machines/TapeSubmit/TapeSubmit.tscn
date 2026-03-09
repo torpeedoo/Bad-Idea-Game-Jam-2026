@@ -1,3 +1,74 @@
 [gd_scene format=3 uid="uid://4f4yhgemlpn5"]
 
-[node name="TapeSubmit" type="Node2D" unique_id=466805757]
+[ext_resource type="Script" uid="uid://b17nn0rrb7erj" path="res://Machines/TapeSubmit/TapeSubmit.gd" id="1_gvg8x"]
+[ext_resource type="Texture2D" uid="uid://cthun3370ei6k" path="res://Art/Button sheets.png" id="2_0d6ta"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aku3p"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3110.9177, 77.27179, 610.9231, 715.9589)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0d6ta"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3379.1006, 1011.89355, 307.35596, 51.225952)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibg2f"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3181.2283, 1230.41, 503.1184, 334.08118)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0d6ta"]
+size = Vector2(302, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_casyh"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3184.2258, 1106.743, 497.2339, 86.742676)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydq20"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3191.341, 844.69385, 497.97876, 93.759155)
+
+[node name="TapeSubmit" type="Node2D" unique_id=466805757 node_paths=PackedStringArray("item_storage_marker", "slot_area")]
+script = ExtResource("1_gvg8x")
+item_storage_marker = NodePath("TapeBay/Marker2D")
+slot_area = NodePath("TapeBay/Area2D")
+
+[node name="BG" type="Node2D" parent="." unique_id=1369276751]
+
+[node name="Base" type="Sprite2D" parent="BG" unique_id=1414281502]
+texture_filter = 1
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_aku3p")
+
+[node name="Name" type="Sprite2D" parent="BG" unique_id=840222553]
+texture_filter = 1
+position = Vector2(69, -159)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_0d6ta")
+
+[node name="Screen" type="Sprite2D" parent="BG" unique_id=1050129054]
+texture_filter = 1
+position = Vector2(0, 55.000004)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_ibg2f")
+
+[node name="TapeBay" type="Node2D" parent="." unique_id=1534448563]
+
+[node name="Area2D" type="Area2D" parent="TapeBay" unique_id=1161390235]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TapeBay/Area2D" unique_id=271527625]
+position = Vector2(1, -93)
+shape = SubResource("RectangleShape2D_0d6ta")
+
+[node name="Marker2D" type="Marker2D" parent="TapeBay" unique_id=1395906560]
+
+[node name="BayEmpty" type="Sprite2D" parent="TapeBay" unique_id=795197791]
+texture_filter = 1
+position = Vector2(2, -93)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_casyh")
+
+[node name="BayFull" type="Sprite2D" parent="TapeBay" unique_id=2113761985]
+visible = false
+texture_filter = 1
+position = Vector2(2, -93)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_ydq20")

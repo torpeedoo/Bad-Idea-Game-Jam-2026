@@ -8,6 +8,8 @@ class_name Recorder
 @export var tape_location_marker: Marker2D
 @export var tape_enter_audio: AudioStreamPlayer
 @export var record_timer: Timer
+@export var tape_bay_open_empty: Sprite2D
+@export var tape_bay_open_full: Sprite2D
 
 @export_category("Params")
 @export var record_length: float
@@ -40,6 +42,9 @@ func start_recording():
 	if record_timer: record_timer.start(record_length)
 	recordings.clear()
 	is_recording = true
+	if current_tape:
+		loaded_bay_sprite.show()
+		tape_bay_open_full.hide()
 
 func stop_recording():
 	if !is_recording: return
@@ -51,6 +56,10 @@ func stop_recording():
 	
 	is_recording = false
 	
+	if current_tape:
+		loaded_bay_sprite.hide()
+		tape_bay_open_full.show()
+	
 	if get_tape_recording(current_tape): print("recorded: "+str(get_tape_recording(current_tape).get(1)))
 
 func recording_time_up():
@@ -61,14 +70,14 @@ func set_tape(tape: Tape):
 	current_tape = tape
 	tape_enter_audio.play()
 	current_tape.hide()
-	empty_bay_sprite.hide()
-	loaded_bay_sprite.show()
+	tape_bay_open_empty.hide()
+	tape_bay_open_full.show()
 
 func eject_tape():
 	current_tape.show()
 	current_tape = null
-	empty_bay_sprite.show()
-	loaded_bay_sprite.hide()
+	tape_bay_open_empty.show()
+	tape_bay_open_full.hide()
 
 func _ready():
 	if recorder_buttons:
