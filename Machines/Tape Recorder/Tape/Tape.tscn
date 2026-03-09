@@ -11,7 +11,7 @@ atlas = ExtResource("2_afjcy")
 region = Rect2(1371.7465, 891.96814, 473.55383, 277.68616)
 
 [node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("home_location", "drag_area", "drag_parent")]
-z_index = 1
+z_index = 2
 script = ExtResource("1_lg7by")
 home_location = NodePath("Home/homeMarker")
 drag_area = NodePath("DraggingParent/Area2D")

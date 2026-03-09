@@ -23,7 +23,7 @@ atlas = ExtResource("2_ri8ik")
 region = Rect2(2002.0001, 100.00004, 417.00012, 91.00002)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beb2r"]
-size = Vector2(130, 75)
+size = Vector2(130, 82)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jkogt"]
 atlas = ExtResource("2_ri8ik")
@@ -103,7 +103,7 @@ position = Vector2(-11, 28)
 position = Vector2(3, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TapeInput/Area2D" unique_id=446298481]
-position = Vector2(8, 19.5)
+position = Vector2(8, 21)
 shape = SubResource("RectangleShape2D_beb2r")
 
 [node name="EmptyClosed" type="Sprite2D" parent="TapeInput" unique_id=396240944]
