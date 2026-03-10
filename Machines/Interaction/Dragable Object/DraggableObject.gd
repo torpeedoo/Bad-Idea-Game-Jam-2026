@@ -23,13 +23,11 @@ func _on_click(viewport: Node, input: InputEvent, shape_idx: int):
 	if input is InputEventMouseButton:
 		if input.button_index == MOUSE_BUTTON_LEFT:
 			if input.pressed:
-				print("hit")
 				dragging = true
 
 func _physics_process(delta):
 	if dragging:
 		if Input.is_action_just_released("lmb"):
-			print("hello")
 			drag_end()
 		else:
 			drag_logic()

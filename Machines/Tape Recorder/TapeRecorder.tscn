@@ -69,6 +69,7 @@ tape_enter_audio = NodePath("Audio/TapeEnter")
 record_timer = NodePath("RecordTimer")
 tape_bay_open_empty = NodePath("TapeInput/EmptyOpen")
 tape_bay_open_full = NodePath("TapeInput/LoadedOpen")
+record_length = 3.0
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 

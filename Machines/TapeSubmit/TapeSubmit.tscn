@@ -190,6 +190,14 @@
 atlas = ExtResource("2_0d6ta")
 region = Rect2(3110.9177, 77.27179, 610.9231, 715.9589)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_78aow"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3756, 804.6364, 28.18164, 250.00006)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gck4s"]
+atlas = ExtResource("2_0d6ta")
+region = Rect2(3197.6482, 1018.9933, 71.375, 68.36963)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0d6ta"]
 atlas = ExtResource("2_0d6ta")
 region = Rect2(3379.1006, 1011.89355, 307.35596, 51.225952)
@@ -430,7 +438,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("74_173rt")
 }],
-"loop": true,
+"loop": false,
 "name": &"Fail",
 "speed": 5.0
 }, {
@@ -656,7 +664,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("146_e77oa")
 }],
-"loop": true,
+"loop": false,
 "name": &"Success",
 "speed": 5.0
 }, {
@@ -775,7 +783,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d6ta"]
-size = Vector2(302, 80)
+size = Vector2(341, 156)
 
 [node name="TapeSubmit" type="Node2D" unique_id=466805757 node_paths=PackedStringArray("bay_full", "bay_empty", "screen_on", "screen_off", "screen_anim", "tape_enter_audio", "success_audio", "fail_audio", "item_storage_marker", "slot_area")]
 z_index = 1
@@ -797,6 +805,19 @@ slot_area = NodePath("Area2D")
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = SubResource("AtlasTexture_aku3p")
+
+[node name="Antenna" type="Sprite2D" parent="BG" unique_id=1934557739]
+z_index = -1
+texture_filter = 1
+position = Vector2(44, -277)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_78aow")
+
+[node name="PowerButton" type="Sprite2D" parent="BG" unique_id=2073856724]
+texture_filter = 1
+position = Vector2(-134, -163)
+scale = Vector2(0.6, 0.6)
+texture = SubResource("AtlasTexture_gck4s")
 
 [node name="Name" type="Sprite2D" parent="BG" unique_id=840222553]
 texture_filter = 1
@@ -837,7 +858,7 @@ texture_filter = 1
 position = Vector2(0, -70)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ibg2f")
-animation = &"Success"
+animation = &"Analysing"
 speed_scale = 2.0
 
 [node name="ScreenOff" type="Sprite2D" parent="Screen" unique_id=758844620]
@@ -864,14 +885,14 @@ volume_db = -6.77
 
 [node name="Success" type="AudioStreamPlayer" parent="Audio" unique_id=423179527]
 stream = ExtResource("184_78aow")
-volume_db = -6.77
+volume_db = -28.964
 
 [node name="Fail" type="AudioStreamPlayer" parent="Audio" unique_id=403907567]
 stream = ExtResource("185_gck4s")
-volume_db = -6.77
+volume_db = -23.191
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1161390235]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=271527625]
-position = Vector2(1, -93)
+position = Vector2(0.5, -93)
 shape = SubResource("RectangleShape2D_0d6ta")

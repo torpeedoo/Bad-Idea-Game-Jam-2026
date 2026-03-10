@@ -10,9 +10,10 @@ size = Vector2(287, 169)
 atlas = ExtResource("2_afjcy")
 region = Rect2(1371.7465, 891.96814, 473.55383, 277.68616)
 
-[node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("home_location", "drag_area", "drag_parent")]
+[node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("freq_label", "home_location", "drag_area", "drag_parent")]
 z_index = 2
 script = ExtResource("1_lg7by")
+freq_label = NodePath("DraggingParent/Label/FreqLabel")
 home_location = NodePath("Home/homeMarker")
 drag_area = NodePath("DraggingParent/Area2D")
 drag_parent = NodePath("DraggingParent")
@@ -29,6 +30,29 @@ shape = SubResource("RectangleShape2D_lg7by")
 texture_filter = 1
 scale = Vector2(0.6, 0.6)
 texture = SubResource("AtlasTexture_ny5ug")
+
+[node name="Label" type="Node2D" parent="DraggingParent" unique_id=554792243]
+position = Vector2(1, -55)
+
+[node name="FreqLabel" type="Label" parent="DraggingParent/Label" unique_id=1313032146]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -11.5
+offset_right = 35.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+text = "dfsfasfsd"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Home" type="Node2D" parent="." unique_id=1591000356]
 

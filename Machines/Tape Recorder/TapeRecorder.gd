@@ -100,8 +100,7 @@ func _process(delta: float) -> void:
 func _save_current_clip():
 	if _current_station_recording_duration > 0:
 		if current_tape:
-			current_tape.recorded_station = _current_station_recording
-			current_tape.recorded_duration = _current_station_recording_duration
+			current_tape.record_station(_current_station_recording, _current_station_recording_duration)
 
 func get_tape_recording(tape: Tape):
 	if !tape: return

@@ -36,6 +36,7 @@ offset_bottom = 1080.0
 texture = ExtResource("1_uhp57")
 
 [node name="RoomBaseLighting" type="TextureRect" parent="Background/Base" unique_id=672071953]
+visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -46,12 +47,11 @@ z_index = -1
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 1
-color = Color(0.17088804, 0.11258916, 0.10935765, 1)
+color = Color(0.09430798, 0.086524285, 0.08652616, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="Background/Base" unique_id=743670864]
 z_index = -1
 position = Vector2(959, 536)
-energy = 7.13
 texture = ExtResource("2_4dt5i")
 script = ExtResource("3_ww147")
 base_energy = 5.0
@@ -93,6 +93,7 @@ recorder = NodePath("../TapeRecorder")
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 instance=ExtResource("8_sxjui")]
 position = Vector2(169, 687)
 scale = Vector2(2.3, 2.3)
+record_length = null
 
 [node name="Tape" parent="Interactables" unique_id=1501833199 instance=ExtResource("9_tijcd")]
 position = Vector2(985, 771)
@@ -103,6 +104,9 @@ position = Vector2(976, 931)
 [node name="TapeSubmit" parent="Interactables" unique_id=466805757 node_paths=PackedStringArray("level_manager") instance=ExtResource("15_ww147")]
 position = Vector2(1473, 804)
 level_manager = NodePath("../..")
+
+[node name="Tape2" parent="Interactables" unique_id=768591969 instance=ExtResource("9_tijcd")]
+position = Vector2(986, 577)
 
 [node name="Audio" type="Node2D" parent="." unique_id=1702804772]
 
