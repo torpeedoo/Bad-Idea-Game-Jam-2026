@@ -326,7 +326,7 @@ animations = [{
 "texture": ExtResource("38_7h526")
 }],
 "loop": false,
-"name": &"Analysing",
+"name": &"Analyzing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -858,7 +858,7 @@ texture_filter = 1
 position = Vector2(0, -70)
 scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ibg2f")
-animation = &"Analysing"
+animation = &"Analyzing"
 speed_scale = 2.0
 
 [node name="ScreenOff" type="Sprite2D" parent="Screen" unique_id=758844620]

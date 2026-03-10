@@ -42,6 +42,8 @@ func start_next_anim():
 	elif next_anim == "Fail":
 		_delete_tape()
 		fail_audio.play()
+	elif next_anim == "Analyzing":
+		slot_area.hide()
 	screen_anim.play(next_anim)
 
 func anim_over():
@@ -50,7 +52,7 @@ func anim_over():
 func analyze_tape(tape: Tape):
 	var tape_station = tape.recorded_station
 	
-	play_anim("Analysing")
+	play_anim("Analyzing")
 
 	if tape_station in level_manager.get_anomaly_stations():
 		play_anim("Success")
@@ -61,7 +63,8 @@ func add_anomaly_success(): #add to levels successful anomalies detected
 	pass
 
 func _delete_tape():
-	remove_child(item_stored)
+	item_stored.queue_free()
+	slot_area.show()
 	item_stored = null
 	bay_full.hide()
 	bay_empty.show()
