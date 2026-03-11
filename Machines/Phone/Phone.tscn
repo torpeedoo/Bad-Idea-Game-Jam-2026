@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bp2kmfy8f6ru2"]
+
+[ext_resource type="Texture2D" uid="uid://cgvk1lrpo3dby" path="res://Machines/Phone/Art/PhoneSheet.png" id="1_boei6"]
+[ext_resource type="Script" uid="uid://cnwenqye5lfu7" path="res://Machines/Phone/phone.gd" id="1_m5ua4"]
+[ext_resource type="AudioStream" uid="uid://5wfcutc4kn50" path="res://Machines/Interaction/SFX/Menu_click_3.mp3" id="3_ove81"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5ua4"]
+atlas = ExtResource("1_boei6")
+region = Rect2(288.16864, 271.09473, 386.83136, 444.90527)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ove81"]
+atlas = ExtResource("1_boei6")
+region = Rect2(4.5895996, 18.10255, 268.92303, 689.84607)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boei6"]
+atlas = ExtResource("1_boei6")
+region = Rect2(331.72726, 68.72727, 191.81815, 36.088097)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvju8"]
+atlas = ExtResource("1_boei6")
+region = Rect2(337.36102, 192.31198, 183.04755, 38.931763)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ua4"]
+size = Vector2(250, 682)
+
+[node name="Phone" type="Node2D" unique_id=767561474 node_paths=PackedStringArray("interaction_area", "click_sfx")]
+script = ExtResource("1_m5ua4")
+interaction_area = NodePath("Area2D")
+click_sfx = NodePath("AudioStreamPlayer")
+
+[node name="BgPhone" type="Node2D" parent="." unique_id=1512931370]
+
+[node name="Base" type="Sprite2D" parent="BgPhone" unique_id=2004443773]
+texture_filter = 1
+texture = SubResource("AtlasTexture_m5ua4")
+
+[node name="Phone" type="Sprite2D" parent="BgPhone" unique_id=575989259]
+texture_filter = 1
+position = Vector2(-6, -263)
+texture = SubResource("AtlasTexture_ove81")
+
+[node name="MenuStuffTop" type="Sprite2D" parent="BgPhone" unique_id=1633498656]
+texture_filter = 1
+position = Vector2(-7, -505)
+texture = SubResource("AtlasTexture_boei6")
+
+[node name="MenuStuffBottom" type="Sprite2D" parent="BgPhone" unique_id=1198201170]
+texture_filter = 1
+position = Vector2(-3, -379)
+texture = SubResource("AtlasTexture_bvju8")
+
+[node name="Time" type="Label" parent="BgPhone" unique_id=2117163789]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1571723971]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1970451348]
+position = Vector2(-4, -259)
+shape = SubResource("RectangleShape2D_m5ua4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=803630357]
+stream = ExtResource("3_ove81")
+volume_db = -2.995

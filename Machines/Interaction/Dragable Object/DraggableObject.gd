@@ -4,6 +4,9 @@ class_name DraggableObject
 signal in_recorder_area(area: Area2D)
 signal in_inv_slot_area(area: Area2D)
 
+signal started_drag
+signal ended_drag
+
 @export var home_location: Marker2D
 @export var drag_area: Area2D
 @export var drag_parent: Node
@@ -23,7 +26,7 @@ func _on_click(viewport: Node, input: InputEvent, shape_idx: int):
 	if input is InputEventMouseButton:
 		if input.button_index == MOUSE_BUTTON_LEFT:
 			if input.pressed:
-				dragging = true
+				drag_start()
 
 func _physics_process(delta):
 	if dragging:
@@ -45,8 +48,13 @@ func check_overlapping_exit(area: Area2D):
 func move_object(to_marker: Marker2D):
 	global_position = to_marker.global_position
 
+func drag_start():
+	started_drag.emit()
+	dragging = true
+
 func drag_end():
 	dragging = false
+	ended_drag.emit()
 	
 	if area_in:
 		if area_in.is_in_group("recorder"):

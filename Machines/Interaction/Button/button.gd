@@ -21,14 +21,16 @@ func _process(delta):
 
 func click():
 	is_clicking = true
-	button_down_sprite.show()
-	button_up_sprite.hide()
+	if button_down_sprite and button_up_sprite:
+		button_down_sprite.show()
+		button_up_sprite.hide()
 	clicked.emit()
 	play_click_sfx()
 
 func unclick():
-	button_up_sprite.show()
-	button_down_sprite.hide()
+	if button_down_sprite and button_up_sprite:
+		button_up_sprite.show()
+		button_down_sprite.hide()
 	is_clicking = false
 	play_click_sfx()
 

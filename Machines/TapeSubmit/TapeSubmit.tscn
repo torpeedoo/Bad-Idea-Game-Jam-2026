@@ -183,6 +183,7 @@
 [ext_resource type="Texture2D" uid="uid://dfco2q5m8nmo4" path="res://Machines/TapeSubmit/Art/Secure link/Uploading_0034.png" id="181_mugxl"]
 [ext_resource type="Texture2D" uid="uid://ba06yq8l6g82g" path="res://Machines/TapeSubmit/Art/Secure link/Uploading_0035.png" id="182_tfdry"]
 [ext_resource type="AudioStream" uid="uid://8b14yi3pnuv2" path="res://Machines/Tape Recorder/Audio/Item_pick up.mp3" id="183_17wb3"]
+[ext_resource type="Shader" uid="uid://b5urmuffext8p" path="res://Shaders/RetroScreen.gdshader" id="183_gck4s"]
 [ext_resource type="AudioStream" uid="uid://c6s46nhpg8arl" path="res://Machines/TapeSubmit/Audio/Retro PickUp Coin StereoUP 04.wav" id="184_78aow"]
 [ext_resource type="AudioStream" uid="uid://ccj2di0tydm73" path="res://Machines/TapeSubmit/Audio/Retro Event Wrong Simple 03.wav" id="185_gck4s"]
 
@@ -782,8 +783,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3iypp"]
+shader = ExtResource("183_gck4s")
+shader_parameter/pixel_size = 6.3630002547425
+shader_parameter/vhs_intensity = 0.8650000410875
+shader_parameter/noise_intensity = 0.062000002945
+shader_parameter/opacity = 0.23600001121
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d6ta"]
-size = Vector2(341, 156)
+size = Vector2(306, 107)
 
 [node name="TapeSubmit" type="Node2D" unique_id=466805757 node_paths=PackedStringArray("bay_full", "bay_empty", "screen_on", "screen_off", "screen_anim", "tape_enter_audio", "success_audio", "fail_audio", "item_storage_marker", "slot_area")]
 z_index = 1
@@ -877,6 +885,15 @@ position = Vector2(0, -70)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_biv2k")
 
+[node name="VHS" type="ColorRect" parent="Screen" unique_id=1855893277]
+z_index = -1
+material = SubResource("ShaderMaterial_3iypp")
+offset_left = -145.0
+offset_top = -38.0
+offset_right = -105.0
+offset_bottom = 2.0
+scale = Vector2(7.1916127, 4.5202713)
+
 [node name="Audio" type="Node2D" parent="." unique_id=602195775]
 
 [node name="TapeEnter" type="AudioStreamPlayer" parent="Audio" unique_id=2037779664]
@@ -894,5 +911,5 @@ volume_db = -23.191
 [node name="Area2D" type="Area2D" parent="." unique_id=1161390235]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=271527625]
-position = Vector2(0.5, -93)
+position = Vector2(1, -95.5)
 shape = SubResource("RectangleShape2D_0d6ta")

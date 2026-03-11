@@ -2,18 +2,30 @@
 
 [ext_resource type="Script" uid="uid://ceabxinoxwubf" path="res://Machines/Tape Recorder/Tape/Tape.gd" id="1_lg7by"]
 [ext_resource type="Texture2D" uid="uid://cthun3370ei6k" path="res://Art/Button sheets.png" id="2_afjcy"]
+[ext_resource type="Shader" uid="uid://c6ohm20v6lnne" path="res://Shaders/Shadow.gdshader" id="2_ny5ug"]
+[ext_resource type="AudioStream" uid="uid://dstk0pkjpqmjg" path="res://Machines/Tape Recorder/Audio/Lockpick_attempt.mp3" id="4_ypa41"]
+[ext_resource type="AudioStream" uid="uid://ct56woh60jfbu" path="res://Machines/Tape Recorder/Audio/Lockpick_attempt_2.mp3" id="5_8jbkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg7by"]
 size = Vector2(287, 169)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ypa41"]
+shader = ExtResource("2_ny5ug")
+shader_parameter/dist = 22
+shader_parameter/color = Color(0, 0, 0, 0.5)
+shader_parameter/angle = 121.7030057808925
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ny5ug"]
 atlas = ExtResource("2_afjcy")
 region = Rect2(1371.7465, 891.96814, 473.55383, 277.68616)
 
-[node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("freq_label", "home_location", "drag_area", "drag_parent")]
+[node name="Tape" type="Node2D" unique_id=1501833199 node_paths=PackedStringArray("freq_label", "tape_sprite", "pickup_sound", "drop_sound", "home_location", "drag_area", "drag_parent")]
 z_index = 2
 script = ExtResource("1_lg7by")
 freq_label = NodePath("DraggingParent/Label/FreqLabel")
+tape_sprite = NodePath("DraggingParent/Sprite2D")
+pickup_sound = NodePath("Pickup")
+drop_sound = NodePath("Drop")
 home_location = NodePath("Home/homeMarker")
 drag_area = NodePath("DraggingParent/Area2D")
 drag_parent = NodePath("DraggingParent")
@@ -28,6 +40,8 @@ shape = SubResource("RectangleShape2D_lg7by")
 
 [node name="Sprite2D" type="Sprite2D" parent="DraggingParent" unique_id=1424055516]
 texture_filter = 1
+material = SubResource("ShaderMaterial_ypa41")
+use_parent_material = true
 scale = Vector2(0.6, 0.6)
 texture = SubResource("AtlasTexture_ny5ug")
 
@@ -57,3 +71,11 @@ vertical_alignment = 1
 [node name="Home" type="Node2D" parent="." unique_id=1591000356]
 
 [node name="homeMarker" type="Marker2D" parent="Home" unique_id=1764554993]
+
+[node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=503627361]
+stream = ExtResource("4_ypa41")
+volume_db = -9.123
+
+[node name="Drop" type="AudioStreamPlayer" parent="." unique_id=2012122998]
+stream = ExtResource("5_8jbkp")
+volume_db = -9.123

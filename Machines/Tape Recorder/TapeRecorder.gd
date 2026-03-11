@@ -74,6 +74,8 @@ func set_tape(tape: Tape):
 	tape_bay_open_full.show()
 
 func eject_tape():
+	if is_recording: return
+	
 	current_tape.show()
 	current_tape = null
 	tape_bay_open_empty.show()

@@ -175,6 +175,7 @@ scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_y45h1")
 
 [node name="Area2D" type="Area2D" parent="Switch" unique_id=1965859506]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Switch/Area2D" unique_id=645561118]
 position = Vector2(0.5, -0.5)
@@ -212,3 +213,5 @@ volume_db = -25.544
 autoplay = true
 bus = &"Radio"
 parameters/looping = true
+
+[node name="MadnessTimer" type="Timer" parent="." unique_id=999099722]

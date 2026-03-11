@@ -48,6 +48,9 @@ func get_anomaly_stations():
 	if level_data:
 		return level_data.get("anomaly_stations")
 
+func open_phone_menu(): #phone menu will have invisible rect to capture input and make machine interaction impossible
+	pass
+
 func get_stations():
 	if level_data:
 		return level_data.get("level_stations")

@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="9_tijcd"]
 [ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="10_b42tb"]
 [ext_resource type="AudioStream" uid="uid://bjgyyjxr5bwkr" path="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3" id="11_sxjui"]
+[ext_resource type="PackedScene" uid="uid://bp2kmfy8f6ru2" path="res://Machines/Phone/Phone.tscn" id="15_ew1i4"]
 [ext_resource type="PackedScene" uid="uid://4f4yhgemlpn5" path="res://Machines/TapeSubmit/TapeSubmit.tscn" id="15_ww147"]
 [ext_resource type="AudioStream" uid="uid://c42ix5gw1rrou" path="res://GameManagers/LevelManager/Levels/Audio/Crying_moaning_ambience_2.mp3" id="16_sbl43"]
 
@@ -93,7 +94,7 @@ recorder = NodePath("../TapeRecorder")
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 instance=ExtResource("8_sxjui")]
 position = Vector2(169, 687)
 scale = Vector2(2.3, 2.3)
-record_length = null
+record_length = 0.0
 
 [node name="Tape" parent="Interactables" unique_id=1501833199 instance=ExtResource("9_tijcd")]
 position = Vector2(985, 771)
@@ -102,11 +103,15 @@ position = Vector2(985, 771)
 position = Vector2(976, 931)
 
 [node name="TapeSubmit" parent="Interactables" unique_id=466805757 node_paths=PackedStringArray("level_manager") instance=ExtResource("15_ww147")]
-position = Vector2(1473, 804)
+position = Vector2(1351, 852)
 level_manager = NodePath("../..")
 
 [node name="Tape2" parent="Interactables" unique_id=768591969 instance=ExtResource("9_tijcd")]
 position = Vector2(986, 577)
+
+[node name="Phone" parent="Interactables" unique_id=767561474 instance=ExtResource("15_ew1i4")]
+position = Vector2(1719, 966)
+scale = Vector2(0.56, 0.56)
 
 [node name="Audio" type="Node2D" parent="." unique_id=1702804772]
 

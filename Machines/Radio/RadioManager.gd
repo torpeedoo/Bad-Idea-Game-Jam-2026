@@ -15,6 +15,7 @@ class_name RadioManager
 @export var stations: Array[Station] = []
 @export_range(88.0, 106.0, 0.2) var frequency
 @export var am_fm: Station.AM_FM = Station.AM_FM.FM
+@export var madness_add_cooldown: float = 0.2
 
 var current_station: Array = []
 var meter_target_position: Vector2

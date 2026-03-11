@@ -159,6 +159,7 @@ scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_7q2tj")
 
 [node name="Record_area" type="Area2D" parent="Buttons/RecordButton" unique_id=2083468962]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/RecordButton/Record_area" unique_id=1449984954]
 position = Vector2(-46.5, -25)
@@ -167,6 +168,7 @@ shape = SubResource("RectangleShape2D_q7qxf")
 [node name="EjectButton" type="Node2D" parent="Buttons" unique_id=1222913403]
 
 [node name="Area2D" type="Area2D" parent="Buttons/EjectButton" unique_id=1245138518]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/EjectButton/Area2D" unique_id=783130940]
 position = Vector2(27, -25)
