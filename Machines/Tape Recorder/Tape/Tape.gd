@@ -15,7 +15,7 @@ func _ready():
 	in_recorder_area.connect(drag_ended_recorder)
 	started_drag.connect(show_shadow)
 	ended_drag.connect(hide_shadow)
-	freq_label.text = ""
+	freq_label.text = "Blank Tape"
 	super._ready()
 
 func show_shadow():

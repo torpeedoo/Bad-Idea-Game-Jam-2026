@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://5snsxw8hym1e"]
+
+[ext_resource type="Texture2D" uid="uid://cgvk1lrpo3dby" path="res://Machines/Phone/Art/PhoneSheet.png" id="1_bhhm4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4swo5"]
+atlas = ExtResource("1_bhhm4")
+region = Rect2(8.011475, 26.999998, 262.19104, 685.5942)
+
+[node name="PhoneMenu" type="Control" unique_id=1002822493]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1208028544]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.1882353)
+
+[node name="PhoneBG" type="Sprite2D" parent="." unique_id=1659339441]
+texture_filter = 1
+position = Vector2(1439, 528.99994)
+scale = Vector2(1.525, 1.525)
+texture = SubResource("AtlasTexture_4swo5")

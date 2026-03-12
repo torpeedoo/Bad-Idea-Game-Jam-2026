@@ -10,20 +10,24 @@ class_name RadioManager
 @export var meter_start_marker: Marker2D
 @export var meter_end_marker: Marker2D
 @export var recorder: Node
+@export var level_manager: LevelManager
+@export var madness_timer: Timer
 
 @export_category("Params")
 @export var stations: Array[Station] = []
 @export_range(88.0, 106.0, 0.2) var frequency
 @export var am_fm: Station.AM_FM = Station.AM_FM.FM
 @export var madness_add_cooldown: float = 0.2
+@export var madness_add_amt: float = 0.1
 
-var current_station: Array = []
+var current_station: Station
 var meter_target_position: Vector2
 var am_bounds: Array = [0, 18]
 var fm_bounds: Array = [80, 110]
 var station_audiostreams: Array[AudioStreamPlayer] = []
 
 func _ready():
+	_init_madness_timer()
 	if meter_marker and meter_start_marker:
 		meter_marker.position = meter_start_marker.position
 	if tune_dial:
@@ -78,7 +82,7 @@ func _fade_stations():
 		
 		if strongest_signal == strength:
 			if recorder: recorder.set_current_station(station, strength)
-		
+			current_station = station
 		if strength > 0.001:
 			player.volume_db = linear_to_db(strength)
 		else:
@@ -142,6 +146,17 @@ func _update_freq():
 	_update_display()
 	_update_meter()
 	_fade_stations()
+
+func _init_madness_timer():
+	if !madness_timer: return
+	
+	madness_timer.wait_time = madness_add_cooldown
+	madness_timer.timeout.connect(_madness_timer_timeout)
+	madness_timer.start()
+
+func _madness_timer_timeout():
+	if current_station in level_manager.get_anomaly_stations():
+		level_manager.add_madness(madness_add_amt)
 
 func get_current_station():
 	return current_station

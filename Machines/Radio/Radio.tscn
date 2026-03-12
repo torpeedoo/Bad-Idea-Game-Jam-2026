@@ -47,7 +47,7 @@ size = Vector2(27, 73)
 atlas = ExtResource("3_ecaeb")
 region = Rect2(399.81818, 224, 29.090912, 137.2727)
 
-[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker")]
+[node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker", "madness_timer")]
 script = ExtResource("1_2o24j")
 tune_dial = NodePath("tune_dial")
 freq_display = NodePath("Label")
@@ -56,6 +56,7 @@ am_fm_switch = NodePath("Switch")
 meter_marker = NodePath("Frequency Meter/meter_marker")
 meter_start_marker = NodePath("Frequency Meter/meter_start")
 meter_end_marker = NodePath("Frequency Meter/meter_end")
+madness_timer = NodePath("MadnessTimer")
 
 [node name="BaseSprites" type="Node2D" parent="." unique_id=1965795898]
 

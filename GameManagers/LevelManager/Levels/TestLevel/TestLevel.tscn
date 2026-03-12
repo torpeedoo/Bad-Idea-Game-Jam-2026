@@ -86,10 +86,11 @@ texture = ExtResource("6_b8y26")
 
 [node name="Interactables" type="Node2D" parent="." unique_id=241100467]
 
-[node name="radio" parent="Interactables" unique_id=909828567 node_paths=PackedStringArray("recorder") instance=ExtResource("7_b8y26")]
+[node name="radio" parent="Interactables" unique_id=909828567 node_paths=PackedStringArray("recorder", "level_manager") instance=ExtResource("7_b8y26")]
 position = Vector2(586, 864)
 scale = Vector2(1.5, 1.5)
 recorder = NodePath("../TapeRecorder")
+level_manager = NodePath("../..")
 
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 instance=ExtResource("8_sxjui")]
 position = Vector2(169, 687)
