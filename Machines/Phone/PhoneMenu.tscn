@@ -1,10 +1,18 @@
 [gd_scene format=3 uid="uid://5snsxw8hym1e"]
 
-[ext_resource type="Texture2D" uid="uid://cgvk1lrpo3dby" path="res://Machines/Phone/Art/PhoneSheet.png" id="1_bhhm4"]
+[ext_resource type="Texture2D" uid="uid://cwpm1ulk31pth" path="res://Machines/Phone/Art/BPhoneSheet.png" id="1_bhhm4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4swo5"]
 atlas = ExtResource("1_bhhm4")
-region = Rect2(8.011475, 26.999998, 262.19104, 685.5942)
+region = Rect2(39.965088, 0, 336.54346, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhhm4"]
+atlas = ExtResource("1_bhhm4")
+region = Rect2(398, 392.8, 201.29999, 166.10004)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4qf8"]
+atlas = ExtResource("1_bhhm4")
+region = Rect2(384.30002, 597.1, 232.1, 392.70007)
 
 [node name="PhoneMenu" type="Control" unique_id=1002822493]
 layout_mode = 3
@@ -14,8 +22,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1208028544]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=134422561]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1208028544]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,8 +32,20 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0.1882353)
 
-[node name="PhoneBG" type="Sprite2D" parent="." unique_id=1659339441]
+[node name="PhoneBG" type="Sprite2D" parent="CanvasLayer" unique_id=1659339441]
 texture_filter = 1
 position = Vector2(1439, 528.99994)
 scale = Vector2(1.525, 1.525)
 texture = SubResource("AtlasTexture_4swo5")
+
+[node name="PhoneScreen" type="Sprite2D" parent="CanvasLayer" unique_id=199535106]
+texture_filter = 1
+position = Vector2(1446, 383.99997)
+scale = Vector2(1.525, 1.525)
+texture = SubResource("AtlasTexture_bhhm4")
+
+[node name="PhoneScreen2" type="Sprite2D" parent="CanvasLayer" unique_id=1997519951]
+texture_filter = 1
+position = Vector2(1448, 853.00006)
+scale = Vector2(1.525, 1.525)
+texture = SubResource("AtlasTexture_n4qf8")

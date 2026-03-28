@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://ctku2sxo4dtel"]
+
+[ext_resource type="AudioStream" uid="uid://dl7e1rpllq4ir" path="res://Music/Sfx/TTS/Archers on different watchtowers shooting each other. Shooting each other. (D.R.O.C).wav" id="1_j6g2s"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_wxooh"]
+
+[resource]
+script = ExtResource("2_wxooh")
+anomaly_audiostream = ExtResource("1_j6g2s")
+is_anomaly = true
+song_name = "GFY^^$#"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

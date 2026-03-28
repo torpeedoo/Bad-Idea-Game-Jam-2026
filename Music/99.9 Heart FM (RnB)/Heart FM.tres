@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://bg8q7gqwadwpf"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_qecnv"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_tb3s4"]
+[ext_resource type="Resource" uid="uid://bvbvt0fgagot" path="res://Music/99.9 Heart FM (RnB)/distance.tres" id="3_vxnis"]
+[ext_resource type="Resource" uid="uid://gdwqlxn80wta" path="res://Music/99.9 Heart FM (RnB)/My love.tres" id="4_t4gfj"]
+
+[resource]
+script = ExtResource("1_qecnv")
+station_name = "Heart FM"
+station_freq = 99.9
+song_list = Array[ExtResource("2_tb3s4")]([ExtResource("3_vxnis"), ExtResource("4_t4gfj")])
+random_anomalies = true
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

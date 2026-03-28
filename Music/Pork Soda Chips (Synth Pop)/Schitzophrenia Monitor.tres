@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bxbh4xbutij3n"]
+
+[ext_resource type="AudioStream" uid="uid://bg0dk6n3x0vo6" path="res://Music/Pork Soda Chips (Synth Pop)/Schitzophrenia Monitor (Regular).mp3" id="1_f6hgr"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_7h1vh"]
+
+[resource]
+script = ExtResource("2_7h1vh")
+normal_audiostream = ExtResource("1_f6hgr")
+song_name = "Schitzophrenia Monitor"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

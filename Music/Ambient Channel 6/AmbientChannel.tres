@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://cmehx2xs2sr8c"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_fo7x7"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_hgjuo"]
+[ext_resource type="Resource" uid="uid://2l03l2qfahf7" path="res://Music/Ambient Channel 6/BillsKitchen.tres" id="3_3ap6x"]
+[ext_resource type="Resource" uid="uid://ca0l1cu04cfll" path="res://Music/Ambient Channel 6/ClosetSpace.tres" id="4_8dmol"]
+
+[resource]
+script = ExtResource("1_fo7x7")
+station_name = "Ambient Channel 6"
+station_freq = 89.1
+song_list = Array[ExtResource("2_hgjuo")]([ExtResource("3_3ap6x"), ExtResource("4_8dmol")])
+random_anomalies = true
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

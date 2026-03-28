@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djo3bgwd33s7t"
+path="res://.godot/imported/Haiku for a Green Monk (Altered + Radio).mp3-89173494fde701df7b8473c98b4c61aa.mp3str"
+
+[deps]
+
+source_file="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk (Altered + Radio).mp3"
+dest_files=["res://.godot/imported/Haiku for a Green Monk (Altered + Radio).mp3-89173494fde701df7b8473c98b4c61aa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

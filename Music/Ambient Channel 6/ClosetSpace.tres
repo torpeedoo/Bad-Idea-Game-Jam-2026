@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://ca0l1cu04cfll"]
+
+[ext_resource type="AudioStream" uid="uid://dchykb4s625mj" path="res://Music/Ambient Channel 6/Closet Space (Altered Version 1 + Radio).mp3" id="1_tsawk"]
+[ext_resource type="AudioStream" uid="uid://bad4mctevadv7" path="res://Music/Ambient Channel 6/Closet Space (Radio).mp3" id="2_t3f6l"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="3_j26hq"]
+
+[resource]
+script = ExtResource("3_j26hq")
+normal_audiostream = ExtResource("2_t3f6l")
+anomaly_audiostream = ExtResource("1_tsawk")
+song_name = "Closet Space"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

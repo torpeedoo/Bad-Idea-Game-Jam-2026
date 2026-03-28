@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://gdwqlxn80wta"]
+
+[ext_resource type="AudioStream" uid="uid://pve76rxj8hs" path="res://Music/99.9 Heart FM (RnB)/My Love, My Love (Altered + Radio).mp3" id="1_2mnwe"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_2mnwe"]
+[ext_resource type="AudioStream" uid="uid://c66wekau6r1d4" path="res://Music/99.9 Heart FM (RnB)/My Love, My Love (Radio).mp3" id="2_hj6vs"]
+
+[resource]
+script = ExtResource("2_2mnwe")
+normal_audiostream = ExtResource("2_hj6vs")
+anomaly_audiostream = ExtResource("1_2mnwe")
+song_name = "My love, My love"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

@@ -22,6 +22,29 @@ region = Rect2(1976.9999, 195.18187, 460.9093, 47.272736)
 atlas = ExtResource("2_ri8ik")
 region = Rect2(2002.0001, 100.00004, 417.00012, 91.00002)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri8ik"]
+bg_color = Color(0.21960784, 0.30588236, 0.26666668, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4rckl"]
+bg_color = Color(0.43137255, 0.59607846, 0.5254902, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beb2r"]
 size = Vector2(130, 82)
 
@@ -59,7 +82,7 @@ region = Rect2(2831.85, 104.62764, 68.86597, 81.708786)
 atlas = ExtResource("2_ri8ik")
 region = Rect2(2296.9004, 595.9001, 145.19995, 180.40009)
 
-[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio", "record_timer", "tape_bay_open_empty", "tape_bay_open_full")]
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio", "record_timer", "tape_bay_open_empty", "tape_bay_open_full", "record_bar")]
 script = ExtResource("1_beb2r")
 recorder_buttons = NodePath("Buttons")
 empty_bay_sprite = NodePath("TapeInput/EmptyClosed")
@@ -69,7 +92,10 @@ tape_enter_audio = NodePath("Audio/TapeEnter")
 record_timer = NodePath("RecordTimer")
 tape_bay_open_empty = NodePath("TapeInput/EmptyOpen")
 tape_bay_open_full = NodePath("TapeInput/LoadedOpen")
-record_length = 3.0
+record_bar = NodePath("BG/ProgressBar")
+record_length = 6.0
+shake_strength = 1.5
+shake_speed = 50.0
 
 [node name="BG" type="Node2D" parent="." unique_id=796875959]
 
@@ -96,6 +122,17 @@ texture_filter = 1
 position = Vector2(0, -25)
 scale = Vector2(0.275, 0.275)
 texture = SubResource("AtlasTexture_beb2r")
+
+[node name="ProgressBar" type="ProgressBar" parent="BG" unique_id=1271671054]
+texture_filter = 1
+offset_left = 69.0
+offset_top = -36.0
+offset_right = 73.0
+offset_bottom = 153.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ri8ik")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4rckl")
+fill_mode = 3
+show_percentage = false
 
 [node name="TapeInput" type="Node2D" parent="." unique_id=283723973]
 position = Vector2(-11, 28)
@@ -148,6 +185,7 @@ eject_button_down_sprite = NodePath("EjectButton/Sprite2D")
 [node name="recordClick" type="AudioStreamPlayer" parent="Buttons" unique_id=269558225]
 stream = ExtResource("4_q7qxf")
 volume_db = -9.23
+bus = &"SFX"
 
 [node name="RecordButton" type="Node2D" parent="Buttons" unique_id=1142527272]
 
@@ -186,6 +224,7 @@ texture = SubResource("AtlasTexture_82ad8")
 [node name="TapeEnter" type="AudioStreamPlayer" parent="Audio" unique_id=792896410]
 stream = ExtResource("5_ri8ik")
 volume_db = -6.77
+bus = &"SFX"
 
 [node name="Dial" type="Node2D" parent="." unique_id=1661047764]
 

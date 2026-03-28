@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://dhh5xwwaospsq"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_itxh8"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_4o7t3"]
+[ext_resource type="Resource" uid="uid://dlfk0llevp3n0" path="res://Music/Pork Soda Chips (Synth Pop)/Paris Bacon.tres" id="3_3unup"]
+[ext_resource type="Resource" uid="uid://bxbh4xbutij3n" path="res://Music/Pork Soda Chips (Synth Pop)/Schitzophrenia Monitor.tres" id="4_cflxi"]
+[ext_resource type="Resource" uid="uid://cjl6v5btpr5kp" path="res://Music/Pork Soda Chips (Synth Pop)/Tobias.tres" id="5_2p17d"]
+
+[resource]
+script = ExtResource("1_itxh8")
+station_name = "Pork Soda Chips"
+song_list = Array[ExtResource("2_4o7t3")]([ExtResource("3_3unup"), ExtResource("4_cflxi"), ExtResource("5_2p17d")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

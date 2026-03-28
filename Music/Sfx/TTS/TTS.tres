@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://b06v0coec6tfi"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_88vxx"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_v4lse"]
+[ext_resource type="Resource" uid="uid://ctku2sxo4dtel" path="res://Music/Sfx/TTS/SongRes/archers.tres" id="3_0ib8p"]
+[ext_resource type="Resource" uid="uid://diisewv16jr5p" path="res://Music/Sfx/TTS/SongRes/puppet.tres" id="4_fexkf"]
+[ext_resource type="Resource" uid="uid://dwn3j7hhgsot7" path="res://Music/Sfx/TTS/SongRes/lied.tres" id="5_i4oxl"]
+[ext_resource type="Resource" uid="uid://cgc33mtei48bl" path="res://Music/Sfx/TTS/SongRes/bodies.tres" id="6_woyxl"]
+[ext_resource type="Resource" uid="uid://dwe8ah7cwhgvx" path="res://Music/Sfx/TTS/SongRes/nation.tres" id="7_wg0qf"]
+[ext_resource type="Resource" uid="uid://bpih1imudft3d" path="res://Music/Sfx/TTS/SongRes/trains.tres" id="8_qiysu"]
+
+[resource]
+script = ExtResource("1_88vxx")
+station_name = "GD@FGH"
+station_freq = 89.2
+song_list = Array[ExtResource("2_v4lse")]([ExtResource("3_0ib8p"), ExtResource("4_fexkf"), ExtResource("5_i4oxl"), ExtResource("6_woyxl"), ExtResource("7_wg0qf"), ExtResource("8_qiysu")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

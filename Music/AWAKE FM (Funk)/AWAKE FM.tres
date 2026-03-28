@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://cvyqoyok62d1"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_2luud"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_n3me1"]
+[ext_resource type="Resource" uid="uid://pe5apx4datva" path="res://Music/AWAKE FM (Funk)/All Out Of Coal.tres" id="3_aqw2r"]
+[ext_resource type="Resource" uid="uid://ct0os04xdwsuv" path="res://Music/AWAKE FM (Funk)/Clarion - Utopia Quartet.tres" id="4_0545k"]
+[ext_resource type="Resource" uid="uid://di4hrh0kcbfdv" path="res://Music/AWAKE FM (Funk)/She's Got A.tres" id="5_gi6nr"]
+
+[resource]
+script = ExtResource("1_2luud")
+station_name = "AWAKE FM"
+station_freq = 101.3
+song_list = Array[ExtResource("2_n3me1")]([ExtResource("3_aqw2r"), ExtResource("4_0545k"), ExtResource("5_gi6nr")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

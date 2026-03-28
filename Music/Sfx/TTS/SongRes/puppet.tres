@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://diisewv16jr5p"]
+
+[ext_resource type="AudioStream" uid="uid://b531uhksy533l" path="res://Music/Sfx/TTS/A puppet controlling a puppet controlling a puppet controlling a puppet controlling a puppet controlling a village (D.R.O.C).wav" id="1_dw0wm"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_cn3qx"]
+
+[resource]
+script = ExtResource("2_cn3qx")
+anomaly_audiostream = ExtResource("1_dw0wm")
+is_anomaly = true
+song_name = "GSDFDS>D@"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

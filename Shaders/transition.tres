@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bqqplvk7kige7"]
+
+[ext_resource type="Shader" uid="uid://bab48mcfy7uk4" path="res://GameManagers/TextBox/dithershadow.gdshader" id="1_f3ayh"]
+
+[resource]
+shader = ExtResource("1_f3ayh")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.45
+shader_parameter/pixel_size = 17.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.14700009872262
+shader_parameter/color = Color(0, 0, 0, 1)

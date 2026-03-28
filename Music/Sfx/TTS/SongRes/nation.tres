@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dwe8ah7cwhgvx"]
+
+[ext_resource type="AudioStream" uid="uid://rvo0s057n5q5" path="res://Music/Sfx/TTS/This nation will float between two pulling forces like leaves in a river. And I shall control the flouw of it. (D.R.O.C).wav" id="1_veg25"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_n7dol"]
+
+[resource]
+script = ExtResource("2_n7dol")
+anomaly_audiostream = ExtResource("1_veg25")
+is_anomaly = true
+song_name = "GSDFDS>D@"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

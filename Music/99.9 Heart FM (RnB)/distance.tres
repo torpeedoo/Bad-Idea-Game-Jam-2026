@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bvbvt0fgagot"]
+
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_1urer"]
+[ext_resource type="AudioStream" uid="uid://iw5vpondctyc" path="res://Music/99.9 Heart FM (RnB)/Distance (Regular).mp3" id="1_twcm0"]
+
+[resource]
+script = ExtResource("1_1urer")
+normal_audiostream = ExtResource("1_twcm0")
+song_name = "Distance"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

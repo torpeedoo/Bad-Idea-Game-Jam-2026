@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bd8ttqp1vhoik"
+path="res://.godot/imported/Haiku for a Green Monk (Regular).mp3-4af2f621a7bcd578e64d171c32c144e0.mp3str"
+
+[deps]
+
+source_file="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk (Regular).mp3"
+dest_files=["res://.godot/imported/Haiku for a Green Monk (Regular).mp3-4af2f621a7bcd578e64d171c32c144e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

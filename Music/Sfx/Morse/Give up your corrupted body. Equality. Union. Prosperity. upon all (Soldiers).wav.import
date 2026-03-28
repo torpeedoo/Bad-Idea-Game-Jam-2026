@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8xnbiooup25j"
+path="res://.godot/imported/Give up your corrupted body. Equality. Union. Prosperity. upon all (Soldiers).wav-8cf6a7a59c4efd57bd853dbb4add5016.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/Morse/Give up your corrupted body. Equality. Union. Prosperity. upon all (Soldiers).wav"
+dest_files=["res://.godot/imported/Give up your corrupted body. Equality. Union. Prosperity. upon all (Soldiers).wav-8cf6a7a59c4efd57bd853dbb4add5016.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

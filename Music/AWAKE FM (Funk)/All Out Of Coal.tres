@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://pe5apx4datva"]
+
+[ext_resource type="AudioStream" uid="uid://nntniairjrms" path="res://Music/AWAKE FM (Funk)/All Out of Coal (Regular).mp3" id="1_2dleg"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_iicxk"]
+
+[resource]
+script = ExtResource("1_iicxk")
+normal_audiostream = ExtResource("1_2dleg")
+song_name = "All Out Of Coal"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

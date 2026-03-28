@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://736opr657xa5"
+path="res://.godot/imported/My love, My love (Regular).mp3-57e5062f03056af7a781880dd179863a.mp3str"
+
+[deps]
+
+source_file="res://Music/99.9 Heart FM (RnB)/My love, My love (Regular).mp3"
+dest_files=["res://.godot/imported/My love, My love (Regular).mp3-57e5062f03056af7a781880dd179863a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

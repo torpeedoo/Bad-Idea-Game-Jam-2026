@@ -886,6 +886,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("9_biv2k")
 
 [node name="VHS" type="ColorRect" parent="Screen" unique_id=1855893277]
+visible = false
 z_index = -1
 material = SubResource("ShaderMaterial_3iypp")
 offset_left = -145.0
@@ -899,14 +900,17 @@ scale = Vector2(7.1916127, 4.5202713)
 [node name="TapeEnter" type="AudioStreamPlayer" parent="Audio" unique_id=2037779664]
 stream = ExtResource("183_17wb3")
 volume_db = -6.77
+bus = &"SFX"
 
 [node name="Success" type="AudioStreamPlayer" parent="Audio" unique_id=423179527]
 stream = ExtResource("184_78aow")
 volume_db = -28.964
+bus = &"SFX"
 
 [node name="Fail" type="AudioStreamPlayer" parent="Audio" unique_id=403907567]
 stream = ExtResource("185_gck4s")
 volume_db = -23.191
+bus = &"SFX"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1161390235]
 

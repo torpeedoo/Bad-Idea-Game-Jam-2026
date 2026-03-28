@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bq73obouf2of3"]
+
+[ext_resource type="AudioStream" uid="uid://c8xnbiooup25j" path="res://Music/Sfx/Morse/Give up your corrupted body. Equality. Union. Prosperity. upon all (Soldiers).wav" id="1_qxx1s"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_f72q0"]
+
+[resource]
+script = ExtResource("2_f72q0")
+anomaly_audiostream = ExtResource("1_qxx1s")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

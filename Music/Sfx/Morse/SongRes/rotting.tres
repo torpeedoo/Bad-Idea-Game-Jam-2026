@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dqokuc6vw4uc1"]
+
+[ext_resource type="AudioStream" uid="uid://dojp553h2cc7i" path="res://Music/Sfx/Morse/Rotting on the land of warmongers. We pity you (Soldiers).wav" id="1_q2sqt"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_r8j1c"]
+
+[resource]
+script = ExtResource("1_r8j1c")
+anomaly_audiostream = ExtResource("1_q2sqt")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

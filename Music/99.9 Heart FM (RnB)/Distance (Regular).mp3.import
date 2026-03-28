@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iw5vpondctyc"
+path="res://.godot/imported/Distance (Regular).mp3-6bd7335c2d1e22bfefecdf4875c5f06a.mp3str"
+
+[deps]
+
+source_file="res://Music/99.9 Heart FM (RnB)/Distance (Regular).mp3"
+dest_files=["res://.godot/imported/Distance (Regular).mp3-6bd7335c2d1e22bfefecdf4875c5f06a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

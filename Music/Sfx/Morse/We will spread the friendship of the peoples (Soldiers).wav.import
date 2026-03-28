@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bjtl6b3b31re7"
+path="res://.godot/imported/We will spread the friendship of the peoples (Soldiers).wav-ec89943526996feb389d4937304fb6b8.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/Morse/We will spread the friendship of the peoples (Soldiers).wav"
+dest_files=["res://.godot/imported/We will spread the friendship of the peoples (Soldiers).wav-ec89943526996feb389d4937304fb6b8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

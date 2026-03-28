@@ -18,7 +18,6 @@ class_name RadioManager
 @export_range(88.0, 106.0, 0.2) var frequency
 @export var am_fm: Station.AM_FM = Station.AM_FM.FM
 @export var madness_add_cooldown: float = 0.2
-@export var madness_add_amt: float = 0.1
 
 var current_station: Station
 var meter_target_position: Vector2
@@ -37,6 +36,9 @@ func _ready():
 		am_fm_switch.clicked.connect(_am_fm_change)
 
 func _process(delta):
+	if static_audio and !static_audio.playing:
+		static_audio.play()
+	
 	if meter_marker and meter_target_position:
 		meter_marker.position = meter_marker.position.lerp(
 			meter_target_position,
@@ -57,53 +59,66 @@ func _update_meter():
 
 func _fade_stations():
 	var strongest_signal := 0.0
-	
+	var best_station : Station = null
+
 	if station_audiostreams.size() == 0:
 		return
-	
+
 	for i in range(stations.size()):
-		var station = stations[i]
-		
-		if am_fm != station.am_fm or !station.broadcasting:
-			
-			if station_audiostreams.size() > i:
-				station_audiostreams[i].volume_db = -80
-			
+		if i >= station_audiostreams.size():
 			continue
-		
+
+		var station = stations[i]
 		var player = station_audiostreams[i]
-		
+
+		# Skip invalid stations
+		if am_fm != station.am_fm or !station.broadcasting:
+			player.volume_db = -80
+			continue
+
 		var distance = abs(frequency - station.station_freq)
 		var strength = clamp(1.0 - (distance / station.bandwith), 0.0, 1.0)
-		
-		strength = strength * strength
-		
-		strongest_signal = max(strongest_signal, strength)
-		
-		if strongest_signal == strength:
-			if recorder: recorder.set_current_station(station, strength)
-			current_station = station
+		strength *= strength
+
+		if strength > strongest_signal:
+			strongest_signal = strength
+			best_station = station
+
 		if strength > 0.001:
 			player.volume_db = linear_to_db(strength)
 		else:
 			player.volume_db = -80.0
-		
-	
-	# Static gets louder when no station is strong
+
+	if strongest_signal < 0.01:
+		current_station = null
+		if recorder:
+			recorder.set_current_station(null, 0.0)
+	else:
+		current_station = best_station
+		if recorder:
+			recorder.set_current_station(best_station, strongest_signal)
+
 	if static_audio:
 		var static_strength = clamp(1.0 - strongest_signal, 0.0, 1.0)
-		
+		var min_db = -15.0
+
 		if static_strength > 0.001:
-			static_audio.volume_db = linear_to_db(static_strength)
+			static_audio.volume_db = max(linear_to_db(static_strength), min_db)
 		else:
-			static_audio.volume_db = -80.0
+			static_audio.volume_db = min_db
 
 func _update_audiostreams():
 	if !station_audiostreams: return
 	var index := 0
 	
 	for stream in station_audiostreams:
-		stream.stream = stations.get(index).current_song
+		var station = stations.get(index)
+		print("called")
+		
+		if station.current_song:
+			station.broadcasting = true
+			stream.stream = station.current_song.audiostream
+			stream.play()
 		index += 1
 
 func _load_stations():
@@ -113,10 +128,11 @@ func _load_stations():
 		var temp_station = AudioStreamPlayer.new()
 		
 		if !_station.current_song: return
-
+		
 		temp_station.name = _station.station_name + "_audiostream"
-		temp_station.stream = _station.current_song
-		temp_station.stream.loop = true
+		temp_station.stream = _station.current_song.audiostream
+		if temp_station.stream is not AudioStreamWAV: 
+			temp_station.stream.loop = true
 		temp_station.volume_db = -80
 		temp_station.bus = "Radio"
 		add_child(temp_station)
@@ -132,6 +148,11 @@ func _am_fm_change():
 	elif am_fm_switch.switch_state == false:
 		am_fm = Station.AM_FM.FM
 	
+	# Clear current station so old band can't be recorded
+	current_station = null
+	if recorder:
+		recorder.set_current_station(null, 0.0)
+
 	if am_fm == Station.AM_FM.FM:
 		tune_dial.min_val = fm_bounds[0]
 		tune_dial.max_val = fm_bounds[1]
@@ -155,8 +176,11 @@ func _init_madness_timer():
 	madness_timer.start()
 
 func _madness_timer_timeout():
-	if current_station in level_manager.get_anomaly_stations():
-		level_manager.add_madness(madness_add_amt)
+	if !current_station: return
+	if !current_station.current_song: return
+	
+	if current_station.current_song.is_anomaly and current_station.am_fm == am_fm:
+		level_manager.add_madness()
 
 func get_current_station():
 	return current_station

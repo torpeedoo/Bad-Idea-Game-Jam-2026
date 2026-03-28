@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3ba8hhs1dba3"
+path="res://.godot/imported/There were so many holes in the trains. (D.R.O.C).wav-3a8a306a075e5c9bd13d717398e62947.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/TTS/There were so many holes in the trains. (D.R.O.C).wav"
+dest_files=["res://.godot/imported/There were so many holes in the trains. (D.R.O.C).wav-3a8a306a075e5c9bd13d717398e62947.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

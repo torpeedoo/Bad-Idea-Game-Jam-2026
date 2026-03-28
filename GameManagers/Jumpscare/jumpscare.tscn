@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://b2en160274bqy"]
+
+[ext_resource type="Script" uid="uid://4hwbvpdqa5iw" path="res://GameManagers/Jumpscare/Jumpscare.gd" id="1_5nmh0"]
+[ext_resource type="Texture2D" uid="uid://r0jjxiqwybcv" path="res://Art/Hallucinations/scary face.png" id="1_yemrw"]
+[ext_resource type="AudioStream" uid="uid://cdv04whe0knvp" path="res://Music/Sfx/other/Stinger.mp3" id="2_5nmh0"]
+[ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="2_88422"]
+[ext_resource type="Shader" uid="uid://bab48mcfy7uk4" path="res://GameManagers/TextBox/dithershadow.gdshader" id="2_jtopq"]
+[ext_resource type="AudioStream" uid="uid://bc2qoj1tqe1va" path="res://Music/Sfx/other/Ghost_scream.mp3" id="3_88422"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_or6yt"]
+shader = ExtResource("2_jtopq")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.670000031825
+shader_parameter/pixel_size = 8.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = true
+shader_parameter/falloff = 2.5
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jtopq"]
+shader = ExtResource("2_88422")
+shader_parameter/jitter_strength = 20.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 2.5270001200325
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = false
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 1.0
+shader_parameter/enable_pixelation = false
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="Animation" id="Animation_5nmh0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 1080)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.605, 0.605)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.670000031825]
+}
+
+[sub_resource type="Animation" id="Animation_88422"]
+resource_name = "Scare"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(2.4622936, 5.0982456),
+"update": 0,
+"values": [Vector2(0, 1080), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.40612632, 1),
+"update": 0,
+"values": [Vector2(0.605, 0.605), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/radius")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 0.39229217),
+"update": 0,
+"values": [2.000000095, 0.400000019]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jtopq"]
+_data = {
+&"RESET": SubResource("Animation_5nmh0"),
+&"Scare": SubResource("Animation_88422")
+}
+
+[node name="Jumpscare" type="Node2D" unique_id=513251383 node_paths=PackedStringArray("scare_img", "dither_img", "anim_player", "stinger_audio", "scream_audio", "scare_on_screen_timer")]
+script = ExtResource("1_5nmh0")
+scare_img = NodePath("CanvasLayer/TextureRect")
+dither_img = NodePath("CanvasLayer/ColorRect")
+anim_player = NodePath("AnimationPlayer")
+stinger_audio = NodePath("Stinger")
+scream_audio = NodePath("Scream")
+scare_on_screen_timer = NodePath("Timer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1499600223]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1185415653]
+material = SubResource("ShaderMaterial_or6yt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=864575069]
+texture_filter = 1
+material = SubResource("ShaderMaterial_jtopq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1080.0
+offset_bottom = 1080.0002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.605, 0.605)
+texture = ExtResource("1_yemrw")
+
+[node name="Stinger" type="AudioStreamPlayer" parent="." unique_id=559032397]
+stream = ExtResource("2_5nmh0")
+volume_db = -10.035
+bus = &"SFX"
+
+[node name="Scream" type="AudioStreamPlayer" parent="." unique_id=1266130905]
+stream = ExtResource("3_88422")
+volume_db = -10.035
+bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="." unique_id=1640962941]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=955350555]
+libraries/ = SubResource("AnimationLibrary_jtopq")

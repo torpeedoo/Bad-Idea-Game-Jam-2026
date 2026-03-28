@@ -50,17 +50,20 @@ func anim_over():
 	start_next_anim()
 
 func analyze_tape(tape: Tape):
-	var tape_station = tape.recorded_station
-	
 	play_anim("Analyzing")
-
-	if tape_station in level_manager.get_anomaly_stations():
+	
+	if tape.is_song_anomaly() and tape.recorded_song not in level_manager.anomalies_recorded:
+		level_manager.anomaly_submitted.emit()
 		play_anim("Success")
+		level_manager.anomalies_recorded.append(tape.recorded_song)
+		add_anomaly_success()
 	else:
 		play_anim("Fail")
+		
+	enabled = true
 
-func add_anomaly_success(): #add to levels successful anomalies detected
-	pass
+func add_anomaly_success():
+	level_manager.anomalies_found += 1
 
 func _delete_tape():
 	item_stored.queue_free()

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bad4mctevadv7"
+path="res://.godot/imported/Closet Space (Radio).mp3-539d15cc91e18480388006f6ff209a44.mp3str"
+
+[deps]
+
+source_file="res://Music/Ambient Channel 6/Closet Space (Radio).mp3"
+dest_files=["res://.godot/imported/Closet Space (Radio).mp3-539d15cc91e18480388006f6ff209a44.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

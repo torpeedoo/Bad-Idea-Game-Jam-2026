@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://di2eoglx7o3j6"
+path="res://.godot/imported/Pinnochio_s Love Story (Regular).mp3-36f2bbdbcdbe74bc1473923a4e018494.mp3str"
+
+[deps]
+
+source_file="res://Music/Lush (Jazz Ballads)/Pinnochio_s Love Story (Regular).mp3"
+dest_files=["res://.godot/imported/Pinnochio_s Love Story (Regular).mp3-36f2bbdbcdbe74bc1473923a4e018494.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

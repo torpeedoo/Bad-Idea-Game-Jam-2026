@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://ct0os04xdwsuv"]
+
+[ext_resource type="AudioStream" uid="uid://cf0q3voouls3k" path="res://Music/AWAKE FM (Funk)/Clarion - Utopia Quartet (Regular).mp3" id="1_47jew"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_d581v"]
+
+[resource]
+script = ExtResource("1_d581v")
+normal_audiostream = ExtResource("1_47jew")
+song_name = "Clarion - Utopia Quartet"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

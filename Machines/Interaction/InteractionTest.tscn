@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="4_i2t0e"]
 [ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="5_cxftv"]
-[ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Tape Recorder/Tape/Tape.tscn" id="6_cxftv"]
+[ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Items/Tape/Tape.tscn" id="6_cxftv"]
 [ext_resource type="AudioStream" uid="uid://ca33qi606c2oh" path="res://Machines/Radio/Stations/test stations/morse/Loop-able Morse Code.mp3" id="6_n8s42"]
 [ext_resource type="Resource" uid="uid://d2p8hbo5a1uyv" path="res://Machines/Radio/Stations/test stations/music1/music1.tres" id="7_6u05i"]
 [ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="7_n8s42"]

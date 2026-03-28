@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://cgc33mtei48bl"]
+
+[ext_resource type="AudioStream" uid="uid://bvjg7lq70jcue" path="res://Music/Sfx/TTS/So many bodies. So many bodies on the train. (D.R.O.C).wav" id="1_i0uig"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_jg65h"]
+
+[resource]
+script = ExtResource("2_jg65h")
+anomaly_audiostream = ExtResource("1_i0uig")
+is_anomaly = true
+song_name = "GSDFDS>D@"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

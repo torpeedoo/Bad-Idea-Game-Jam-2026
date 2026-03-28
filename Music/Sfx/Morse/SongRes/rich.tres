@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://b8fn02soxg5v"]
+
+[ext_resource type="AudioStream" uid="uid://dbcs8n242ofm1" path="res://Music/Sfx/Morse/Let us bring in a rich harvest of new territory! (Soldiers).wav" id="1_okar8"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_5mm7p"]
+
+[resource]
+script = ExtResource("2_5mm7p")
+anomaly_audiostream = ExtResource("1_okar8")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

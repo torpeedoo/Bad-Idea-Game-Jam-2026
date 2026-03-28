@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cjk3pasu10f0w"]
+
+[ext_resource type="Shader" uid="uid://c6ohm20v6lnne" path="res://Shaders/Shadow.gdshader" id="1_osji6"]
+
+[resource]
+shader = ExtResource("1_osji6")
+shader_parameter/dist = 22
+shader_parameter/color = Color(0, 0, 0, 0.5)
+shader_parameter/angle = 90.0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://di4hrh0kcbfdv"]
+
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_1brrw"]
+[ext_resource type="AudioStream" uid="uid://smdfd18q2qw" path="res://Music/AWAKE FM (Funk)/She_s Got A...(Regular).mp3" id="1_2tiem"]
+
+[resource]
+script = ExtResource("1_1brrw")
+normal_audiostream = ExtResource("1_2tiem")
+song_name = "She's Got A"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

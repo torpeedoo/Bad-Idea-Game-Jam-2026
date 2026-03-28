@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dojp553h2cc7i"
+path="res://.godot/imported/Rotting on the land of warmongers. We pity you (Soldiers).wav-906783da6b16bbb87dd0a5d9122dd2f3.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/Morse/Rotting on the land of warmongers. We pity you (Soldiers).wav"
+dest_files=["res://.godot/imported/Rotting on the land of warmongers. We pity you (Soldiers).wav-906783da6b16bbb87dd0a5d9122dd2f3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

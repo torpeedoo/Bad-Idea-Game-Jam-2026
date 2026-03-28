@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bejtmxeodt37e"]
+
+[ext_resource type="Script" uid="uid://dd08f0i02qarb" path="res://Inventory/InventoryUI/inventory_ui.gd" id="1_wmge2"]
+[ext_resource type="Texture2D" uid="uid://ddjl2n43dhtck" path="res://Art/Briefcase.png" id="2_2er8r"]
+[ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="2_ycqbt"]
+[ext_resource type="Material" uid="uid://cjk3pasu10f0w" path="res://Shaders/shadow.tres" id="3_2er8r"]
+[ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="4_4ec86"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjpxo"]
+atlas = ExtResource("2_2er8r")
+region = Rect2(452.48996, 800.02997, 346.05997, 90.75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ec86"]
+atlas = ExtResource("2_2er8r")
+region = Rect2(43.419434, 34.61331, 1178.9741, 761.6173)
+
+[node name="InventoryUI" type="Control" unique_id=1928290319 node_paths=PackedStringArray("open_button", "close_button", "inventory_base", "interaction_audio", "inv_slots")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_wmge2")
+open_button = NodePath("MiddleTop/OpenButton/open_button")
+close_button = NodePath("MiddleTop/InvUI/CloseButton")
+inventory_base = NodePath("MiddleTop/InvUI")
+interaction_audio = NodePath("InteractionAudio")
+inv_slots = [NodePath("MiddleTop/InvUI/InventorySlot"), NodePath("MiddleTop/InvUI/InventorySlot3"), NodePath("MiddleTop/InvUI/InventorySlot4")]
+
+[node name="MiddleTop" type="Control" parent="." unique_id=1835401313]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="OpenButton" type="Control" parent="MiddleTop" unique_id=1682302065]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="open_button" type="TextureButton" parent="MiddleTop/OpenButton" unique_id=779464558]
+texture_filter = 1
+material = ExtResource("3_2er8r")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = -3.0
+offset_right = 174.0
+offset_bottom = 87.0
+grow_horizontal = 2
+scale = Vector2(0.885, 0.885)
+texture_normal = SubResource("AtlasTexture_sjpxo")
+
+[node name="InvUI" type="Control" parent="MiddleTop" unique_id=484488678]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleTop/InvUI" unique_id=218711070]
+texture_filter = 1
+material = ExtResource("3_2er8r")
+position = Vector2(10, 207.99998)
+scale = Vector2(0.885, 0.885)
+texture = SubResource("AtlasTexture_4ec86")
+
+[node name="InventorySlot" parent="MiddleTop/InvUI" unique_id=1937137941 instance=ExtResource("2_ycqbt")]
+position = Vector2(-270, 185)
+
+[node name="InventorySlot3" parent="MiddleTop/InvUI" unique_id=1040227024 instance=ExtResource("2_ycqbt")]
+position = Vector2(8, 185)
+
+[node name="InventorySlot4" parent="MiddleTop/InvUI" unique_id=758959595 instance=ExtResource("2_ycqbt")]
+position = Vector2(318, 185)
+
+[node name="CloseButton" type="TextureButton" parent="MiddleTop/InvUI" unique_id=2068936935]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -190.0
+offset_top = 439.0
+offset_right = 156.0
+offset_bottom = 554.0
+grow_horizontal = 2
+
+[node name="InteractionAudio" type="AudioStreamPlayer" parent="." unique_id=1328043214]
+stream = ExtResource("4_4ec86")
+volume_db = -13.684
+bus = &"SFX"

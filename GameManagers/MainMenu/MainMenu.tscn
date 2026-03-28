@@ -1,0 +1,296 @@
+[gd_scene format=3 uid="uid://u518eolkrle3"]
+
+[ext_resource type="Script" uid="uid://dej5y2fg4a6nl" path="res://GameManagers/MainMenu/MenuManager.gd" id="1_xqv8w"]
+[ext_resource type="Script" uid="uid://k5kp85pcahw8" path="res://GameManagers/MainMenu/back_button.gd" id="2_4mwo0"]
+[ext_resource type="Script" uid="uid://ch1bj4oca401k" path="res://GameManagers/MainMenu/level_button.gd" id="2_5k017"]
+[ext_resource type="Script" uid="uid://b8tk7g0eu8u" path="res://GameManagers/MainMenu/MainMenuButton.gd" id="2_eait5"]
+[ext_resource type="Texture2D" uid="uid://dytr8d5i7n7cf" path="res://GameManagers/LevelManager/Levels/Art/RoomBasePurpleShader.png" id="3_0nep4"]
+[ext_resource type="AudioStream" uid="uid://ygobmfvnv1q0" path="res://Music/In Game Music/main thme_ (revised).mp3" id="4_2wvvl"]
+[ext_resource type="Script" uid="uid://dhgyhl36wjd7c" path="res://GameManagers/LevelManager/Levels/Tutorial/lightFlicker.gd" id="4_alxn2"]
+[ext_resource type="Texture2D" uid="uid://b38iuljfs1cgc" path="res://GameManagers/LevelManager/Levels/Art/RoomBase.png" id="5_jk1vi"]
+[ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="5_kaocu"]
+[ext_resource type="Texture2D" uid="uid://b7mmwx7pidaah" path="res://GameManagers/LevelManager/Levels/Art/RoomProps1.png" id="5_o5ufx"]
+[ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="6_epdf4"]
+[ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="7_8pohn"]
+[ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="8_5q7l6"]
+[ext_resource type="Shader" uid="uid://b7jlgqiifasia" path="res://GameManagers/MainMenu/blur.gdshader" id="8_o5ufx"]
+[ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
+[ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_epdf4"]
+shader = ExtResource("8_o5ufx")
+shader_parameter/blur_amount = 2.3740002077650004
+shader_parameter/mix_amount = 0.51600002451
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("levels_button", "settings_button", "quit_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "level_button_array")]
+scale = Vector2(1.135, 1.135)
+script = ExtResource("1_xqv8w")
+levels_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button")
+settings_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button2")
+quit_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button3")
+levels_control = NodePath("CanvasLayer/Levels")
+main_menu_control = NodePath("CanvasLayer/Menu")
+settings_control = NodePath("CanvasLayer/Settings")
+bg_control = NodePath("BG")
+level_button_array = [NodePath("CanvasLayer/Levels/VBoxContainer/Button"), NodePath("CanvasLayer/Levels/VBoxContainer/Button2")]
+parallax_strength = 10.0
+parallax_smoothing = 25.0
+
+[node name="BG" type="Control" parent="." unique_id=259279974]
+z_index = -5
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -126.872246
+offset_top = -49.339207
+offset_right = -126.872246
+offset_bottom = -49.339207
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Base" type="Node2D" parent="BG" unique_id=1514654068]
+z_index = -1
+
+[node name="RoomBase" type="TextureRect" parent="BG/Base" unique_id=537705224]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_jk1vi")
+
+[node name="RoomBaseLighting" type="TextureRect" parent="BG/Base" unique_id=1312253261]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_0nep4")
+
+[node name="ColorRect2" type="ColorRect" parent="BG/Base" unique_id=1338367294]
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+
+[node name="Props" type="Node2D" parent="BG/Base" unique_id=1499660754]
+
+[node name="Props1" type="TextureRect" parent="BG/Base/Props" unique_id=1743404121]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("5_o5ufx")
+
+[node name="Props2" type="TextureRect" parent="BG/Base/Props" unique_id=1433677658]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_epdf4")
+
+[node name="Props3" type="TextureRect" parent="BG/Base/Props" unique_id=2055862758]
+visible = false
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_8pohn")
+
+[node name="Props4" type="TextureRect" parent="BG/Base/Props" unique_id=1781499202]
+visible = false
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("8_5q7l6")
+
+[node name="PointLight2D" type="PointLight2D" parent="BG" unique_id=1943190275]
+position = Vector2(959, 536)
+energy = 7.02
+texture = ExtResource("3_0nep4")
+script = ExtResource("4_alxn2")
+base_energy = 5.0
+flicker_strength = 1.0
+
+[node name="ColorRect3" type="ColorRect" parent="BG" unique_id=882854891]
+material = SubResource("ShaderMaterial_epdf4")
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045201008]
+
+[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1993580033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu" unique_id=2083051663]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=162984787 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "LEVELS"
+script = ExtResource("2_eait5")
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=200842792 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "SETTINGS"
+script = ExtResource("2_eait5")
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="Button3" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=141855756 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "QUIT"
+script = ExtResource("2_eait5")
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="Levels" type="Control" parent="CanvasLayer" unique_id=611158325]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Levels" unique_id=1613318174]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -250.0
+offset_right = 150.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Levels/VBoxContainer" unique_id=1886793416 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "Night One"
+script = ExtResource("2_5k017")
+level_path = "res://GameManagers/LevelManager/Levels/Tutorial/TutorialLevel.tscn"
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="Button2" type="Button" parent="CanvasLayer/Levels/VBoxContainer" unique_id=1426920442 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Night Two"
+script = ExtResource("2_5k017")
+level_path = "res://GameManagers/LevelManager/Levels/Night2/NightTwo.tscn"
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Levels/VBoxContainer" unique_id=187866478]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Levels/VBoxContainer/MarginContainer" unique_id=604067174 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+script = ExtResource("2_4mwo0")
+menu_manager = NodePath("../../../../..")
+click_sfx = NodePath("../../../../../SFX/Click")
+
+[node name="Settings" type="Control" parent="CanvasLayer" unique_id=1731378302]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Settings" unique_id=802021960]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_0nep4")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Settings/PanelContainer" unique_id=1950696524]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/PanelContainer/MarginContainer" unique_id=916404527]
+layout_mode = 2
+script = ExtResource("13_alxn2")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer" unique_id=27078895]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1929403891 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 30
+text = "Back"
+script = ExtResource("2_4mwo0")
+menu_manager = NodePath("../../../../../../..")
+click_sfx = NodePath("../../../../../../../SFX/Click")
+
+[node name="Music" type="Node" parent="." unique_id=1753872319]
+
+[node name="Theme" type="AudioStreamPlayer" parent="Music" unique_id=118925879]
+stream = ExtResource("4_2wvvl")
+volume_db = -31.93
+autoplay = true
+bus = &"Menu Music"
+parameters/looping = true
+
+[node name="SFX" type="Node" parent="." unique_id=353319009]
+
+[node name="Click" type="AudioStreamPlayer" parent="SFX" unique_id=1679708067]
+stream = ExtResource("5_kaocu")
+volume_db = -15.509
+autoplay = true
+bus = &"SFX"

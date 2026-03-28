@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c8brtiypa404s"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_yntwp"]
+[ext_resource type="Script" uid="uid://cojbqltk7b08q" path="res://GameManagers/LevelManager/Levels/Core/LevelData.gd" id="2_t5e56"]
+[ext_resource type="Resource" uid="uid://cvyqoyok62d1" path="res://Music/AWAKE FM (Funk)/AWAKE FM.tres" id="3_6rt1h"]
+[ext_resource type="Resource" uid="uid://cmehx2xs2sr8c" path="res://Music/Ambient Channel 6/AmbientChannel.tres" id="4_1i2e1"]
+[ext_resource type="Resource" uid="uid://r0xtbp0ck7tv" path="res://Music/Lush (Jazz Ballads)/Lush.tres" id="4_buacb"]
+[ext_resource type="Resource" uid="uid://dhh5xwwaospsq" path="res://Music/Pork Soda Chips (Synth Pop)/Pork Soda Chips.tres" id="5_buacb"]
+[ext_resource type="Resource" uid="uid://dxa1tmx2oekdy" path="res://Music/Sfx/Morse/Morse.tres" id="6_axop2"]
+
+[resource]
+script = ExtResource("2_t5e56")
+level_name = "TestLevel"
+level_stations = Array[ExtResource("1_yntwp")]([ExtResource("4_1i2e1"), ExtResource("3_6rt1h"), ExtResource("4_buacb"), ExtResource("5_buacb"), ExtResource("6_axop2")])
+night_number = 1
+metadata/_custom_type_script = "uid://cojbqltk7b08q"

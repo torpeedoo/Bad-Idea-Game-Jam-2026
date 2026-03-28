@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dk275d1xs78yt"]
+
+[ext_resource type="AudioStream" uid="uid://codnuxdyj7wi" path="res://Music/Lush (Jazz Ballads)/Pinnochio_s Love Story (Altered + Radio).mp3" id="1_3wlpc"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_rt6qu"]
+[ext_resource type="AudioStream" uid="uid://beitj4wx6p4gj" path="res://Music/Lush (Jazz Ballads)/Pinnochio_s Love Story (Radio).mp3" id="2_qlofh"]
+
+[resource]
+script = ExtResource("1_rt6qu")
+normal_audiostream = ExtResource("2_qlofh")
+anomaly_audiostream = ExtResource("1_3wlpc")
+song_name = "Pinnochio's Love Story"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

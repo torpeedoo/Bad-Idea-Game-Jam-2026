@@ -1,0 +1,309 @@
+[gd_scene format=3 uid="uid://dst8gyqhe0u1h"]
+
+[ext_resource type="Texture2D" uid="uid://db8q1fxagr2e7" path="res://Machines/Items/Meds/Art/inhaler.png" id="1_4xlio"]
+[ext_resource type="Script" uid="uid://cimi04xusq4lu" path="res://Machines/Items/Meds/Inhaler.gd" id="1_35gt6"]
+[ext_resource type="Shader" uid="uid://dx4k6qp06toyo" path="res://Machines/Items/Meds/Art/vignette.gdshader" id="2_1tqn0"]
+[ext_resource type="AudioStream" uid="uid://ca0itiggio1ly" path="res://Machines/Items/Meds/Audio/Spray_compressed_can.mp3" id="3_telgo"]
+[ext_resource type="AudioStream" uid="uid://dy4xmgtkiakk1" path="res://Machines/Items/Meds/Audio/Gasp_3.mp3" id="4_cv4f6"]
+[ext_resource type="AudioStream" uid="uid://brnx2ttpkie5t" path="res://Machines/Items/Meds/Audio/Breathing_slow.mp3" id="5_1tqn0"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="6_cv4f6"]
+
+[sub_resource type="Animation" id="Animation_4xlio"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/Tube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -335.865)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Puff:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Breath:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Click:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Control/ColorRect:material:shader_parameter/alpha")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.68]
+}
+
+[sub_resource type="Animation" id="Animation_35gt6"]
+resource_name = "use"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BG/Tube:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(6.7271767, 0.091505475, 1),
+"update": 0,
+"values": [Vector2(0, -327.905), Vector2(0, -248.42), Vector2(0, -327.905)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reduce_madness"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Puff:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.26666668),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Breath:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.39999998),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Click:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 0.43527535, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.915, 0.915), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.11, 1),
+"transitions": PackedFloat32Array(1, 0.43527535, 1),
+"update": 0,
+"values": [0.0, -0.059341196, 0.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Control/ColorRect:material:shader_parameter/alpha")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.10188055, 1),
+"transitions": PackedFloat32Array(1, 1.4640834, 1),
+"update": 0,
+"values": [-1.0, 0.5, -1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8jk1"]
+_data = {
+&"RESET": SubResource("Animation_4xlio"),
+&"use": SubResource("Animation_35gt6")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p02y5"]
+shader = ExtResource("2_1tqn0")
+shader_parameter/alpha = -0.68
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35gt6"]
+atlas = ExtResource("1_4xlio")
+region = Rect2(934.0485, 371.58456, 247.27118, 564.99414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xlio"]
+atlas = ExtResource("1_4xlio")
+region = Rect2(616.23, 132.17998, 210.53998, 257.73004)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8jk1"]
+atlas = ExtResource("1_4xlio")
+region = Rect2(988, 313.854, 50.044, 37.321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35gt6"]
+size = Vector2(127, 351)
+
+[node name="Inhaler" type="Node2D" unique_id=1986435551 node_paths=PackedStringArray("anim_player", "count_sprite", "interaction_area")]
+z_index = 1
+script = ExtResource("1_35gt6")
+anim_player = NodePath("AnimationPlayer")
+count_sprite = NodePath("BG/Count")
+madness_reduction = 100.0
+x_pos_counts = Array[float]([988.0, 1027.0, 1067.0, 1107.0, 1147.0, 1187.0, 1227.0])
+interaction_area = NodePath("BG/Area2D")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=961995882]
+libraries/ = SubResource("AnimationLibrary_e8jk1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2016883483]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1704407312]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control" unique_id=1783510638]
+z_index = 5
+material = SubResource("ShaderMaterial_p02y5")
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="BG" type="Node2D" parent="." unique_id=1612669647]
+position = Vector2(1, 40)
+scale = Vector2(0.48, 0.48)
+
+[node name="Base" type="Sprite2D" parent="BG" unique_id=2025351316]
+texture_filter = 1
+texture = SubResource("AtlasTexture_35gt6")
+
+[node name="Tube" type="Sprite2D" parent="BG" unique_id=199767077]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -335.865)
+texture = SubResource("AtlasTexture_4xlio")
+
+[node name="Count" type="Sprite2D" parent="BG" unique_id=939674907]
+z_index = -1
+texture_filter = 1
+position = Vector2(37, -173)
+texture = SubResource("AtlasTexture_e8jk1")
+
+[node name="Area2D" type="Area2D" parent="BG" unique_id=191598430]
+scale = Vector2(2.247191, 2.247191)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BG/Area2D" unique_id=558410215]
+position = Vector2(-0.5, -38.5)
+shape = SubResource("RectangleShape2D_35gt6")
+
+[node name="Puff" type="AudioStreamPlayer" parent="." unique_id=1151764500]
+stream = ExtResource("3_telgo")
+volume_db = -12.772
+pitch_scale = 1.32
+bus = &"SFX"
+
+[node name="Gasp" type="AudioStreamPlayer" parent="." unique_id=1523046706]
+stream = ExtResource("4_cv4f6")
+volume_db = -12.772
+bus = &"SFX"
+
+[node name="Breath" type="AudioStreamPlayer" parent="." unique_id=851626729]
+stream = ExtResource("5_1tqn0")
+volume_db = -12.772
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=234982399]
+stream = ExtResource("6_cv4f6")
+volume_db = -12.772
+bus = &"SFX"

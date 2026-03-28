@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://cjl6v5btpr5kp"]
+
+[ext_resource type="AudioStream" uid="uid://ckcu2x1mfgoe0" path="res://Music/Pork Soda Chips (Synth Pop)/Tobias (Regular).mp3" id="1_5w6ll"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_jsdd7"]
+
+[resource]
+script = ExtResource("1_jsdd7")
+normal_audiostream = ExtResource("1_5w6ll")
+song_name = "Tobias"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

@@ -1,0 +1,86 @@
+[gd_resource type="Resource" script_class="DialogueRes" format=3 uid="uid://t22px52e4b0e"]
+
+[ext_resource type="Script" uid="uid://bycx7bxnlvvy5" path="res://GameManagers/TextBox/DialogueChunk.gd" id="1_1w6lc"]
+[ext_resource type="Script" uid="uid://bk806oyhudbgm" path="res://GameManagers/TextBox/DialogueLine.gd" id="2_5lbce"]
+[ext_resource type="Script" uid="uid://dhuoiffi4y1vw" path="res://GameManagers/TextBox/DialogueRes.gd" id="2_katbn"]
+
+[sub_resource type="Resource" id="Resource_ydyeg"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "Hello agent, we're happy to have you. Your current task is to find anomalies using the radio."
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_katbn"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "To get started try tuning the radio.
+
+(Drag the dial by holding Left Mouse Button or Space Bar and moving the mouse)"
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_yuepo"]
+script = ExtResource("1_1w6lc")
+chunk_name = "intro"
+line_array = Array[ExtResource("2_5lbce")]([SubResource("Resource_ydyeg"), SubResource("Resource_katbn")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[sub_resource type="Resource" id="Resource_cre2g"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "Looks like you found an anomaly! to record it open your briefcase at the top of the screen and drag a tape to the recorder. Then, press record."
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_a7a0p"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "Just be careful, every moment you spent listening to an anomaly, your gaining madness!"
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_5lbce"]
+script = ExtResource("1_1w6lc")
+chunk_name = "anomaly_found"
+line_array = Array[ExtResource("2_5lbce")]([SubResource("Resource_cre2g"), SubResource("Resource_a7a0p")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[sub_resource type="Resource" id="Resource_nxkau"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "You recorded an anomaly! To submit it just drag it over to the Secure Link 5000 over there."
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_qvkq5"]
+script = ExtResource("1_1w6lc")
+chunk_name = "anomaly_recorded"
+line_array = Array[ExtResource("2_5lbce")]([SubResource("Resource_nxkau")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[sub_resource type="Resource" id="Resource_uygm3"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "We recieved a copy of the anomaly. Good job agent. Now try and record one more tonight and we'll get you out of there.
+
+(Try clicking the am-fm switch)"
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_r8cja"]
+script = ExtResource("1_1w6lc")
+chunk_name = "anomaly_submitted"
+line_array = Array[ExtResource("2_5lbce")]([SubResource("Resource_uygm3")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[sub_resource type="Resource" id="Resource_tn8ku"]
+script = ExtResource("2_5lbce")
+speaker = "Agent Smith"
+text = "Good job recording two anomalies, agent! Seems like you've got the hang of this. Feel free to end the night when you're ready by using your phone."
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_wr1vq"]
+script = ExtResource("1_1w6lc")
+chunk_name = "second_anomaly_found"
+line_array = Array[ExtResource("2_5lbce")]([SubResource("Resource_tn8ku")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[resource]
+script = ExtResource("2_katbn")
+dialogue_chunks = Array[ExtResource("1_1w6lc")]([SubResource("Resource_yuepo"), SubResource("Resource_5lbce"), SubResource("Resource_qvkq5"), SubResource("Resource_r8cja"), SubResource("Resource_wr1vq")])
+metadata/_custom_type_script = "uid://dhuoiffi4y1vw"

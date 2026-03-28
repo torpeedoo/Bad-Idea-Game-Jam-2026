@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://r0xtbp0ck7tv"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_dhawb"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_5d41x"]
+[ext_resource type="Resource" uid="uid://crs4dk5dhdxav" path="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk.tres" id="3_wxi7a"]
+[ext_resource type="Resource" uid="uid://dk275d1xs78yt" path="res://Music/Lush (Jazz Ballads)/Pinnochio's Love Story.tres" id="4_bi46j"]
+
+[resource]
+script = ExtResource("1_dhawb")
+station_name = "Lush"
+station_freq = 95.3
+song_list = Array[ExtResource("2_5d41x")]([ExtResource("3_wxi7a"), ExtResource("4_bi46j")])
+random_anomalies = true
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

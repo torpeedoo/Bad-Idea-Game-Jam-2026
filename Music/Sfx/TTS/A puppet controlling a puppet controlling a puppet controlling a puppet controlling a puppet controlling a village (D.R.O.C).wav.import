@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b531uhksy533l"
+path="res://.godot/imported/A puppet controlling a puppet controlling a puppet controlling a puppet controlling a puppet controlling a village (D.R.O.C).wav-21eddd1cf21340ea56c5abaf6df043ba.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/TTS/A puppet controlling a puppet controlling a puppet controlling a puppet controlling a puppet controlling a village (D.R.O.C).wav"
+dest_files=["res://.godot/imported/A puppet controlling a puppet controlling a puppet controlling a puppet controlling a puppet controlling a village (D.R.O.C).wav-21eddd1cf21340ea56c5abaf6df043ba.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dlfk0llevp3n0"]
+
+[ext_resource type="AudioStream" uid="uid://cc7y0wwtg6bu0" path="res://Music/Pork Soda Chips (Synth Pop)/Paris Bacon (Regular).mp3" id="1_f7hkl"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_b6tns"]
+
+[resource]
+script = ExtResource("2_b6tns")
+normal_audiostream = ExtResource("1_f7hkl")
+song_name = "Paris Bacon"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

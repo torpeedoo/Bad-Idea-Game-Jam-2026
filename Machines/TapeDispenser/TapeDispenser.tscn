@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://s13vbyhcjtgu"]
+
+[ext_resource type="Texture2D" uid="uid://ddjl2n43dhtck" path="res://Art/Briefcase.png" id="1_abb72"]
+[ext_resource type="Script" uid="uid://cqbw1cm3hns6r" path="res://Machines/TapeDispenser/TapeDispenser.gd" id="1_boucm"]
+[ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Items/Tape/Tape.tscn" id="2_spipm"]
+[ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="3_q2xse"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boucm"]
+atlas = ExtResource("1_abb72")
+region = Rect2(1264.1757, 62.515972, 525.8225, 530.5383)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abb72"]
+atlas = ExtResource("1_abb72")
+region = Rect2(1284.2002, 636.1101, 477.9502, 193.6001)
+
+[node name="TapeDispenser" type="Node2D" unique_id=1579162103 node_paths=PackedStringArray("inventory_slot", "tape_sprites")]
+z_index = 1
+script = ExtResource("1_boucm")
+current_tapes = 6
+inventory_slot = NodePath("InventorySlot")
+tape_sprites = [NodePath("TapeSprites/Tape1"), NodePath("TapeSprites/Tape2"), NodePath("TapeSprites/Tape3"), NodePath("TapeSprites/Tape4"), NodePath("TapeSprites/Tape5"), NodePath("TapeSprites/Tape6")]
+tape_scene = ExtResource("2_spipm")
+
+[node name="BG" type="Node2D" parent="." unique_id=1664197250]
+scale = Vector2(0.65, 0.65)
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1987572571]
+texture_filter = 1
+texture = SubResource("AtlasTexture_boucm")
+
+[node name="TapeSprites" type="Node2D" parent="." unique_id=1807833380]
+scale = Vector2(0.65, 0.65)
+
+[node name="Tape1" type="Sprite2D" parent="TapeSprites" unique_id=275377486]
+visible = false
+texture_filter = 1
+position = Vector2(0.5, -177.5)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="Tape2" type="Sprite2D" parent="TapeSprites" unique_id=2887319]
+visible = false
+texture_filter = 1
+position = Vector2(0.5, -114.5)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="Tape3" type="Sprite2D" parent="TapeSprites" unique_id=1782916208]
+visible = false
+texture_filter = 1
+position = Vector2(0.5, -51.5)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="Tape4" type="Sprite2D" parent="TapeSprites" unique_id=590423519]
+visible = false
+texture_filter = 1
+position = Vector2(1, 11)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="Tape5" type="Sprite2D" parent="TapeSprites" unique_id=1530289261]
+visible = false
+texture_filter = 1
+position = Vector2(1, 73)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="Tape6" type="Sprite2D" parent="TapeSprites" unique_id=12331467]
+visible = false
+texture_filter = 1
+position = Vector2(1, 134)
+texture = SubResource("AtlasTexture_abb72")
+
+[node name="InventorySlot" parent="." unique_id=1937137941 instance=ExtResource("3_q2xse")]
+position = Vector2(0, 161)

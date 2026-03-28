@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://dxa1tmx2oekdy"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_deawc"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_j1qpu"]
+[ext_resource type="Resource" uid="uid://dlf6qxonge8an" path="res://Music/Sfx/Morse/SongRes/bayonets.tres" id="3_p0k8u"]
+[ext_resource type="Resource" uid="uid://bq73obouf2of3" path="res://Music/Sfx/Morse/SongRes/corrupt.tres" id="4_lgey1"]
+[ext_resource type="Resource" uid="uid://davv1ru137y8j" path="res://Music/Sfx/Morse/SongRes/relieve.tres" id="5_yjiha"]
+[ext_resource type="Resource" uid="uid://b8fn02soxg5v" path="res://Music/Sfx/Morse/SongRes/rich.tres" id="6_tr2on"]
+[ext_resource type="Resource" uid="uid://dqokuc6vw4uc1" path="res://Music/Sfx/Morse/SongRes/rotting.tres" id="7_vwbu2"]
+[ext_resource type="Resource" uid="uid://b3mqirpqjkkn3" path="res://Music/Sfx/Morse/SongRes/spread.tres" id="8_4qsij"]
+[ext_resource type="Resource" uid="uid://cxy8ru77u6662" path="res://Music/Sfx/Morse/SongRes/system.tres" id="9_sriju"]
+[ext_resource type="Resource" uid="uid://bsnuogxtsiurl" path="res://Music/Sfx/Morse/SongRes/unite.tres" id="10_kadv6"]
+
+[resource]
+script = ExtResource("1_deawc")
+station_name = "Morse"
+station_freq = 9.8
+am_fm = 0
+song_list = Array[ExtResource("2_j1qpu")]([ExtResource("3_p0k8u"), ExtResource("4_lgey1"), ExtResource("5_yjiha"), ExtResource("6_tr2on"), ExtResource("7_vwbu2"), ExtResource("8_4qsij"), ExtResource("9_sriju"), ExtResource("10_kadv6")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

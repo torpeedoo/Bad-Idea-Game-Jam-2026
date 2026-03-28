@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://bq7bemr3nmxm2"]
+
+[ext_resource type="Script" uid="uid://blrb7u12a0jb5" path="res://GameManagers/TextBox/TextBox.gd" id="1_7yks0"]
+[ext_resource type="Shader" uid="uid://bab48mcfy7uk4" path="res://GameManagers/TextBox/dithershadow.gdshader" id="2_00lbp"]
+[ext_resource type="AudioStream" uid="uid://cqy1w3cctdpeb" path="res://GameManagers/TextBox/Audio/a.wav" id="2_5esdq"]
+[ext_resource type="AudioStream" uid="uid://dj1vfy73qel3l" path="res://GameManagers/TextBox/Audio/e.wav" id="3_aradj"]
+[ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="3_pna8d"]
+[ext_resource type="AudioStream" uid="uid://cdaahydld4xbw" path="res://GameManagers/TextBox/Audio/i.wav" id="4_5sevc"]
+[ext_resource type="Shader" uid="uid://qroynftraftt" path="res://GameManagers/TextBox/blink.gdshader" id="4_c6n5v"]
+[ext_resource type="AudioStream" uid="uid://cqncynahwardj" path="res://GameManagers/TextBox/Audio/o.wav" id="5_7j43h"]
+[ext_resource type="AudioStream" uid="uid://dfdudeolan63r" path="res://GameManagers/TextBox/Audio/u.wav" id="6_pna8d"]
+[ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="8_5sevc"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_7j43h"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fgwwd"]
+shader = ExtResource("2_00lbp")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 1.110000052725
+shader_parameter/pixel_size = 24.0
+shader_parameter/resolution = Vector2(400, 400)
+shader_parameter/dither_offset = Vector2(2, 0)
+shader_parameter/bayer_size = 2
+shader_parameter/interpolate = true
+shader_parameter/invert = false
+shader_parameter/falloff = 1.52100006898762
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6n5v"]
+draw_center = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_00lbp"]
+shader = ExtResource("4_c6n5v")
+shader_parameter/speed = 2.87
+shader_parameter/min_alpha = 0.2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_c6n5v"]
+streams_count = 5
+stream_0/stream = ExtResource("2_5esdq")
+stream_1/stream = ExtResource("3_aradj")
+stream_2/stream = ExtResource("4_5sevc")
+stream_3/stream = ExtResource("5_7j43h")
+stream_4/stream = ExtResource("6_pna8d")
+
+[node name="TextBox" type="Node2D" unique_id=896158815 node_paths=PackedStringArray("type_timer", "dialogue_control", "dialogue_text", "name_label", "speak_audio", "click_audio", "hover_audio")]
+process_mode = 3
+script = ExtResource("1_7yks0")
+type_timer = NodePath("TypeTimer")
+dialogue_control = NodePath("CanvasLayer/Control")
+dialogue_text = NodePath("CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/RichTextLabel")
+name_label = NodePath("CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer/Label")
+speak_audio = NodePath("SpeakAudio")
+click_audio = NodePath("ClickAudio")
+hover_audio = NodePath("HoverAudio")
+
+[node name="TypeTimer" type="Timer" parent="." unique_id=1584576094]
+wait_time = 0.05
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=471479089]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=17744454]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Control" unique_id=1479489078]
+material = SubResource("ShaderMaterial_fgwwd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control" unique_id=301199002]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -382.0
+offset_top = -221.0
+offset_right = 382.0
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c6n5v")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/PanelContainer" unique_id=1474701163]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer" unique_id=2134720044]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer" unique_id=1854924534]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 14
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=413819724]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_pna8d")
+theme_override_font_sizes/font_size = 42
+text = "NAME"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=2089207221]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_pna8d")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "text text
+text
+text
+text
+text
+
+"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/Control/PanelContainer/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1609818898]
+material = SubResource("ShaderMaterial_00lbp")
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("3_pna8d")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "(CLICK TO CONTINUE)"
+fit_content = true
+
+[node name="SpeakAudio" type="AudioStreamPlayer" parent="." unique_id=68714574]
+stream = SubResource("AudioStreamRandomizer_c6n5v")
+volume_db = -33.108
+bus = &"SFX"
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="." unique_id=179040712]
+stream = ExtResource("8_5sevc")
+bus = &"SFX"
+
+[node name="HoverAudio" type="AudioStreamPlayer" parent="." unique_id=283080053]
+stream = ExtResource("9_7j43h")
+bus = &"SFX"

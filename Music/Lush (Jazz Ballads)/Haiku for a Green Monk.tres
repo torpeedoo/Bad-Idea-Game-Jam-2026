@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://crs4dk5dhdxav"]
+
+[ext_resource type="AudioStream" uid="uid://djo3bgwd33s7t" path="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk (Altered + Radio).mp3" id="1_0jv2q"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="1_w46eh"]
+[ext_resource type="AudioStream" uid="uid://3p2jfcv4dt64" path="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk (Radio).mp3" id="2_y1wub"]
+
+[resource]
+script = ExtResource("1_w46eh")
+normal_audiostream = ExtResource("2_y1wub")
+anomaly_audiostream = ExtResource("1_0jv2q")
+song_name = "Haiku for a Green Monk"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

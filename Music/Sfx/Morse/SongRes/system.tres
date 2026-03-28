@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://cxy8ru77u6662"]
+
+[ext_resource type="AudioStream" uid="uid://0aukngysvrkc" path="res://Music/Sfx/Morse/This system will grow you fat. Join us to free your spirit of greed (Soldiers).wav" id="1_60xuc"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_fkj1y"]
+
+[resource]
+script = ExtResource("2_fkj1y")
+anomaly_audiostream = ExtResource("1_60xuc")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://davv1ru137y8j"]
+
+[ext_resource type="AudioStream" uid="uid://ut5wgm0trewy" path="res://Music/Sfx/Morse/Let us relieve your apprehension caused by this greedy, finger pointing fool you take so much pride in (Soldiers).wav" id="1_gsu1e"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_fdiyv"]
+
+[resource]
+script = ExtResource("2_fdiyv")
+anomaly_audiostream = ExtResource("1_gsu1e")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

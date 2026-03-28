@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://bpih1imudft3d"]
+
+[ext_resource type="AudioStream" uid="uid://b3ba8hhs1dba3" path="res://Music/Sfx/TTS/There were so many holes in the trains. (D.R.O.C).wav" id="1_0h2e2"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_m1vgs"]
+
+[resource]
+script = ExtResource("2_m1vgs")
+anomaly_audiostream = ExtResource("1_0h2e2")
+is_anomaly = true
+song_name = "GSDFDS>D@"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

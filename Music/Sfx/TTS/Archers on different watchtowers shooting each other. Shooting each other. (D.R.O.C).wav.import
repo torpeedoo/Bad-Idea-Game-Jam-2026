@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dl7e1rpllq4ir"
+path="res://.godot/imported/Archers on different watchtowers shooting each other. Shooting each other. (D.R.O.C).wav-a39293a49435803f642459dd73449dac.sample"
+
+[deps]
+
+source_file="res://Music/Sfx/TTS/Archers on different watchtowers shooting each other. Shooting each other. (D.R.O.C).wav"
+dest_files=["res://.godot/imported/Archers on different watchtowers shooting each other. Shooting each other. (D.R.O.C).wav-a39293a49435803f642459dd73449dac.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

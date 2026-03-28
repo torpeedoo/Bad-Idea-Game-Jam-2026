@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://drs3jo51no6ar"]
+
+[ext_resource type="Shader" uid="uid://7sturi4nujbf" path="res://Shaders/vignette.gdshader" id="1_xcbp7"]
+
+[resource]
+shader = ExtResource("1_xcbp7")
+shader_parameter/noise_intensity = 0.0

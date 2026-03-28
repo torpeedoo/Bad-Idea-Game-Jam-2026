@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://b3mqirpqjkkn3"]
+
+[ext_resource type="AudioStream" uid="uid://bjtl6b3b31re7" path="res://Music/Sfx/Morse/We will spread the friendship of the peoples (Soldiers).wav" id="1_xslbl"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_bqrvp"]
+
+[resource]
+script = ExtResource("2_bqrvp")
+anomaly_audiostream = ExtResource("1_xslbl")
+is_anomaly = true
+song_name = "2fbn--xe2."
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

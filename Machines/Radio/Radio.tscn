@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://fa5o50mjcryb" path="res://Machines/Radio/Art/Radio Components.png" id="3_ecaeb"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
 [ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="6_ipn1w"]
+[ext_resource type="Material" uid="uid://dif01ydkegk8j" path="res://Shaders/jitter.tres" id="7_iiayk"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_45ecp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ecaeb"]
@@ -48,6 +49,7 @@ atlas = ExtResource("3_ecaeb")
 region = Rect2(399.81818, 224, 29.090912, 137.2727)
 
 [node name="radio" type="Node2D" unique_id=909828567 node_paths=PackedStringArray("tune_dial", "freq_display", "static_audio", "am_fm_switch", "meter_marker", "meter_start_marker", "meter_end_marker", "madness_timer")]
+position = Vector2(1, 0)
 script = ExtResource("1_2o24j")
 tune_dial = NodePath("tune_dial")
 freq_display = NodePath("Label")
@@ -185,11 +187,14 @@ shape = SubResource("RectangleShape2D_ecaeb")
 [node name="Click" type="AudioStreamPlayer" parent="Switch" unique_id=883877666]
 stream = ExtResource("9_45ecp")
 volume_db = -5.474
+bus = &"SFX"
 
 [node name="Frequency Meter" type="Node2D" parent="." unique_id=264681861]
 
 [node name="meter_marker" type="Sprite2D" parent="Frequency Meter" unique_id=868957463]
 texture_filter = 1
+material = ExtResource("7_iiayk")
+use_parent_material = true
 position = Vector2(-183, -69)
 scale = Vector2(0.265, 0.265)
 texture = SubResource("AtlasTexture_af75l")

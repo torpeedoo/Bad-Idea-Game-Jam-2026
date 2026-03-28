@@ -2,6 +2,8 @@ extends Node2D
 class_name CustomButton
 
 signal clicked
+signal mouse_entered
+signal mouse_exited
 
 @export var interaction_area: Area2D
 @export var button_up_sprite: Node
@@ -9,10 +11,25 @@ signal clicked
 @export var click_sfx: AudioStreamPlayer
 
 var is_clicking: bool = false
+var _hovered: bool = false
 
 func _ready():
 	if interaction_area:
 		interaction_area.input_event.connect(on_click)
+		interaction_area.mouse_entered.connect(mouse_enter)
+		interaction_area.mouse_exited.connect(mouse_exit)
+
+func mouse_enter():
+	_hovered = true
+	mouse_entered.emit()
+
+func mouse_exit():
+	_hovered = false
+	mouse_exited.emit()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("lmb") and _hovered and not is_clicking:
+		click()
 
 func _process(delta):
 	if is_clicking:

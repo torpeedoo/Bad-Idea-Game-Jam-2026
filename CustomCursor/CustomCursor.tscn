@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://c0x2qbe7dqi5o"]
+
+[ext_resource type="Script" uid="uid://d5eb2j1d7g6h" path="res://CustomCursor/custom_cursor_manager.gd" id="1_7whpf"]
+[ext_resource type="Script" uid="uid://d3ef1p8vwkiu7" path="res://CustomCursor/hand_manager.gd" id="1_cnp7o"]
+[ext_resource type="Texture2D" uid="uid://draiik6tup8xx" path="res://CustomCursor/Hands.png" id="1_tno7j"]
+[ext_resource type="Material" uid="uid://cjk3pasu10f0w" path="res://Shaders/shadow.tres" id="3_m1smr"]
+[ext_resource type="Material" uid="uid://dif01ydkegk8j" path="res://Shaders/jitter.tres" id="5_3ax2n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tno7j"]
+atlas = ExtResource("1_tno7j")
+region = Rect2(93.5455, 142, 226.36371, 227.2728)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnp7o"]
+atlas = ExtResource("1_tno7j")
+region = Rect2(383.93, 234.14395, 170.75336, 167.02786)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1smr"]
+atlas = ExtResource("1_tno7j")
+region = Rect2(90.00025, 425.00037, 209.09091, 210.90906)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ax2n"]
+atlas = ExtResource("1_tno7j")
+region = Rect2(389.94815, 774.0248, 165.28922, 144.25244)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4fst"]
+atlas = ExtResource("1_tno7j")
+region = Rect2(73.63635, 691.90906, 209.09091, 217.2727)
+
+[node name="CustomCursor" type="Node2D" unique_id=1453272189 node_paths=PackedStringArray("hand_managers", "cursor_parent")]
+process_mode = 3
+z_index = 10
+scale = Vector2(0.445, 0.445)
+script = ExtResource("1_7whpf")
+hand_managers = [NodePath("CanvasLayer/Cursor/Level1"), NodePath("CanvasLayer/Cursor/Level2"), NodePath("CanvasLayer/Cursor/Level3")]
+cursor_parent = NodePath("CanvasLayer/Cursor")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1876308639]
+layer = 8
+
+[node name="Cursor" type="Node2D" parent="CanvasLayer" unique_id=1816162348]
+
+[node name="Level1" type="Node2D" parent="CanvasLayer/Cursor" unique_id=1042612786 node_paths=PackedStringArray("open_hand_sprite", "closed_hand_sprite")]
+scale = Vector2(0.44499996, 0.44499996)
+script = ExtResource("1_cnp7o")
+open_hand_sprite = NodePath("Hand")
+closed_hand_sprite = NodePath("HandGrab")
+
+[node name="Hand" type="Sprite2D" parent="CanvasLayer/Cursor/Level1" unique_id=2082705077]
+visible = false
+texture_filter = 1
+material = ExtResource("3_m1smr")
+texture = SubResource("AtlasTexture_tno7j")
+
+[node name="HandGrab" type="Sprite2D" parent="CanvasLayer/Cursor/Level1" unique_id=1779634272]
+visible = false
+texture_filter = 1
+material = ExtResource("5_3ax2n")
+texture = SubResource("AtlasTexture_cnp7o")
+
+[node name="Level2" type="Node2D" parent="CanvasLayer/Cursor" unique_id=2126859742 node_paths=PackedStringArray("open_hand_sprite", "closed_hand_sprite")]
+scale = Vector2(0.44499996, 0.44499996)
+script = ExtResource("1_cnp7o")
+madness_level = 1
+open_hand_sprite = NodePath("Hand")
+closed_hand_sprite = NodePath("HandGrab")
+
+[node name="Hand" type="Sprite2D" parent="CanvasLayer/Cursor/Level2" unique_id=1573375575]
+visible = false
+texture_filter = 1
+material = ExtResource("3_m1smr")
+texture = SubResource("AtlasTexture_m1smr")
+
+[node name="HandGrab" type="Sprite2D" parent="CanvasLayer/Cursor/Level2" unique_id=1474052792]
+visible = false
+texture_filter = 1
+material = ExtResource("5_3ax2n")
+texture = SubResource("AtlasTexture_3ax2n")
+
+[node name="Level3" type="Node2D" parent="CanvasLayer/Cursor" unique_id=1433105554 node_paths=PackedStringArray("open_hand_sprite", "closed_hand_sprite")]
+scale = Vector2(0.44499996, 0.44499996)
+script = ExtResource("1_cnp7o")
+madness_level = 2
+open_hand_sprite = NodePath("Hand")
+closed_hand_sprite = NodePath("HandGrab")
+
+[node name="Hand" type="Sprite2D" parent="CanvasLayer/Cursor/Level3" unique_id=55946183]
+visible = false
+texture_filter = 1
+material = ExtResource("3_m1smr")
+texture = SubResource("AtlasTexture_m4fst")
+
+[node name="HandGrab" type="Sprite2D" parent="CanvasLayer/Cursor/Level3" unique_id=1730126921]
+visible = false
+texture_filter = 1
+material = ExtResource("5_3ax2n")
+texture = SubResource("AtlasTexture_3ax2n")

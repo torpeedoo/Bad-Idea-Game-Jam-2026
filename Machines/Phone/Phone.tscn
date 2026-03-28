@@ -1,64 +1,121 @@
 [gd_scene format=3 uid="uid://bp2kmfy8f6ru2"]
 
-[ext_resource type="Texture2D" uid="uid://cgvk1lrpo3dby" path="res://Machines/Phone/Art/PhoneSheet.png" id="1_boei6"]
 [ext_resource type="Script" uid="uid://cnwenqye5lfu7" path="res://Machines/Phone/phone.gd" id="1_m5ua4"]
+[ext_resource type="Texture2D" uid="uid://cwpm1ulk31pth" path="res://Machines/Phone/Art/BPhoneSheet.png" id="2_ove81"]
+[ext_resource type="FontFile" uid="uid://dtjou6fnpw361" path="res://Fonts/radio_2/radio.ttf" id="3_bvju8"]
 [ext_resource type="AudioStream" uid="uid://5wfcutc4kn50" path="res://Machines/Interaction/SFX/Menu_click_3.mp3" id="3_ove81"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m5ua4"]
-atlas = ExtResource("1_boei6")
-region = Rect2(288.16864, 271.09473, 386.83136, 444.90527)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ove81"]
-atlas = ExtResource("1_boei6")
-region = Rect2(4.5895996, 18.10255, 268.92303, 689.84607)
+atlas = ExtResource("2_ove81")
+region = Rect2(69.199585, 32.22119, 279.60553, 1021.41614)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjvfv"]
+atlas = ExtResource("2_ove81")
+region = Rect2(396.24023, 389.94006, 202.07007, 168.19006)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boei6"]
-atlas = ExtResource("1_boei6")
-region = Rect2(331.72726, 68.72727, 191.81815, 36.088097)
+atlas = ExtResource("2_ove81")
+region = Rect2(410.36285, 187.7302, 181.81818, 38.181824)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bvju8"]
-atlas = ExtResource("1_boei6")
-region = Rect2(337.36102, 192.31198, 183.04755, 38.931763)
+atlas = ExtResource("2_ove81")
+region = Rect2(413.45465, 317.6364, 172.72736, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0refr"]
+atlas = ExtResource("2_ove81")
+region = Rect2(387.09348, 591.7606, 216.5026, 402.99487)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ua4"]
-size = Vector2(250, 682)
+size = Vector2(284, 791)
 
-[node name="Phone" type="Node2D" unique_id=767561474 node_paths=PackedStringArray("interaction_area", "click_sfx")]
+[node name="Phone" type="Node2D" unique_id=767561474 node_paths=PackedStringArray("time_label", "end_time_label", "anomalies_found_label", "anomalies_goal_label", "interaction_area", "click_sfx")]
 script = ExtResource("1_m5ua4")
+time_label = NodePath("BgPhone/Time")
+end_time_label = NodePath("BgPhone/EndTime")
+anomalies_found_label = NodePath("BgPhone/AnomaliesFound")
+anomalies_goal_label = NodePath("BgPhone/AnomaliesGoal")
 interaction_area = NodePath("Area2D")
 click_sfx = NodePath("AudioStreamPlayer")
 
 [node name="BgPhone" type="Node2D" parent="." unique_id=1512931370]
-
-[node name="Base" type="Sprite2D" parent="BgPhone" unique_id=2004443773]
-texture_filter = 1
-texture = SubResource("AtlasTexture_m5ua4")
 
 [node name="Phone" type="Sprite2D" parent="BgPhone" unique_id=575989259]
 texture_filter = 1
 position = Vector2(-6, -263)
 texture = SubResource("AtlasTexture_ove81")
 
+[node name="Screen" type="Sprite2D" parent="BgPhone" unique_id=1050296809]
+texture_filter = 1
+position = Vector2(-3, -367)
+texture = SubResource("AtlasTexture_fjvfv")
+
 [node name="MenuStuffTop" type="Sprite2D" parent="BgPhone" unique_id=1633498656]
 texture_filter = 1
-position = Vector2(-7, -505)
+position = Vector2(-3, -434)
 texture = SubResource("AtlasTexture_boei6")
 
 [node name="MenuStuffBottom" type="Sprite2D" parent="BgPhone" unique_id=1198201170]
 texture_filter = 1
-position = Vector2(-3, -379)
+position = Vector2(-2, -306)
 texture = SubResource("AtlasTexture_bvju8")
 
 [node name="Time" type="Label" parent="BgPhone" unique_id=2117163789]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -89.0
+offset_top = -413.0
+offset_right = 76.0
+offset_bottom = -383.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bvju8")
+theme_override_font_sizes/font_size = 11
+text = "Time Left:"
+metadata/_edit_use_anchors_ = true
+
+[node name="EndTime" type="Label" parent="BgPhone" unique_id=1329269634]
+offset_left = -89.0
+offset_top = -390.0
+offset_right = 76.0
+offset_bottom = -360.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bvju8")
+theme_override_font_sizes/font_size = 11
+text = "TEST"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnomaliesFound" type="Label" parent="BgPhone" unique_id=1959277336]
+offset_left = -89.0
+offset_top = -364.0
+offset_right = 76.0
+offset_bottom = -334.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bvju8")
+theme_override_font_sizes/font_size = 11
+text = "TEST"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnomaliesGoal" type="Label" parent="BgPhone" unique_id=1852451836]
+offset_left = -89.0
+offset_top = -339.0
+offset_right = 76.0
+offset_bottom = -309.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_bvju8")
+theme_override_font_sizes/font_size = 11
+text = "TEST"
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Node2D" parent="." unique_id=996396751]
+
+[node name="Sprite2D" type="Sprite2D" parent="Buttons" unique_id=657232692]
+texture_filter = 1
+texture = SubResource("AtlasTexture_0refr")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1571723971]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1970451348]
-position = Vector2(-4, -259)
+position = Vector2(-4, -150.5)
 shape = SubResource("RectangleShape2D_m5ua4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=803630357]
 stream = ExtResource("3_ove81")
-volume_db = -2.995
+volume_db = -14.368
+bus = &"SFX"

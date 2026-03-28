@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://nntniairjrms"
+path="res://.godot/imported/All Out of Coal (Regular).mp3-5b123a6b3763053904e9222f4cfff1d5.mp3str"
+
+[deps]
+
+source_file="res://Music/AWAKE FM (Funk)/All Out of Coal (Regular).mp3"
+dest_files=["res://.godot/imported/All Out of Coal (Regular).mp3-5b123a6b3763053904e9222f4cfff1d5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
