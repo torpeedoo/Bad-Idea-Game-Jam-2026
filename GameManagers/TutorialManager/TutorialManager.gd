@@ -27,7 +27,7 @@ func anomaly_submitted():
 	
 	if anomalies_been_submitted == 1:
 		pass
-		#text_box.load_dialogue_chunk("anomaly_submitted", true)
+		text_box.load_dialogue_chunk("anomaly_submitted", true)
 	elif anomalies_been_submitted == 2:
 		text_box.load_dialogue_chunk("second_anomaly_found", true)
 

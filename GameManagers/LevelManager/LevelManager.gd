@@ -147,7 +147,7 @@ func update_hallucinations():
 func fail_game():
 	if jump_scare:
 		jump_scare.scare_finished.connect(reload_scene)
-		jump_scare.scare()
+		jump_scare.scare_trigger()
 		scaring = true
 	else:
 		reload_scene()

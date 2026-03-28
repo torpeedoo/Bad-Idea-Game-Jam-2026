@@ -73,26 +73,27 @@ position = Vector2(-107, 35)
 scale = Vector2(0.3, 0.3)
 texture = SubResource("AtlasTexture_ecaeb")
 
-[node name="Antenna1" type="Sprite2D" parent="BaseSprites" unique_id=2036479789]
-visible = false
+[node name="Node2D" type="Node2D" parent="BaseSprites" unique_id=1847107749]
+position = Vector2(-124, -125.99999)
+rotation = -0.6981317
+
+[node name="Antenna1" type="Sprite2D" parent="BaseSprites/Node2D" unique_id=2036479789]
 texture_filter = 1
-position = Vector2(-87.797516, -175.0151)
+position = Vector2(33.202484, -49.015106)
 rotation = -0.98475057
 scale = Vector2(0.3, 0.3)
 texture = SubResource("AtlasTexture_45ecp")
 
-[node name="Antenna2" type="Sprite2D" parent="BaseSprites" unique_id=2006177014]
-visible = false
+[node name="Antenna2" type="Sprite2D" parent="BaseSprites/Node2D" unique_id=2006177014]
 texture_filter = 1
-position = Vector2(-35.797523, -254.01512)
+position = Vector2(85.20248, -128.01512)
 rotation = -0.98475057
 scale = Vector2(0.25, 0.25)
 texture = SubResource("AtlasTexture_45ecp")
 
-[node name="Antenna3" type="Sprite2D" parent="BaseSprites" unique_id=977869123]
-visible = false
+[node name="Antenna3" type="Sprite2D" parent="BaseSprites/Node2D" unique_id=977869123]
 texture_filter = 1
-position = Vector2(6.2024918, -317.0151)
+position = Vector2(127.20249, -191.0151)
 rotation = -0.98475057
 scale = Vector2(0.25, 0.25)
 texture = SubResource("AtlasTexture_31kwd")

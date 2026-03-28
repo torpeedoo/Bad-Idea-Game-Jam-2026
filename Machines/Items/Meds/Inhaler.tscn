@@ -228,7 +228,7 @@ z_index = 1
 script = ExtResource("1_35gt6")
 anim_player = NodePath("AnimationPlayer")
 count_sprite = NodePath("BG/Count")
-madness_reduction = 100.0
+madness_reduction = 50.0
 x_pos_counts = Array[float]([988.0, 1027.0, 1067.0, 1107.0, 1147.0, 1187.0, 1227.0])
 interaction_area = NodePath("BG/Area2D")
 

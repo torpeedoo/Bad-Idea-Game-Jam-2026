@@ -33,10 +33,10 @@ corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vj6dk"]
 bg_color = Color(0.21950099, 0.21950105, 0.21950087, 1)
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_110ce"]
 bg_color = Color(0.51718444, 0.5171845, 0.51718444, 1)
@@ -50,7 +50,11 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05tig"]
-bg_color = Color(0.10980392, 0.10980392, 0.10980392, 1)
+bg_color = Color(0.11, 0.11, 0.11, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [resource]
 Button/fonts/font = ExtResource("1_e1x85")

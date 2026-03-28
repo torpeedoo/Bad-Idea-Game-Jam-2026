@@ -116,6 +116,12 @@ func _update_audiostreams():
 		print("called")
 		
 		if station.current_song:
+			
+			if station.current_song.is_anomaly:
+				stream.pitch_scale = randf_range(0.7, 0.9)
+			else:
+				stream.pitch_scale = 1.0
+			
 			station.broadcasting = true
 			stream.stream = station.current_song.audiostream
 			stream.play()

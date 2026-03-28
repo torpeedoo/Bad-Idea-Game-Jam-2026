@@ -162,14 +162,15 @@
 [ext_resource type="AudioStream" uid="uid://b2t0icgyetu81" path="res://GameManagers/LevelManager/Levels/Audio/Static_electrical_1.mp3" id="161_r0ysg"]
 [ext_resource type="AudioStream" uid="uid://b7j5j48x4013y" path="res://GameManagers/LevelManager/Levels/Audio/Laugh_evil_deep_3.mp3" id="162_fjhee"]
 [ext_resource type="AudioStream" uid="uid://boamqwvvsn3s7" path="res://GameManagers/LevelManager/Levels/Audio/Drone_ominous.mp3" id="163_ljyfn"]
+[ext_resource type="PackedScene" uid="uid://s13vbyhcjtgu" path="res://Machines/TapeDispenser/TapeDispenser.tscn" id="164_s3y1i"]
 [ext_resource type="PackedScene" uid="uid://bejtmxeodt37e" path="res://Inventory/InventoryUI/InventoryUI.tscn" id="164_ul2d3"]
-[ext_resource type="PackedScene" uid="uid://bcc26a7jp4lul" path="res://Machines/Items/Tape/Tape.tscn" id="165_eljik"]
 [ext_resource type="PackedScene" uid="uid://dst8gyqhe0u1h" path="res://Machines/Items/Meds/Inhaler.tscn" id="166_ht0lt"]
 [ext_resource type="Script" uid="uid://bycx7bxnlvvy5" path="res://GameManagers/TextBox/DialogueChunk.gd" id="167_7i7mf"]
 [ext_resource type="PackedScene" uid="uid://bq7bemr3nmxm2" path="res://GameManagers/TextBox/TextBox.tscn" id="167_nptja"]
 [ext_resource type="Script" uid="uid://bk806oyhudbgm" path="res://GameManagers/TextBox/DialogueLine.gd" id="168_s3y1i"]
 [ext_resource type="Script" uid="uid://dhuoiffi4y1vw" path="res://GameManagers/TextBox/DialogueRes.gd" id="169_1jbed"]
 [ext_resource type="Script" uid="uid://oek57s4uqacg" path="res://GameManagers/TutorialManager/TutorialManager.gd" id="169_ipqlt"]
+[ext_resource type="PackedScene" uid="uid://b2en160274bqy" path="res://GameManagers/Jumpscare/jumpscare.tscn" id="171_s3y1i"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u1jsg"]
 animations = [{
@@ -656,7 +657,7 @@ script = ExtResource("169_1jbed")
 dialogue_chunks = Array[ExtResource("167_7i7mf")]([SubResource("Resource_5lbce"), SubResource("Resource_r8cja")])
 metadata/_custom_type_script = "uid://dhuoiffi4y1vw"
 
-[node name="TestLevel" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "recorder", "radio")]
+[node name="NightTwo" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "recorder", "radio")]
 process_mode = 1
 script = ExtResource("1_10mx2")
 start_time = 9
@@ -668,6 +669,7 @@ madness_audio1 = NodePath("Audio/MadnessAmbiance1")
 grain = NodePath("Background/Grain")
 madness_laugh_audio = NodePath("Audio/Laugh")
 madness_drone_audio = NodePath("Audio/Drone")
+jump_scare = NodePath("Jumpscare")
 recorder = NodePath("Interactables/TapeRecorder")
 radio = NodePath("Interactables/radio")
 
@@ -813,7 +815,8 @@ offset_left = 980.0
 offset_right = 980.0
 grow_vertical = 1
 level_manager = NodePath("../..")
-init_items = Array[PackedScene]([ExtResource("165_eljik"), ExtResource("165_eljik"), ExtResource("166_ht0lt")])
+init_items = Array[PackedScene]([ExtResource("164_s3y1i"), ExtResource("166_ht0lt")])
+inhaler_uses = 2
 
 [node name="TextBox" parent="UI" unique_id=896158815 instance=ExtResource("167_nptja")]
 dialogue_res = SubResource("Resource_4r5xk")
@@ -823,3 +826,5 @@ script = ExtResource("169_ipqlt")
 tutorial_enabled = true
 text_box = NodePath("../UI/TextBox")
 level_manager = NodePath("..")
+
+[node name="Jumpscare" parent="." unique_id=513251383 instance=ExtResource("171_s3y1i")]

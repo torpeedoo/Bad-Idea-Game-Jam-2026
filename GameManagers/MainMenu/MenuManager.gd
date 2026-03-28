@@ -1,13 +1,19 @@
 extends Node2D
 class_name MainMenuManager
 
+@export_category("Refs")
+@export_subgroup("Buttons")
 @export var levels_button: Button
 @export var settings_button: Button
 @export var quit_button: Button
+@export var credits_button: Button
+@export_subgroup("Controls")
 @export var levels_control: Control
 @export var main_menu_control: Control
 @export var settings_control: Control
 @export var bg_control: Control
+@export var credits_control: Control
+@export_category("vars")
 @export var level_button_array: Array[MainMenuButton]
 @export var parallax_strength: float = 20.0
 @export var parallax_smoothing: float = 5.0
@@ -20,6 +26,8 @@ var _bg_origin: Vector2
 func _ready():
 	get_tree().paused = false
 	_screen_center = get_viewport().get_visible_rect().size / 2.0
+	if main_menu_control:
+		main_menu_control.show()
 	if bg_control:
 		_bg_origin = bg_control.position
 	if quit_button:
@@ -31,12 +39,22 @@ func _ready():
 	if settings_button:
 		settings_button.pressed.connect(open_settings)
 		settings_control.hide()
+	if credits_control:
+		credits_control.hide()
+	if credits_button:
+		credits_button.pressed.connect(open_credits)
 	update_levels()
 
 func open_levels():
 	levels_control.show()
 	main_menu_control.hide()
 	current_control = levels_control
+	prev_control = main_menu_control
+
+func open_credits():
+	credits_control.show()
+	main_menu_control.hide()
+	current_control = credits_control
 	prev_control = main_menu_control
 
 func open_settings():

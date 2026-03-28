@@ -6,6 +6,7 @@
 [ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="2_88422"]
 [ext_resource type="Shader" uid="uid://bab48mcfy7uk4" path="res://GameManagers/TextBox/dithershadow.gdshader" id="2_jtopq"]
 [ext_resource type="AudioStream" uid="uid://bc2qoj1tqe1va" path="res://Music/Sfx/other/Ghost_scream.mp3" id="3_88422"]
+[ext_resource type="AudioStream" uid="uid://bwui25y5ie0hr" path="res://Music/Sfx/other/Child laugh.mp3" id="7_or6yt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_or6yt"]
 shader = ExtResource("2_jtopq")
@@ -100,7 +101,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(2.4622936, 5.0982456),
 "update": 0,
-"values": [Vector2(0, 1080), Vector2(0, 0)]
+"values": [Vector2(0, 1080), Vector2(-87, -92)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,7 +113,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.40612632, 1),
 "update": 0,
-"values": [Vector2(0.605, 0.605), Vector2(1, 1)]
+"values": [Vector2(0.605, 0.605), Vector2(1.1, 1.1)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -133,18 +134,21 @@ _data = {
 &"Scare": SubResource("Animation_88422")
 }
 
-[node name="Jumpscare" type="Node2D" unique_id=513251383 node_paths=PackedStringArray("scare_img", "dither_img", "anim_player", "stinger_audio", "scream_audio", "scare_on_screen_timer")]
+[node name="Jumpscare" type="Node2D" unique_id=513251383 node_paths=PackedStringArray("scare_img", "dither_img", "anim_player", "stinger_audio", "scream_audio", "laugh_audio", "scare_on_screen_timer", "leadup_timer")]
 script = ExtResource("1_5nmh0")
 scare_img = NodePath("CanvasLayer/TextureRect")
 dither_img = NodePath("CanvasLayer/ColorRect")
 anim_player = NodePath("AnimationPlayer")
 stinger_audio = NodePath("Stinger")
 scream_audio = NodePath("Scream")
-scare_on_screen_timer = NodePath("Timer")
+laugh_audio = NodePath("Laugh")
+scare_on_screen_timer = NodePath("OnScreenTimer")
+leadup_timer = NodePath("LeadUpTimer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1499600223]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1185415653]
+visible = false
 material = SubResource("ShaderMaterial_or6yt")
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,6 +157,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=864575069]
+visible = false
 texture_filter = 1
 material = SubResource("ShaderMaterial_jtopq")
 anchors_preset = 15
@@ -172,11 +177,21 @@ bus = &"SFX"
 
 [node name="Scream" type="AudioStreamPlayer" parent="." unique_id=1266130905]
 stream = ExtResource("3_88422")
+volume_db = -0.913
+pitch_scale = 0.62
+bus = &"SFX"
+
+[node name="Laugh" type="AudioStreamPlayer" parent="." unique_id=1223431051]
+stream = ExtResource("7_or6yt")
 volume_db = -10.035
 bus = &"SFX"
 
-[node name="Timer" type="Timer" parent="." unique_id=1640962941]
+[node name="OnScreenTimer" type="Timer" parent="." unique_id=1640962941]
 wait_time = 3.0
+
+[node name="LeadUpTimer" type="Timer" parent="." unique_id=1751791201]
+wait_time = 2.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=955350555]
 libraries/ = SubResource("AnimationLibrary_jtopq")

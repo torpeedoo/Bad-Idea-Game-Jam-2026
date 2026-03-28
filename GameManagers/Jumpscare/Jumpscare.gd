@@ -9,14 +9,16 @@ signal scare_finished
 
 @export var stinger_audio: AudioStreamPlayer
 @export var scream_audio: AudioStreamPlayer
+@export var laugh_audio: AudioStreamPlayer
 
 @export var scare_on_screen_timer: Timer
+@export var leadup_timer: Timer
 
 func _ready():
 	scare_img.hide()
 	dither_img.hide()
 	scare_on_screen_timer.timeout.connect(unscare)
-	#scare()
+	#scare_trigger()
 
 func show_scare_img():
 	anim_player.play("Scare")
@@ -31,7 +33,16 @@ func unscare():
 	hide_scare_img()
 	stinger_audio.playing = false
 	scream_audio.playing = false
+	var idx = AudioServer.get_bus_index("Radio")
+	AudioServer.set_bus_mute(idx, false)
 	scare_finished.emit()
+
+func scare_trigger():
+	var idx = AudioServer.get_bus_index("Radio")
+	AudioServer.set_bus_mute(idx, true)
+	leadup_timer.timeout.connect(scare)
+	leadup_timer.start()
+	laugh_audio.play()
 
 func scare():
 	stinger_audio.play()

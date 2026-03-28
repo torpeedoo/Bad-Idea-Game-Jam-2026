@@ -791,6 +791,7 @@ offset_right = 980.0
 grow_vertical = 1
 level_manager = NodePath("../..")
 init_items = Array[PackedScene]([ExtResource("164_60570")])
+tapes = 4
 
 [node name="TextBox" parent="UI" unique_id=896158815 instance=ExtResource("166_womts")]
 dialogue_res = ExtResource("167_5wx12")

@@ -16,6 +16,7 @@
 [ext_resource type="Shader" uid="uid://b7jlgqiifasia" path="res://GameManagers/MainMenu/blur.gdshader" id="8_o5ufx"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
 [ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
+[ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="15_epdf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_epdf4"]
 shader = ExtResource("8_o5ufx")
@@ -23,16 +24,18 @@ shader_parameter/blur_amount = 2.3740002077650004
 shader_parameter/mix_amount = 0.51600002451
 shader_parameter/color_over = Color(0, 0, 0, 1)
 
-[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("levels_button", "settings_button", "quit_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "level_button_array")]
+[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("levels_button", "settings_button", "quit_button", "credits_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "credits_control", "level_button_array")]
 scale = Vector2(1.135, 1.135)
 script = ExtResource("1_xqv8w")
 levels_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button")
 settings_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button2")
 quit_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button3")
+credits_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button4")
 levels_control = NodePath("CanvasLayer/Levels")
 main_menu_control = NodePath("CanvasLayer/Menu")
 settings_control = NodePath("CanvasLayer/Settings")
 bg_control = NodePath("BG")
+credits_control = NodePath("CanvasLayer/Credits")
 level_button_array = [NodePath("CanvasLayer/Levels/VBoxContainer/Button"), NodePath("CanvasLayer/Levels/VBoxContainer/Button2")]
 parallax_strength = 10.0
 parallax_smoothing = 25.0
@@ -118,6 +121,7 @@ mouse_filter = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045201008]
 
 [node name="Menu" type="Control" parent="CanvasLayer" unique_id=1993580033]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +148,7 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
-text = "LEVELS"
+text = "Levels"
 script = ExtResource("2_eait5")
 click_sfx = NodePath("../../../../SFX/Click")
 
@@ -153,7 +157,16 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
-text = "SETTINGS"
+text = "Settings"
+script = ExtResource("2_eait5")
+click_sfx = NodePath("../../../../SFX/Click")
+
+[node name="Button4" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=95164132 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "Credits"
 script = ExtResource("2_eait5")
 click_sfx = NodePath("../../../../SFX/Click")
 
@@ -168,6 +181,7 @@ script = ExtResource("2_eait5")
 click_sfx = NodePath("../../../../SFX/Click")
 
 [node name="Levels" type="Control" parent="CanvasLayer" unique_id=611158325]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -277,6 +291,206 @@ text = "Back"
 script = ExtResource("2_4mwo0")
 menu_manager = NodePath("../../../../../../..")
 click_sfx = NodePath("../../../../../../../SFX/Click")
+
+[node name="Credits" type="Control" parent="CanvasLayer" unique_id=923272251]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Credits" unique_id=1359149927]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=643973335]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer2" unique_id=1245187622]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 50
+text = "Main Team"
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1753877734]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1520507590]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer10" unique_id=752958995]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 50
+text = "Lead Developer    - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer10" unique_id=1847649148]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 45
+text = "YesMeMarcus"
+underline = 1
+uri = "https://yesmemarcus.itch.io/"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1891537365]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer3" unique_id=1102311214]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 50
+text = "Lead Artist       - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer3" unique_id=1595250660]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 45
+text = "BrushingBlooms"
+underline = 1
+uri = "https://www.brushingblooms.com/"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1099490815]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer4" unique_id=1600210996]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 50
+text = "Music/Lead SFX    - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer4" unique_id=1748986902]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 45
+text = "Demian_Chameleon"
+underline = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=349807359]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=656481349]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer5" unique_id=775026233]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer5" unique_id=1902097321]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Contributors"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=453828815]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=669372279]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=77859012]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "SFX         - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=1339345947]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "PenguinSphen"
+underline = 1
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1674144429]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=1933540458]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=657375885]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "SFX         - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=765198243]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "YourPalRob"
+underline = 1
+uri = "https://yourpalrob.itch.io/"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=2008417941]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=460216951]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=748979470]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Programming - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=650522170]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Jun"
+underline = 1
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1721810210]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=1000880518]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=45988599]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Music       - "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=1578472420]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Utopia Quartet"
+underline = 1
+uri = "https://www.youtube.com/@colinhoulihansax"
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=402085468]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Credits/VBoxContainer" unique_id=812309839 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+text = "Back"
+script = ExtResource("2_4mwo0")
+menu_manager = NodePath("../../../..")
+click_sfx = NodePath("../../../../SFX/Click")
 
 [node name="Music" type="Node" parent="." unique_id=1753872319]
 

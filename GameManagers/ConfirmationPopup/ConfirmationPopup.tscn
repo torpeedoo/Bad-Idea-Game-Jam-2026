@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f07fyachfsc4" path="res://GameManagers/ConfirmationPopup/confirmation_popup.gd" id="1_e0sve"]
 [ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="2_6fuua"]
+[ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="3_2x4r1"]
 [ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="3_scy1x"]
 
 [sub_resource type="Shader" id="Shader_0n5f3"]
@@ -133,7 +134,7 @@ shader_parameter/dither_offset = Vector2(2, 0)
 shader_parameter/bayer_size = 2
 shader_parameter/interpolate = true
 shader_parameter/invert = false
-shader_parameter/falloff = 1.9410000889376202
+shader_parameter/falloff = 1.94100008893762
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [node name="ConfirmationPopup" type="Node2D" unique_id=871702862]
@@ -171,19 +172,23 @@ text = "ARE YOU SURE YOU WANT TO END THE NIGHT?"
 horizontal_alignment = 1
 
 [node name="YesButton" type="Button" parent="CanvasLayer/Control" unique_id=1235478395]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
-offset_left = 1073.0
-offset_top = 606.0
-offset_right = 1145.0
-offset_bottom = 655.0
+offset_left = 1014.325
+offset_top = 600.0
+offset_right = 1114.3252
+offset_bottom = 700.0
+theme = ExtResource("3_2x4r1")
 text = "YES"
 
 [node name="NoButton" type="Button" parent="CanvasLayer/Control" unique_id=2088439991]
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 834.0
-offset_top = 603.0
-offset_right = 906.0
-offset_bottom = 652.0
+offset_top = 600.0
+offset_right = 934.0
+offset_bottom = 700.0
+theme = ExtResource("3_2x4r1")
 text = "NO"
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="." unique_id=1600382713]
