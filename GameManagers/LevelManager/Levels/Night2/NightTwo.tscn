@@ -653,7 +653,7 @@ script = ExtResource("169_1jbed")
 dialogue_chunks = Array[ExtResource("167_7i7mf")]([SubResource("Resource_5lbce")])
 metadata/_custom_type_script = "uid://dhuoiffi4y1vw"
 
-[node name="NightTwo" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio")]
+[node name="NightTwo" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio", "ambiance")]
 process_mode = 1
 script = ExtResource("1_10mx2")
 start_time = 9
@@ -669,6 +669,7 @@ jump_scare = NodePath("Jumpscare")
 tv = NodePath("Background/Base/Props/TV")
 recorder = NodePath("Interactables/TapeRecorder")
 radio = NodePath("Interactables/radio")
+ambiance = NodePath("Audio/AudioStreamPlayer")
 
 [node name="Background" type="Node2D" parent="." unique_id=1960895492]
 z_index = -1

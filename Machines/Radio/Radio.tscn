@@ -118,13 +118,14 @@ stream = ExtResource("5_ipn1w")
 volume_db = -30.106
 parameters/looping = true
 
-[node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
+[node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point", "dragging_audio")]
 position = Vector2(32, 29)
 scale = Vector2(1.5, 1.5)
 script = ExtResource("3_siki7")
 knob = NodePath("knob")
 knob_point = NodePath("knob/knob_point")
 middle_point = NodePath("middle_pooint")
+dragging_audio = NodePath("AudioStreamPlayer2")
 
 [node name="knob" type="Marker2D" parent="tune_dial" unique_id=1862592574]
 
@@ -166,6 +167,12 @@ texture = SubResource("AtlasTexture_sspr3")
 
 [node name="middle_pooint" type="Marker2D" parent="tune_dial" unique_id=581374145]
 position = Vector2(0, -25)
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="tune_dial" unique_id=1526875143]
+stream = ExtResource("5_ipn1w")
+volume_db = -30.106
+pitch_scale = 0.69
+parameters/looping = true
 
 [node name="Switch" type="Node2D" parent="." unique_id=1919514698 node_paths=PackedStringArray("interaction_area", "switch_up_sprite", "switch_down_sprite", "click_sfx")]
 position = Vector2(111, 29)

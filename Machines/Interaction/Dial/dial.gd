@@ -7,6 +7,7 @@ signal moved_dial
 @export var knob: Marker2D
 @export var knob_point: Marker2D
 @export var middle_point: Marker2D
+@export var dragging_audio: AudioStreamPlayer
 
 @export_category("Params")
 @export var min_val: float = 0.0
@@ -26,10 +27,12 @@ func _physics_process(delta: float) -> void:
 	if mouseDist < MAX_DIST and Input.is_action_just_pressed("lmb"):
 		following = true
 	if Input.is_action_just_released("lmb"):
+		dragging_audio.stop()
 		following = false
 		
 		
 	if following:
+		if !dragging_audio.playing: dragging_audio.play()
 		var ang := get_global_mouse_position().angle_to_point( knob.global_position ) + -PI/2
 		var d :Vector2= (knob_point.position.rotated( knob.rotation))
 		var a = middle_point.position.angle_to(d)
