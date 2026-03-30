@@ -14,7 +14,6 @@
 [resource]
 script = ExtResource("1_deawc")
 station_name = "Morse"
-station_freq = 9.8
-am_fm = 0
+station_freq = 87.0
 song_list = Array[ExtResource("2_j1qpu")]([ExtResource("3_p0k8u"), ExtResource("4_lgey1"), ExtResource("5_yjiha"), ExtResource("6_tr2on"), ExtResource("7_vwbu2"), ExtResource("8_4qsij"), ExtResource("9_sriju"), ExtResource("10_kadv6")])
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

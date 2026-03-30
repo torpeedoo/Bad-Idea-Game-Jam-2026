@@ -1,30 +1,68 @@
 [gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://c4fjup57hhuoj"]
 
 [ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_qfy4d"]
-[ext_resource type="Resource" uid="uid://cmehx2xs2sr8c" path="res://Music/Ambient Channel 6/AmbientChannel.tres" id="2_6tee5"]
-[ext_resource type="Resource" uid="uid://cvyqoyok62d1" path="res://Music/AWAKE FM (Funk)/AWAKE FM.tres" id="3_kedhb"]
-[ext_resource type="Resource" uid="uid://r0xtbp0ck7tv" path="res://Music/Lush (Jazz Ballads)/Lush.tres" id="4_hx23i"]
-[ext_resource type="Resource" uid="uid://dhh5xwwaospsq" path="res://Music/Pork Soda Chips (Synth Pop)/Pork Soda Chips.tres" id="5_0ju57"]
+[ext_resource type="Resource" uid="uid://2l03l2qfahf7" path="res://Music/Ambient Channel 6/BillsKitchen.tres" id="3_wvwqy"]
+[ext_resource type="Resource" uid="uid://ca0l1cu04cfll" path="res://Music/Ambient Channel 6/ClosetSpace.tres" id="4_xf1xp"]
+[ext_resource type="Resource" uid="uid://pe5apx4datva" path="res://Music/AWAKE FM (Funk)/All Out Of Coal.tres" id="5_04l35"]
 [ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="6_bcggn"]
+[ext_resource type="Resource" uid="uid://ct0os04xdwsuv" path="res://Music/AWAKE FM (Funk)/Clarion - Utopia Quartet.tres" id="6_boooc"]
+[ext_resource type="Resource" uid="uid://di4hrh0kcbfdv" path="res://Music/AWAKE FM (Funk)/She's Got A.tres" id="7_ork7f"]
 [ext_resource type="Resource" uid="uid://ctku2sxo4dtel" path="res://Music/Sfx/TTS/SongRes/archers.tres" id="7_wvwqy"]
+[ext_resource type="Resource" uid="uid://crs4dk5dhdxav" path="res://Music/Lush (Jazz Ballads)/Haiku for a Green Monk.tres" id="8_24js2"]
 [ext_resource type="Resource" uid="uid://diisewv16jr5p" path="res://Music/Sfx/TTS/SongRes/puppet.tres" id="8_xf1xp"]
 [ext_resource type="Resource" uid="uid://dwn3j7hhgsot7" path="res://Music/Sfx/TTS/SongRes/lied.tres" id="9_04l35"]
+[ext_resource type="Resource" uid="uid://dk275d1xs78yt" path="res://Music/Lush (Jazz Ballads)/Pinnochio's Love Story.tres" id="9_b2w6t"]
 [ext_resource type="Resource" uid="uid://cgc33mtei48bl" path="res://Music/Sfx/TTS/SongRes/bodies.tres" id="10_boooc"]
+[ext_resource type="Resource" uid="uid://dlfk0llevp3n0" path="res://Music/Pork Soda Chips (Synth Pop)/Paris Bacon.tres" id="10_hxasn"]
+[ext_resource type="Resource" uid="uid://bxbh4xbutij3n" path="res://Music/Pork Soda Chips (Synth Pop)/Schitzophrenia Monitor.tres" id="11_3003v"]
 [ext_resource type="Resource" uid="uid://dwe8ah7cwhgvx" path="res://Music/Sfx/TTS/SongRes/nation.tres" id="11_ork7f"]
 [ext_resource type="Resource" uid="uid://bpih1imudft3d" path="res://Music/Sfx/TTS/SongRes/trains.tres" id="12_24js2"]
+[ext_resource type="Resource" uid="uid://cjl6v5btpr5kp" path="res://Music/Pork Soda Chips (Synth Pop)/Tobias.tres" id="12_51yk2"]
 [ext_resource type="Script" uid="uid://cojbqltk7b08q" path="res://GameManagers/LevelManager/Levels/Core/LevelData.gd" id="13_b2w6t"]
+[ext_resource type="Resource" uid="uid://dxa1tmx2oekdy" path="res://Music/Sfx/Morse/Morse.tres" id="19_xf1xp"]
 
-[sub_resource type="Resource" id="Resource_f43av"]
+[sub_resource type="Resource" id="Resource_mhl4o"]
+script = ExtResource("1_qfy4d")
+station_name = "Ambient Channel 6"
+station_freq = 89.1
+song_list = Array[ExtResource("6_bcggn")]([ExtResource("3_wvwqy"), ExtResource("4_xf1xp")])
+random_anomalies = true
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
+
+[sub_resource type="Resource" id="Resource_du1h3"]
+script = ExtResource("1_qfy4d")
+station_name = "AWAKE FM"
+station_freq = 101.3
+song_list = Array[ExtResource("6_bcggn")]([ExtResource("5_04l35"), ExtResource("6_boooc"), ExtResource("7_ork7f")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
+
+[sub_resource type="Resource" id="Resource_0vlmo"]
+script = ExtResource("1_qfy4d")
+station_name = "Lush"
+station_freq = 95.3
+song_list = Array[ExtResource("6_bcggn")]([ExtResource("8_24js2"), ExtResource("9_b2w6t")])
+random_anomalies = true
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
+
+[sub_resource type="Resource" id="Resource_xeb1h"]
+script = ExtResource("1_qfy4d")
+station_name = "Pork Soda Chips"
+station_freq = 105.0
+song_list = Array[ExtResource("6_bcggn")]([ExtResource("10_hxasn"), ExtResource("11_3003v"), ExtResource("12_51yk2")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
+
+[sub_resource type="Resource" id="Resource_aoll4"]
 script = ExtResource("1_qfy4d")
 station_name = "GD@FGH"
-station_freq = 92.0
+station_freq = 5.0
+am_fm = 0
 song_list = Array[ExtResource("6_bcggn")]([ExtResource("7_wvwqy"), ExtResource("8_xf1xp"), ExtResource("9_04l35"), ExtResource("10_boooc"), ExtResource("11_ork7f"), ExtResource("12_24js2")])
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
 
 [resource]
 script = ExtResource("13_b2w6t")
 level_name = "Night Three"
-level_stations = Array[ExtResource("1_qfy4d")]([ExtResource("2_6tee5"), ExtResource("3_kedhb"), ExtResource("4_hx23i"), ExtResource("5_0ju57"), SubResource("Resource_f43av")])
+level_stations = Array[ExtResource("1_qfy4d")]([SubResource("Resource_mhl4o"), SubResource("Resource_du1h3"), SubResource("Resource_0vlmo"), SubResource("Resource_xeb1h"), SubResource("Resource_aoll4"), ExtResource("19_xf1xp")])
 night_number = 3
 anomalies_pass_num = 3
 metadata/_custom_type_script = "uid://cojbqltk7b08q"

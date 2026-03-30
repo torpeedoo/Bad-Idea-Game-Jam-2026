@@ -195,7 +195,6 @@ func add_madness():
 	if madness_level < max_madness:
 		if level_data.night_number == 3 and !inventory.jumpscare_active:
 			var r = randf_range(0.0, 1.0)
-			print(r)
 			if r >= 0.99:
 				inventory.activate_scare()
 		madness_level += madness_add_amt

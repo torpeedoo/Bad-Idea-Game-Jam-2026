@@ -15,15 +15,18 @@ class_name MainMenuManager
 @export var settings_control: Control
 @export var bg_control: Control
 @export var credits_control: Control
+@export var new_level_sprite: Sprite2D
 @export_category("vars")
 @export var level_button_array: Array[MainMenuButton]
 @export var parallax_strength: float = 20.0
 @export var parallax_smoothing: float = 5.0
 
+var new_level: bool = false
 var prev_control: Control
 var current_control: Control
 var _screen_center: Vector2
 var _bg_origin: Vector2
+
 
 func _ready():
 	get_tree().paused = false
@@ -48,11 +51,13 @@ func _ready():
 	update_levels()
 
 func open_levels():
+	Game_Manager.seen_up_to_level = Game_Manager.unlocked_level
+	new_level = false
 	levels_control.show()
 	main_menu_control.hide()
 	current_control = levels_control
 	prev_control = main_menu_control
-
+	
 func open_credits():
 	credits_control.show()
 	main_menu_control.hide()
@@ -81,8 +86,13 @@ func update_levels():
 		if index <= Game_Manager.unlocked_level:
 			btn.disabled = false
 		index += 1
+	new_level = Game_Manager.unlocked_level > Game_Manager.seen_up_to_level
 
 func _process(delta):
+	if new_level:
+		new_level_sprite.show()
+	else:
+		new_level_sprite.hide()
 	if !bg_control:
 		return
 	if !music.playing: music.play()

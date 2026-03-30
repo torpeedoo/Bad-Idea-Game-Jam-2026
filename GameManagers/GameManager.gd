@@ -8,6 +8,7 @@ const popup_path: String = "res://GameManagers/ConfirmationPopup/ConfirmationPop
 const loading_screen_path: String = "res://GameManagers/LoadingScreen/LoadingScreen.tscn"
 var unlocked_level: int = 1
 var tutorial_completed: bool = false
+var seen_up_to_level: int = 1
 
 var _target_scene: String = ""
 

@@ -7,10 +7,13 @@
 [ext_resource type="AudioStream" uid="uid://ygobmfvnv1q0" path="res://Music/In Game Music/main thme_ (revised).mp3" id="4_2wvvl"]
 [ext_resource type="Shader" uid="uid://d34xaay4e7xer" path="res://GameManagers/MainMenu/dither.gdshader" id="4_y0c1k"]
 [ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="5_kaocu"]
+[ext_resource type="Shader" uid="uid://qroynftraftt" path="res://GameManagers/TextBox/blink.gdshader" id="7_0nep4"]
+[ext_resource type="Texture2D" uid="uid://dcuhnpjyt67u2" path="res://Art/SfxButtonGlow.png" id="7_njon1"]
 [ext_resource type="Texture2D" uid="uid://bsk0ewu8xu8ld" path="res://Art/guy/jyfujy.png" id="10_8pohn"]
 [ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="10_frd3x"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
 [ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="15_alxn2"]
 [ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="15_epdf4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j7crp"]
@@ -41,6 +44,8 @@ shader_parameter/outline_thickness = 1.0
 shader_parameter/chromatic_aberration = false
 shader_parameter/aberration_strength = 5.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0nep4"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_frd3x"]
 shader = ExtResource("4_y0c1k")
 shader_parameter/pixel_size = 2.2090000574274997
@@ -48,7 +53,16 @@ shader_parameter/vhs_intensity = 2.890000137275
 shader_parameter/noise_intensity = 0.2710000128725
 shader_parameter/opacity = 0.31200001482
 
-[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("music", "levels_button", "settings_button", "quit_button", "credits_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "credits_control", "level_button_array")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_alxn2"]
+shader = ExtResource("7_0nep4")
+shader_parameter/speed = 3.5
+shader_parameter/min_alpha = 0.2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nep4"]
+atlas = ExtResource("7_njon1")
+region = Rect2(318.36993, 155.76999, 150.04004, 130.68)
+
+[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("music", "levels_button", "settings_button", "quit_button", "credits_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "credits_control", "new_level_sprite", "level_button_array")]
 scale = Vector2(1.135, 1.135)
 script = ExtResource("1_xqv8w")
 music = NodePath("Music/Theme")
@@ -61,6 +75,7 @@ main_menu_control = NodePath("CanvasLayer/Control/Menu")
 settings_control = NodePath("CanvasLayer/Control/Settings")
 bg_control = NodePath("BG")
 credits_control = NodePath("CanvasLayer/Control/Credits")
+new_level_sprite = NodePath("CanvasLayer/Control/Menu/VBoxContainer/Button/Sprite2D")
 level_button_array = [NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button"), NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button2"), NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button3")]
 parallax_strength = 10.0
 parallax_smoothing = 2.5
@@ -262,6 +277,83 @@ position = Vector2(623.7886, 1044.934)
 scale = Vector2(1.965, 1.965)
 texture = ExtResource("10_8pohn")
 
+[node name="Label" type="Label" parent="BG/base2" unique_id=1356233322]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96918
+offset_top = 61.67401
+offset_right = 1803.9692
+offset_bottom = 216.67401
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label2" type="Label" parent="BG/base2" unique_id=450262820]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 194.71365
+offset_right = 1803.9691
+offset_bottom = 349.71365
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label3" type="Label" parent="BG/base2" unique_id=1177252496]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 327.7533
+offset_right = 1803.9691
+offset_bottom = 482.7533
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label4" type="Label" parent="BG/base2" unique_id=499660060]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 468.72247
+offset_right = 1803.9691
+offset_bottom = 623.7225
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label5" type="Label" parent="BG/base2" unique_id=11076586]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 617.62115
+offset_right = 1803.9691
+offset_bottom = 772.62115
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label6" type="Label" parent="BG/base2" unique_id=1315262098]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 758.59033
+offset_right = 1803.9691
+offset_bottom = 913.59033
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
+[node name="Label7" type="Label" parent="BG/base2" unique_id=2004496955]
+visible = false
+material = SubResource("ShaderMaterial_0nep4")
+offset_left = 140.96916
+offset_top = 902.20264
+offset_right = 1803.9691
+offset_bottom = 1057.2026
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 175
+text = "Project White Noise"
+
 [node name="ColorRect3" type="ColorRect" parent="BG" unique_id=882854891]
 material = SubResource("ShaderMaterial_frd3x")
 layout_mode = 0
@@ -312,6 +404,12 @@ theme_override_font_sizes/font_size = 50
 text = "Levels"
 script = ExtResource("2_eait5")
 click_sfx = NodePath("../../../../../SFX/Click")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control/Menu/VBoxContainer/Button" unique_id=1109044683]
+material = SubResource("ShaderMaterial_alxn2")
+position = Vector2(259, 35)
+scale = Vector2(0.2833332, 0.32307696)
+texture = SubResource("AtlasTexture_0nep4")
 
 [node name="Button2" type="Button" parent="CanvasLayer/Control/Menu/VBoxContainer" unique_id=200842792 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
@@ -609,6 +707,27 @@ text = "YourPalRob"
 underline = 1
 uri = "https://yourpalrob.itch.io/"
 
+[node name="HBoxContainer11" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=586231754]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=866158848]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=1715273910]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Voice Acting- "
+
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=2087780351]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("15_epdf4")
+theme_override_font_sizes/font_size = 30
+text = "Faker"
+underline = 1
+uri = "https://www.instagram.com/matskii_"
+
 [node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=2008417941]
 layout_mode = 2
 
@@ -669,7 +788,7 @@ click_sfx = NodePath("../../../../../SFX/Click")
 
 [node name="Theme" type="AudioStreamPlayer" parent="Music" unique_id=118925879]
 stream = ExtResource("4_2wvvl")
-volume_db = -31.93
+volume_db = -15.509
 autoplay = true
 bus = &"Menu Music"
 parameters/looping = true
@@ -678,6 +797,12 @@ parameters/looping = true
 
 [node name="Click" type="AudioStreamPlayer" parent="SFX" unique_id=1679708067]
 stream = ExtResource("5_kaocu")
-volume_db = -15.509
+volume_db = -4.562
+autoplay = true
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="SFX" unique_id=2022541354]
+stream = ExtResource("15_alxn2")
+volume_db = -18.246
 autoplay = true
 bus = &"SFX"

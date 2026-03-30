@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://su2o7b3x6rt" path="res://Machines/Tape Recorder/TapeRecorder.gd" id="1_beb2r"]
 [ext_resource type="Texture2D" uid="uid://cthun3370ei6k" path="res://Art/Button sheets.png" id="2_ri8ik"]
+[ext_resource type="AudioStream" uid="uid://bw1fmjmmpdv3q" path="res://Machines/Radio/SFX/Slow crank_2.mp3" id="3_4rckl"]
 [ext_resource type="Script" uid="uid://d12xmduwerhu6" path="res://Machines/Tape Recorder/RecorderButtons.gd" id="3_ag8tt"]
 [ext_resource type="AudioStream" uid="uid://dsr8ft48p1oaa" path="res://Machines/Interaction/SFX/Menu_click_1.mp3" id="4_q7qxf"]
 [ext_resource type="AudioStream" uid="uid://8b14yi3pnuv2" path="res://Machines/Tape Recorder/Audio/Item_pick up.mp3" id="5_ri8ik"]
@@ -82,7 +83,7 @@ region = Rect2(2831.85, 104.62764, 68.86597, 81.708786)
 atlas = ExtResource("2_ri8ik")
 region = Rect2(2296.9004, 595.9001, 145.19995, 180.40009)
 
-[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio", "record_timer", "tape_bay_open_empty", "tape_bay_open_full", "record_bar")]
+[node name="TapeRecorder" type="Node2D" unique_id=1686385112 node_paths=PackedStringArray("recorder_buttons", "empty_bay_sprite", "loaded_bay_sprite", "tape_location_marker", "tape_enter_audio", "record_timer", "tape_bay_open_empty", "tape_bay_open_full", "record_bar", "recording_audio")]
 script = ExtResource("1_beb2r")
 recorder_buttons = NodePath("Buttons")
 empty_bay_sprite = NodePath("TapeInput/EmptyClosed")
@@ -93,6 +94,7 @@ record_timer = NodePath("RecordTimer")
 tape_bay_open_empty = NodePath("TapeInput/EmptyOpen")
 tape_bay_open_full = NodePath("TapeInput/LoadedOpen")
 record_bar = NodePath("BG/ProgressBar")
+recording_audio = NodePath("BG/AudioStreamPlayer")
 record_length = 6.0
 shake_strength = 1.5
 shake_speed = 50.0
@@ -133,6 +135,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ri8ik")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4rckl")
 fill_mode = 3
 show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BG" unique_id=2129424136]
+stream = ExtResource("3_4rckl")
+volume_db = -30.106
+parameters/looping = true
 
 [node name="TapeInput" type="Node2D" parent="." unique_id=283723973]
 position = Vector2(-11, 28)

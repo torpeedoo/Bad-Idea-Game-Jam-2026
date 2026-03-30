@@ -4,6 +4,8 @@
 [ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="2_6fuua"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="3_2x4r1"]
 [ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="3_scy1x"]
+[ext_resource type="Script" uid="uid://b44o15mlrsfk0" path="res://GameManagers/ConfirmationPopup/button.gd" id="4_hd4fg"]
+[ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="5_txq10"]
 
 [sub_resource type="Shader" id="Shader_0n5f3"]
 code = "shader_type canvas_item;
@@ -167,32 +169,42 @@ offset_top = 416.0
 offset_right = 1310.0
 offset_bottom = 458.0
 theme_override_fonts/font = ExtResource("2_6fuua")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 50
 text = "ARE YOU SURE YOU WANT TO END THE NIGHT?"
 horizontal_alignment = 1
 
-[node name="YesButton" type="Button" parent="CanvasLayer/Control" unique_id=1235478395]
+[node name="YesButton" type="Button" parent="CanvasLayer/Control" unique_id=1235478395 node_paths=PackedStringArray("hover_audio")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 1014.325
-offset_top = 600.0
+offset_top = 529.0
 offset_right = 1114.3252
-offset_bottom = 700.0
+offset_bottom = 629.0
 theme = ExtResource("3_2x4r1")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "YES"
+script = ExtResource("4_hd4fg")
+hover_audio = NodePath("../../../Hover")
 
-[node name="NoButton" type="Button" parent="CanvasLayer/Control" unique_id=2088439991]
+[node name="NoButton" type="Button" parent="CanvasLayer/Control" unique_id=2088439991 node_paths=PackedStringArray("hover_audio")]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 834.0
-offset_top = 600.0
+offset_top = 529.0
 offset_right = 934.0
-offset_bottom = 700.0
+offset_bottom = 629.0
 theme = ExtResource("3_2x4r1")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 40
 text = "NO"
+script = ExtResource("4_hd4fg")
+hover_audio = NodePath("../../../Hover")
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="." unique_id=1600382713]
 stream = ExtResource("3_scy1x")
+volume_db = -5.474
+bus = &"SFX"
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1140038997]
+stream = ExtResource("5_txq10")
+volume_db = -20.982
 bus = &"SFX"
