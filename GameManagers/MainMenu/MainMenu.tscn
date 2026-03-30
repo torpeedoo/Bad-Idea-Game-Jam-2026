@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dcuhnpjyt67u2" path="res://Art/SfxButtonGlow.png" id="7_njon1"]
 [ext_resource type="Texture2D" uid="uid://bsk0ewu8xu8ld" path="res://Art/guy/jyfujy.png" id="10_8pohn"]
 [ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="10_frd3x"]
+[ext_resource type="Script" uid="uid://cp16y4x7574fd" path="res://GameManagers/MainMenu/quit_button.gd" id="10_o5ufx"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
 [ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="15_alxn2"]
@@ -434,9 +435,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
-disabled = true
 text = "QUIT"
-script = ExtResource("2_eait5")
+script = ExtResource("10_o5ufx")
 click_sfx = NodePath("../../../../../SFX/Click")
 
 [node name="Levels" type="Control" parent="CanvasLayer/Control" unique_id=611158325]
