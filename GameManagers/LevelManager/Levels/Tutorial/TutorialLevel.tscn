@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="6_b8y26"]
 [ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="7_b8y26"]
 [ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="8_sxjui"]
+[ext_resource type="PackedScene" uid="uid://ch1xbdff76msi" path="res://GameManagers/Jumpscare/TV/TV.tscn" id="10_am578"]
 [ext_resource type="Texture2D" uid="uid://uradegqwlmke" path="res://Art/Table.png" id="10_o4pxf"]
 [ext_resource type="PackedScene" uid="uid://bo5r5n43cylq8" path="res://Shaders/grain.tscn" id="10_ugdja"]
 [ext_resource type="Texture2D" uid="uid://dhscitmatuqbk" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0000.png" id="11_526qy"]
@@ -626,7 +627,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Tutorial" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("bg", "hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "recorder", "radio")]
+[node name="Tutorial" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("bg", "hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio", "ambiance")]
 process_mode = 1
 script = ExtResource("1_sbl43")
 start_time = 9
@@ -640,8 +641,10 @@ grain = NodePath("Interactables/Grain")
 madness_laugh_audio = NodePath("Audio/Laugh")
 madness_drone_audio = NodePath("Audio/Drone")
 jump_scare = NodePath("Jumpscare")
+tv = NodePath("Background/Base/Props/TV")
 recorder = NodePath("Interactables/TapeRecorder")
 radio = NodePath("Interactables/radio")
+ambiance = NodePath("Audio/AudioStreamPlayer")
 
 [node name="Background" type="Node2D" parent="." unique_id=1960895492]
 z_index = -1
@@ -693,18 +696,18 @@ offset_bottom = 1080.0
 texture = ExtResource("4_rnjt2")
 
 [node name="Props3" type="TextureRect" parent="Background/Base/Props" unique_id=1785365527]
-visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("5_viq1c")
 
 [node name="Props4" type="TextureRect" parent="Background/Base/Props" unique_id=452629189]
-visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("6_b8y26")
+
+[node name="TV" parent="Background/Base/Props" unique_id=1278799182 instance=ExtResource("10_am578")]
 
 [node name="Hallucinations" type="AnimatedSprite2D" parent="Background" unique_id=1322281634]
 position = Vector2(958, 541)
@@ -731,7 +734,7 @@ recorder = NodePath("../TapeRecorder")
 level_manager = NodePath("../..")
 
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 node_paths=PackedStringArray("level_manager") instance=ExtResource("8_sxjui")]
-position = Vector2(745.00006, 668)
+position = Vector2(794, 653)
 scale = Vector2(2.3, 2.3)
 level_manager = NodePath("../..")
 

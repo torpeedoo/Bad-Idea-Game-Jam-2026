@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ch1xbdff76msi"]
+
+[ext_resource type="Script" uid="uid://3faywftrrt4w" path="res://GameManagers/Jumpscare/TV/tv.gd" id="1_d72sk"]
+[ext_resource type="Texture2D" uid="uid://cuuve7n7np3br" path="res://Art/Hallucinations/TV/TV1.png" id="1_dpfbf"]
+[ext_resource type="Texture2D" uid="uid://c5i57hkbaaa23" path="res://Art/Hallucinations/TV/TV2.png" id="2_xcqys"]
+[ext_resource type="Texture2D" uid="uid://hiyjhpw7mbsj" path="res://Art/Hallucinations/TV/TV3.png" id="3_h7osn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m42mq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dpfbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xcqys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h7osn")
+}],
+"loop": true,
+"name": &"Static",
+"speed": 5.0
+}]
+
+[node name="TV" type="Control" unique_id=1278799182 node_paths=PackedStringArray("sprite")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_d72sk")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=202791225]
+texture_filter = 1
+position = Vector2(1600.715, 541.115)
+sprite_frames = SubResource("SpriteFrames_m42mq")
+animation = &"Static"
+frame_progress = 0.6993218
+speed_scale = 3.0

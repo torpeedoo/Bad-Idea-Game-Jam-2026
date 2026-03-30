@@ -30,10 +30,14 @@ signal hour_passed
 @export var madness_laugh_audio: AudioStreamPlayer
 @export var madness_drone_audio: AudioStreamPlayer
 @export var jump_scare: JumpScare
+@export var tv: TV
 @export_subgroup("Machines")
 @export var recorder: Recorder
 @export var radio: RadioManager
-
+@export_subgroup("Managers")
+@export var inventory: InventoryUI
+@export_subgroup("Audio")
+@export var ambiance: AudioStreamPlayer
 
 var madness_level: float
 var level_name: String = ""
@@ -46,9 +50,15 @@ var current_madness_stage: int = 0
 var _screen_center: Vector2
 var _bg_origin: Vector2
 var scaring: bool = false
+var _madness_cooldown_timer: Timer
+
+func _process(delta):
+	if !ambiance.playing:
+		ambiance.play()
 
 func _ready():
 	_init_hour_timer()
+	_init_madness_cooldown_timer()
 	current_time = start_time
 	_screen_center = get_viewport().get_visible_rect().size / 2.0
 	if bg:
@@ -88,6 +98,17 @@ func _init_hour_timer():
 	hour_timer.timeout.connect(_hour_passed)
 	add_child(hour_timer)
 	hour_timer.start()
+
+func _init_madness_cooldown_timer() -> void:
+	_madness_cooldown_timer = Timer.new()
+	_madness_cooldown_timer.wait_time = 5.0
+	_madness_cooldown_timer.one_shot = true
+	_madness_cooldown_timer.timeout.connect(_on_madness_cooldown_timeout)
+	add_child(_madness_cooldown_timer)
+
+func _on_madness_cooldown_timeout() -> void:
+	if inventory:
+		inventory.deactivate_scare()
 
 func add_recorded_song(song: Song):
 	anomaly_recorded.emit()
@@ -131,18 +152,22 @@ func update_hallucinations():
 		0:
 			hallucination_animations.play("Nothing")
 			Custom_Cursor.update_madness(0)
+			if tv: tv.stop_static()
 		1:
 			madness_drone_audio.play()
 			_play_hallucination_once("WindowPeeper")
 			Custom_Cursor.update_madness(1)
+			if tv: tv.stop_static()
 		2:
 			madness_laugh_audio.play()
 			_play_hallucination_once("GhostChildA")
 			Custom_Cursor.update_madness(2)
+			if tv: tv.play_static()
 		3:
 			madness_laugh_audio.play()
 			_play_hallucination_once("GhostChildB")
 			Custom_Cursor.update_madness(2)
+			if tv: tv.play_static()
 
 func fail_game():
 	if jump_scare:
@@ -168,9 +193,15 @@ func reduce_madness(amt: float):
 
 func add_madness():
 	if madness_level < max_madness:
+		if level_data.night_number == 3 and !inventory.jumpscare_active:
+			var r = randf_range(0.0, 1.0)
+			print(r)
+			if r >= 0.99:
+				inventory.activate_scare()
 		madness_level += madness_add_amt
 		update_madness_effects()
 		anomaly_found.emit()
+		_madness_cooldown_timer.start()
 	elif madness_level >= max_madness and !scaring:
 		fail_game()
 

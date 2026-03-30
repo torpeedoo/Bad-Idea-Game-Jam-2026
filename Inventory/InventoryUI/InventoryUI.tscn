@@ -2,9 +2,140 @@
 
 [ext_resource type="Script" uid="uid://dd08f0i02qarb" path="res://Inventory/InventoryUI/inventory_ui.gd" id="1_wmge2"]
 [ext_resource type="Texture2D" uid="uid://ddjl2n43dhtck" path="res://Art/Briefcase.png" id="2_2er8r"]
+[ext_resource type="Script" uid="uid://cmvk6cf2yfv1a" path="res://Inventory/InventoryUI/Shadowman.gd" id="2_acyjh"]
+[ext_resource type="Texture2D" uid="uid://bkslksy4fi3bs" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0000.png" id="2_deseb"]
 [ext_resource type="PackedScene" uid="uid://beadr7jmy7ur3" path="res://Inventory/InventorySlot/InventorySlot.tscn" id="2_ycqbt"]
 [ext_resource type="Material" uid="uid://cjk3pasu10f0w" path="res://Shaders/shadow.tres" id="3_2er8r"]
+[ext_resource type="Texture2D" uid="uid://1rjv6vdko0gb" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0001.png" id="3_acyjh"]
 [ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="4_4ec86"]
+[ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="4_eqnwq"]
+[ext_resource type="Texture2D" uid="uid://y7nrkkqt0qc4" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0002.png" id="4_lo8i5"]
+[ext_resource type="Texture2D" uid="uid://powhfb01ualp" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0003.png" id="5_eqnwq"]
+[ext_resource type="Texture2D" uid="uid://31qpp5op1pyt" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0004.png" id="6_r4wc6"]
+[ext_resource type="Texture2D" uid="uid://eis7tpyq3en1" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0005.png" id="7_ni0b3"]
+[ext_resource type="Texture2D" uid="uid://c2wwtjih5g8jk" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0006.png" id="8_vlbh1"]
+[ext_resource type="Texture2D" uid="uid://dqckwounxitv8" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0007.png" id="9_44il8"]
+[ext_resource type="Texture2D" uid="uid://dt7tfue60s3uu" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0008.png" id="10_1pf0r"]
+[ext_resource type="Texture2D" uid="uid://dyatfkwrhlnmt" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0009.png" id="11_fusxo"]
+[ext_resource type="Texture2D" uid="uid://gcolqbpyppgt" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0010.png" id="12_0b7vo"]
+[ext_resource type="Texture2D" uid="uid://ooabc5mhwxi4" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0011.png" id="13_bkd62"]
+[ext_resource type="Texture2D" uid="uid://cgxkjay1fpf0c" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0012.png" id="14_upcaj"]
+[ext_resource type="Texture2D" uid="uid://bim4lx1wbysh8" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0013.png" id="15_sdl0c"]
+[ext_resource type="Texture2D" uid="uid://cspd5voj0cpyw" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0014.png" id="16_4biqp"]
+[ext_resource type="Texture2D" uid="uid://cwa1toxgal3af" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0015.png" id="17_h83gc"]
+[ext_resource type="Texture2D" uid="uid://bc3ltof5w1bro" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0016.png" id="18_2p8ws"]
+[ext_resource type="Texture2D" uid="uid://bckj7e3b7es4g" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0017.png" id="19_ygfho"]
+[ext_resource type="Texture2D" uid="uid://bfudtg0v7uoxy" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0018.png" id="20_o7und"]
+[ext_resource type="Texture2D" uid="uid://b4yv3xjljaif1" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0019.png" id="21_gpvjy"]
+[ext_resource type="Texture2D" uid="uid://mo8bn0toaock" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0020.png" id="22_4yfg4"]
+[ext_resource type="Texture2D" uid="uid://coubfc62kmy7" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0021.png" id="23_8u2ql"]
+[ext_resource type="Texture2D" uid="uid://bnbfax834ykwc" path="res://Art/Hallucinations/briefcaseguy/ShadowMan_0022.png" id="24_g28l3"]
+[ext_resource type="AudioStream" uid="uid://bc2qoj1tqe1va" path="res://Music/Sfx/other/Ghost_scream.mp3" id="26_lo8i5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r4wc6"]
+shader = ExtResource("4_eqnwq")
+shader_parameter/jitter_strength = 0.022000001045
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = false
+shader_parameter/rotation_strength = 0.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.0070000003325
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = false
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_570qd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_deseb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_acyjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lo8i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_eqnwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_r4wc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ni0b3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vlbh1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_44il8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1pf0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fusxo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_0b7vo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bkd62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_upcaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sdl0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4biqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_h83gc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_2p8ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ygfho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_o7und")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_gpvjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_4yfg4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8u2ql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_g28l3")
+}],
+"loop": false,
+"name": &"Scare",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjpxo"]
 atlas = ExtResource("2_2er8r")
@@ -14,7 +145,115 @@ region = Rect2(452.48996, 800.02997, 346.05997, 90.75)
 atlas = ExtResource("2_2er8r")
 region = Rect2(43.419434, 34.61331, 1178.9741, 761.6173)
 
-[node name="InventoryUI" type="Control" unique_id=1928290319 node_paths=PackedStringArray("open_button", "close_button", "inventory_base", "interaction_audio", "inv_slots")]
+[sub_resource type="Animation" id="Animation_eqnwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Scare/AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MiddleTop/OpenButton/Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MiddleTop/OpenButton/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Scare:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r4wc6"]
+resource_name = "Transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Scare/AnimatedSprite2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(4.141062, 1),
+"update": 0,
+"values": [Vector2(0, -150), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MiddleTop/OpenButton/Sprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.57434916, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -150)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MiddleTop/OpenButton/Sprite2D:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Scare:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ni0b3"]
+_data = {
+&"RESET": SubResource("Animation_eqnwq"),
+&"Transition": SubResource("Animation_r4wc6")
+}
+
+[node name="InventoryUI" type="Control" unique_id=1928290319 node_paths=PackedStringArray("open_button", "open_button_sprite", "close_button", "inventory_base", "interaction_audio", "shadowman", "anim_player", "inv_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,10 +263,43 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_wmge2")
 open_button = NodePath("MiddleTop/OpenButton/open_button")
+open_button_sprite = NodePath("MiddleTop/OpenButton/Sprite2D")
 close_button = NodePath("MiddleTop/InvUI/CloseButton")
 inventory_base = NodePath("MiddleTop/InvUI")
 interaction_audio = NodePath("InteractionAudio")
+shadowman = NodePath("CanvasLayer/Scare")
+anim_player = NodePath("AnimationPlayer")
 inv_slots = [NodePath("MiddleTop/InvUI/InventorySlot"), NodePath("MiddleTop/InvUI/InventorySlot3"), NodePath("MiddleTop/InvUI/InventorySlot4")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1011605883]
+
+[node name="Scare" type="Control" parent="CanvasLayer" unique_id=1628647586 node_paths=PackedStringArray("anim", "scare_sound", "inv_ui", "death_timer")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_acyjh")
+anim = NodePath("AnimatedSprite2D")
+scare_sound = NodePath("Scream")
+inv_ui = NodePath("../..")
+death_timer = NodePath("../../deathtimer")
+
+[node name="Scream" type="AudioStreamPlayer" parent="CanvasLayer/Scare" unique_id=1949495623]
+stream = ExtResource("26_lo8i5")
+volume_db = -0.913
+pitch_scale = 0.62
+bus = &"SFX"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Scare" unique_id=380461452]
+texture_filter = 1
+material = SubResource("ShaderMaterial_r4wc6")
+sprite_frames = SubResource("SpriteFrames_570qd")
+animation = &"Scare"
+speed_scale = 2.5
 
 [node name="MiddleTop" type="Control" parent="." unique_id=1835401313]
 layout_mode = 1
@@ -58,13 +330,16 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -172.0
+offset_left = -185.0
 offset_top = -3.0
-offset_right = 174.0
-offset_bottom = 87.0
+offset_right = 161.0
+offset_bottom = 126.0
 grow_horizontal = 2
-scale = Vector2(0.885, 0.885)
-texture_normal = SubResource("AtlasTexture_sjpxo")
+
+[node name="Sprite2D" type="Sprite2D" parent="MiddleTop/OpenButton" unique_id=249106743]
+texture_filter = 1
+position = Vector2(20, 34)
+texture = SubResource("AtlasTexture_sjpxo")
 
 [node name="InvUI" type="Control" parent="MiddleTop" unique_id=484488678]
 visible = false
@@ -110,3 +385,10 @@ grow_horizontal = 2
 stream = ExtResource("4_4ec86")
 volume_db = -13.684
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1582825672]
+libraries/ = SubResource("AnimationLibrary_ni0b3")
+
+[node name="deathtimer" type="Timer" parent="." unique_id=720781924]
+wait_time = 2.0
+one_shot = true

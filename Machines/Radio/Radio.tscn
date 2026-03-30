@@ -5,6 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://6dhdihl0ix11" path="res://Machines/Radio/SFX/Radio_static.mp3" id="3_55gqe"]
 [ext_resource type="Texture2D" uid="uid://fa5o50mjcryb" path="res://Machines/Radio/Art/Radio Components.png" id="3_ecaeb"]
 [ext_resource type="Script" uid="uid://cxol7yofkmdfv" path="res://Machines/Interaction/Dial/dial.gd" id="3_siki7"]
+[ext_resource type="Script" uid="uid://d4gkbiuu810wo" path="res://Machines/Radio/antenna.gd" id="4_ecaeb"]
+[ext_resource type="AudioStream" uid="uid://bw1fmjmmpdv3q" path="res://Machines/Radio/SFX/Slow crank_2.mp3" id="5_ipn1w"]
 [ext_resource type="Script" uid="uid://bepyx1y0smu72" path="res://Machines/Interaction/Switch/Switch.gd" id="6_ipn1w"]
 [ext_resource type="Material" uid="uid://dif01ydkegk8j" path="res://Shaders/jitter.tres" id="7_iiayk"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="9_45ecp"]
@@ -20,6 +22,9 @@ region = Rect2(813.4442, 931.7226, 349.57874, 26.078735)
 [sub_resource type="AtlasTexture" id="AtlasTexture_31kwd"]
 atlas = ExtResource("3_ecaeb")
 region = Rect2(1509.4259, 926.43066, 270.57434, 27.990479)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iiayk"]
+size = Vector2(44.696236, 267.3434)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipn1w"]
 atlas = ExtResource("3_ecaeb")
@@ -73,9 +78,12 @@ position = Vector2(-107, 35)
 scale = Vector2(0.3, 0.3)
 texture = SubResource("AtlasTexture_ecaeb")
 
-[node name="Node2D" type="Node2D" parent="BaseSprites" unique_id=1847107749]
+[node name="Node2D" type="Node2D" parent="BaseSprites" unique_id=1847107749 node_paths=PackedStringArray("area", "drag_audio")]
 position = Vector2(-124, -125.99999)
 rotation = -0.6981317
+script = ExtResource("4_ecaeb")
+area = NodePath("Area2D")
+drag_audio = NodePath("AudioStreamPlayer")
 
 [node name="Antenna1" type="Sprite2D" parent="BaseSprites/Node2D" unique_id=2036479789]
 texture_filter = 1
@@ -97,6 +105,18 @@ position = Vector2(127.20249, -191.0151)
 rotation = -0.98475057
 scale = Vector2(0.25, 0.25)
 texture = SubResource("AtlasTexture_31kwd")
+
+[node name="Area2D" type="Area2D" parent="BaseSprites/Node2D" unique_id=325312577]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BaseSprites/Node2D/Area2D" unique_id=1654971095]
+position = Vector2(75.65548, -113.88313)
+rotation = 0.5942057
+shape = SubResource("RectangleShape2D_iiayk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="BaseSprites/Node2D" unique_id=1611748821]
+stream = ExtResource("5_ipn1w")
+volume_db = -30.106
+parameters/looping = true
 
 [node name="tune_dial" type="Node2D" parent="." unique_id=1981570356 node_paths=PackedStringArray("knob", "knob_point", "middle_point")]
 position = Vector2(32, 29)

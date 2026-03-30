@@ -1,0 +1,823 @@
+[gd_scene format=3 uid="uid://w5e2jseiprbo"]
+
+[ext_resource type="Script" uid="uid://bkxrbfdvk14vb" path="res://GameManagers/LevelManager/LevelManager.gd" id="1_mjgma"]
+[ext_resource type="Resource" uid="uid://c4fjup57hhuoj" path="res://GameManagers/LevelManager/Levels/Night3/NightThree.tres" id="2_myt0u"]
+[ext_resource type="Texture2D" uid="uid://b38iuljfs1cgc" path="res://GameManagers/LevelManager/Levels/Art/RoomBase.png" id="3_uk824"]
+[ext_resource type="Texture2D" uid="uid://dytr8d5i7n7cf" path="res://GameManagers/LevelManager/Levels/Art/RoomBasePurpleShader.png" id="4_0w5dv"]
+[ext_resource type="Script" uid="uid://dhgyhl36wjd7c" path="res://GameManagers/LevelManager/Levels/Tutorial/lightFlicker.gd" id="5_wjvna"]
+[ext_resource type="Texture2D" uid="uid://b7mmwx7pidaah" path="res://GameManagers/LevelManager/Levels/Art/RoomProps1.png" id="6_k7ffh"]
+[ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="7_lpejx"]
+[ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="8_iclgb"]
+[ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="9_radsw"]
+[ext_resource type="Texture2D" uid="uid://uradegqwlmke" path="res://Art/Table.png" id="10_5r07f"]
+[ext_resource type="PackedScene" uid="uid://ch1xbdff76msi" path="res://GameManagers/Jumpscare/TV/TV.tscn" id="10_5utv0"]
+[ext_resource type="Texture2D" uid="uid://dhscitmatuqbk" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0000.png" id="11_3bpim"]
+[ext_resource type="Texture2D" uid="uid://cl3706o1u1x75" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0001.png" id="12_tnlqb"]
+[ext_resource type="Texture2D" uid="uid://b7ouksnsyh5ow" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0002.png" id="13_bpegy"]
+[ext_resource type="Texture2D" uid="uid://ds7doqvk6c0wv" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0003.png" id="14_krnwy"]
+[ext_resource type="Texture2D" uid="uid://cjt05jmnlexap" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0004.png" id="15_tniib"]
+[ext_resource type="Texture2D" uid="uid://car7namerj38" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0005.png" id="16_7vo1r"]
+[ext_resource type="Texture2D" uid="uid://inud622hecgy" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0006.png" id="17_1vr8k"]
+[ext_resource type="Texture2D" uid="uid://c7crchmmhs6i" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0007.png" id="18_prikt"]
+[ext_resource type="Texture2D" uid="uid://b5tqwulmcwl86" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0008.png" id="19_lhhbo"]
+[ext_resource type="Texture2D" uid="uid://c73oq55seynkg" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0009.png" id="20_ove1c"]
+[ext_resource type="Texture2D" uid="uid://ivr8qg10daw7" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0010.png" id="21_h68tx"]
+[ext_resource type="Texture2D" uid="uid://cydxesruhqsif" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0011.png" id="22_0a1r8"]
+[ext_resource type="Texture2D" uid="uid://c5sltgprlj43y" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0012.png" id="23_alhfn"]
+[ext_resource type="Texture2D" uid="uid://d1qfpqp0sylln" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0013.png" id="24_k7tlx"]
+[ext_resource type="Texture2D" uid="uid://cdo01d52jd8kn" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0014.png" id="25_etmnx"]
+[ext_resource type="Texture2D" uid="uid://2oxn6twj4f80" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0015.png" id="26_jy6aj"]
+[ext_resource type="Texture2D" uid="uid://biqbjsas8tcxa" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0016.png" id="27_tur7a"]
+[ext_resource type="Texture2D" uid="uid://uow3xy61ff6s" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0017.png" id="28_21vnt"]
+[ext_resource type="Texture2D" uid="uid://btjke07qqdany" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0018.png" id="29_w1hik"]
+[ext_resource type="Texture2D" uid="uid://ng2277tw2ise" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0019.png" id="30_errv2"]
+[ext_resource type="Texture2D" uid="uid://c568j1f7dafpc" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0020.png" id="31_6a8iy"]
+[ext_resource type="Texture2D" uid="uid://bud6mivvek8ll" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0021.png" id="32_08bca"]
+[ext_resource type="Texture2D" uid="uid://dpha8dlnwd2fu" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0022.png" id="33_ylao1"]
+[ext_resource type="Texture2D" uid="uid://bw2ujywt5j55u" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0023.png" id="34_5u1k6"]
+[ext_resource type="Texture2D" uid="uid://cksiw7c6es5kt" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0024.png" id="35_tcq3r"]
+[ext_resource type="Texture2D" uid="uid://b4wobvdr2wypr" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0025.png" id="36_2kt0k"]
+[ext_resource type="Texture2D" uid="uid://blm2fq1kefrii" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0026.png" id="37_a3pe3"]
+[ext_resource type="Texture2D" uid="uid://bjb7oxplwgrjl" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0027.png" id="38_8g4pu"]
+[ext_resource type="Texture2D" uid="uid://cps6m31ddh0i5" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0028.png" id="39_6oqaw"]
+[ext_resource type="Texture2D" uid="uid://dopmmfewb7uxi" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0029.png" id="40_tln5h"]
+[ext_resource type="Texture2D" uid="uid://cf6nvo1uls5ol" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0030.png" id="41_5j0kj"]
+[ext_resource type="Texture2D" uid="uid://b3mm3l2mlcolp" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0031.png" id="42_8fcon"]
+[ext_resource type="Texture2D" uid="uid://ums0hj7dnd1t" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0032.png" id="43_032bs"]
+[ext_resource type="Texture2D" uid="uid://dhtjpws6m656m" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0033.png" id="44_g2hao"]
+[ext_resource type="Texture2D" uid="uid://netcts1cpj0w" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0034.png" id="45_3npyh"]
+[ext_resource type="Texture2D" uid="uid://c0g38124ln5qk" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0035.png" id="46_xpki6"]
+[ext_resource type="Texture2D" uid="uid://fpfegtc54rmw" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0000.png" id="47_oners"]
+[ext_resource type="Texture2D" uid="uid://d4gxrdhaugh6e" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0001.png" id="48_v4ykm"]
+[ext_resource type="Texture2D" uid="uid://dslyj8pd12v7o" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0002.png" id="49_pss72"]
+[ext_resource type="Texture2D" uid="uid://cqs6oers7abjd" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0003.png" id="50_6vxab"]
+[ext_resource type="Texture2D" uid="uid://dwputuf2odk45" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0004.png" id="51_s4i2o"]
+[ext_resource type="Texture2D" uid="uid://b6h2uy5vw4u6u" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0005.png" id="52_0eqp0"]
+[ext_resource type="Texture2D" uid="uid://c120n1r5rgkas" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0006.png" id="53_4xcjk"]
+[ext_resource type="Texture2D" uid="uid://dbe1lofeidkow" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0007.png" id="54_qfrlb"]
+[ext_resource type="Texture2D" uid="uid://cgrlc3newt0hk" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0008.png" id="55_fowqj"]
+[ext_resource type="Texture2D" uid="uid://bq1thwmdkdjxw" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0009.png" id="56_dlqjg"]
+[ext_resource type="Texture2D" uid="uid://d08ga3cvk6vx3" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0010.png" id="57_3eqbh"]
+[ext_resource type="Texture2D" uid="uid://bhyg54cbnqh5v" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0011.png" id="58_pq3dn"]
+[ext_resource type="Texture2D" uid="uid://6ohnfsdjt4pg" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0012.png" id="59_jmsjq"]
+[ext_resource type="Texture2D" uid="uid://cn1yx441rlg3k" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0013.png" id="60_5mbfn"]
+[ext_resource type="Texture2D" uid="uid://2ngkvadvttek" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0014.png" id="61_fmyt7"]
+[ext_resource type="Texture2D" uid="uid://yqmw8h3ppny3" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0015.png" id="62_7wri1"]
+[ext_resource type="Texture2D" uid="uid://dd27obbsvr0rq" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0016.png" id="63_j8bhf"]
+[ext_resource type="Texture2D" uid="uid://b7n74cl4qixck" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0017.png" id="64_l1s0b"]
+[ext_resource type="Texture2D" uid="uid://dk3yixhynxbgc" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0018.png" id="65_sy8ju"]
+[ext_resource type="Texture2D" uid="uid://5350b6wxirjx" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0019.png" id="66_inigc"]
+[ext_resource type="Texture2D" uid="uid://c0xegqlnwla5a" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0020.png" id="67_ufxbf"]
+[ext_resource type="Texture2D" uid="uid://c4cwv5rvdb2wo" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0021.png" id="68_tbel6"]
+[ext_resource type="Texture2D" uid="uid://bcfwsm8umc623" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0022.png" id="69_6321u"]
+[ext_resource type="Texture2D" uid="uid://wmfnwf6u444a" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0023.png" id="70_1f0rs"]
+[ext_resource type="Texture2D" uid="uid://banjmnub11hsg" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0024.png" id="71_ccvfm"]
+[ext_resource type="Texture2D" uid="uid://bnhhbiyg515fp" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0025.png" id="72_oflxu"]
+[ext_resource type="Texture2D" uid="uid://dxb0foiu1526j" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0026.png" id="73_kevmc"]
+[ext_resource type="Texture2D" uid="uid://cnjxb72rxrmj0" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0027.png" id="74_bq1x4"]
+[ext_resource type="Texture2D" uid="uid://dqgnuvy8n73gq" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0028.png" id="75_14hcd"]
+[ext_resource type="Texture2D" uid="uid://c6tgrofpyhgee" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0029.png" id="76_3obaw"]
+[ext_resource type="Texture2D" uid="uid://cjjtu6xh00q0a" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0030.png" id="77_6xvoo"]
+[ext_resource type="Texture2D" uid="uid://c7hr3a5cbo8o" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0031.png" id="78_eakw5"]
+[ext_resource type="Texture2D" uid="uid://62mkn6utkumn" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0032.png" id="79_3l64m"]
+[ext_resource type="Texture2D" uid="uid://dfjpoqr3y3bvj" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0033.png" id="80_n7n0c"]
+[ext_resource type="Texture2D" uid="uid://bdus48guacmh3" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0034.png" id="81_k7gki"]
+[ext_resource type="Texture2D" uid="uid://byllbfmh02iwj" path="res://Art/Hallucinations/Hallucinations/GhostChildB_0035.png" id="82_ac1q8"]
+[ext_resource type="Texture2D" uid="uid://bsndnb0hu4j2h" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0000.png" id="83_g507f"]
+[ext_resource type="Texture2D" uid="uid://blysl4w8vy6rl" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0001.png" id="84_6h5f5"]
+[ext_resource type="Texture2D" uid="uid://em4hgc5pxxm6" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0002.png" id="85_pfwag"]
+[ext_resource type="Texture2D" uid="uid://dts3pmr2fe4ts" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0003.png" id="86_pb5vs"]
+[ext_resource type="Texture2D" uid="uid://dresexutq545" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0004.png" id="87_my50k"]
+[ext_resource type="Texture2D" uid="uid://cexk8qxdlku0a" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0005.png" id="88_xypcs"]
+[ext_resource type="Texture2D" uid="uid://1uvw1h6b0mem" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0006.png" id="89_4x5mf"]
+[ext_resource type="Texture2D" uid="uid://cvixs0tkenyuv" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0007.png" id="90_njsct"]
+[ext_resource type="Texture2D" uid="uid://b8p7eqqtil832" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0008.png" id="91_oc1mi"]
+[ext_resource type="Texture2D" uid="uid://dkupfv8cn1kwb" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0009.png" id="92_jr5nm"]
+[ext_resource type="Texture2D" uid="uid://cd5dlget18thg" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0010.png" id="93_8c8gi"]
+[ext_resource type="Texture2D" uid="uid://cbena84beqjxy" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0011.png" id="94_gnx7w"]
+[ext_resource type="Texture2D" uid="uid://bxrm83ywm7ayg" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0012.png" id="95_fejye"]
+[ext_resource type="Texture2D" uid="uid://b7ilq4nu7jslm" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0013.png" id="96_x0eoh"]
+[ext_resource type="Texture2D" uid="uid://cahfur178u7db" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0014.png" id="97_t64k0"]
+[ext_resource type="Texture2D" uid="uid://bmea5f03cnhw7" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0015.png" id="98_hdb4b"]
+[ext_resource type="Texture2D" uid="uid://c56wqe4yqqxo5" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0016.png" id="99_mxuox"]
+[ext_resource type="Texture2D" uid="uid://c7nmouvnupfuh" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0017.png" id="100_thsce"]
+[ext_resource type="Texture2D" uid="uid://3beir1u37aok" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0018.png" id="101_kiicx"]
+[ext_resource type="Texture2D" uid="uid://oswhgqmu8tq5" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0019.png" id="102_dui6c"]
+[ext_resource type="Texture2D" uid="uid://dtqoori37uw67" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0020.png" id="103_y3msj"]
+[ext_resource type="Texture2D" uid="uid://clgwp765arrnx" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0021.png" id="104_yt5y2"]
+[ext_resource type="Texture2D" uid="uid://c0gyohf5tvylb" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0022.png" id="105_kpgjp"]
+[ext_resource type="Texture2D" uid="uid://irktbamqe1c5" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0023.png" id="106_on3l7"]
+[ext_resource type="Texture2D" uid="uid://xaq53e05yenn" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0024.png" id="107_dpfeq"]
+[ext_resource type="Texture2D" uid="uid://cuxgnu48oxc3a" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0025.png" id="108_ne6ns"]
+[ext_resource type="Texture2D" uid="uid://dnmkk18nvfrjj" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0026.png" id="109_xdv52"]
+[ext_resource type="Texture2D" uid="uid://c5p0d3t1m5lsc" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0027.png" id="110_i5ge0"]
+[ext_resource type="Texture2D" uid="uid://fk0sj8p6rqr0" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0028.png" id="111_oq3gq"]
+[ext_resource type="Texture2D" uid="uid://du52ccq6kvlnu" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0029.png" id="112_247aj"]
+[ext_resource type="Texture2D" uid="uid://byufvyi1xl2s6" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0030.png" id="113_20l42"]
+[ext_resource type="Texture2D" uid="uid://cjbn1y8mp8dhb" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0031.png" id="114_wj6mk"]
+[ext_resource type="Texture2D" uid="uid://btx8lctw5twj7" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0032.png" id="115_uwi77"]
+[ext_resource type="Texture2D" uid="uid://32fw8mpu7hgq" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0033.png" id="116_pq3gb"]
+[ext_resource type="Texture2D" uid="uid://vn43g8fwnvkh" path="res://Art/Hallucinations/Hallucinations/SeeingSpots_0034.png" id="117_0rhj0"]
+[ext_resource type="Texture2D" uid="uid://cvkeb0i2tmtx0" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0000.png" id="118_o181f"]
+[ext_resource type="Texture2D" uid="uid://csfoxh5akbl42" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0001.png" id="119_q83x1"]
+[ext_resource type="Texture2D" uid="uid://20cr00bxx3eu" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0002.png" id="120_d17xr"]
+[ext_resource type="Texture2D" uid="uid://bguiuc5v1ekot" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0003.png" id="121_leews"]
+[ext_resource type="Texture2D" uid="uid://nfum5llvjyos" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0004.png" id="122_m1n42"]
+[ext_resource type="Texture2D" uid="uid://2o3m6k5byt8m" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0005.png" id="123_63mow"]
+[ext_resource type="Texture2D" uid="uid://bobdev23onq3b" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0006.png" id="124_yu0b6"]
+[ext_resource type="Texture2D" uid="uid://qglk15y5cvm6" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0007.png" id="125_ocp08"]
+[ext_resource type="Texture2D" uid="uid://mnfx8k1ea272" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0008.png" id="126_fqgpm"]
+[ext_resource type="Texture2D" uid="uid://byq3fu7014ol1" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0009.png" id="127_fs8rb"]
+[ext_resource type="Texture2D" uid="uid://bipki8yryomjb" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0010.png" id="128_du8hv"]
+[ext_resource type="Texture2D" uid="uid://8oy5hqfyqdjt" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0011.png" id="129_kwha4"]
+[ext_resource type="Texture2D" uid="uid://bah83m876e8t5" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0012.png" id="130_yci65"]
+[ext_resource type="Texture2D" uid="uid://bascgn3i0mbti" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0013.png" id="131_1etwq"]
+[ext_resource type="Texture2D" uid="uid://dgmavdbn1honw" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0014.png" id="132_pk16w"]
+[ext_resource type="Texture2D" uid="uid://dkj0mc56t3bfn" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0015.png" id="133_t8shr"]
+[ext_resource type="Texture2D" uid="uid://bmqcopxd8rr8e" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0016.png" id="134_3hp3d"]
+[ext_resource type="Texture2D" uid="uid://vt0kq5v1d2sf" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0017.png" id="135_tweui"]
+[ext_resource type="Texture2D" uid="uid://dxhdfgok2do2" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0018.png" id="136_f77ma"]
+[ext_resource type="Texture2D" uid="uid://dnyxyauc0gc6" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0019.png" id="137_psum5"]
+[ext_resource type="Texture2D" uid="uid://bgxhxij0gtiuj" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0020.png" id="138_iolg8"]
+[ext_resource type="Texture2D" uid="uid://bxewpooec66my" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0021.png" id="139_4tac1"]
+[ext_resource type="Texture2D" uid="uid://dt7g4h7p5560" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0022.png" id="140_r511u"]
+[ext_resource type="Texture2D" uid="uid://dnie8jvmkjjqy" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0023.png" id="141_s22bc"]
+[ext_resource type="Texture2D" uid="uid://dq8d3dcldq6d0" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0024.png" id="142_qecvx"]
+[ext_resource type="Texture2D" uid="uid://cpx22c2wxu3sv" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0025.png" id="143_cisyr"]
+[ext_resource type="Texture2D" uid="uid://wqfd8ap7mmhi" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0026.png" id="144_b6bc6"]
+[ext_resource type="Texture2D" uid="uid://cabc141487piq" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0027.png" id="145_ygckg"]
+[ext_resource type="Texture2D" uid="uid://cii5outxsp1si" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0028.png" id="146_oilpg"]
+[ext_resource type="Texture2D" uid="uid://bw2d4fmy8n4mw" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0029.png" id="147_axh2f"]
+[ext_resource type="Texture2D" uid="uid://bgt8s8ckgbpxm" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0030.png" id="148_v652p"]
+[ext_resource type="Texture2D" uid="uid://d2fniuryceli6" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0031.png" id="149_6dmsp"]
+[ext_resource type="Texture2D" uid="uid://bmy7bxyyh8u6y" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0032.png" id="150_6jtlq"]
+[ext_resource type="Texture2D" uid="uid://oniaqw20r0oq" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0033.png" id="151_wd3uq"]
+[ext_resource type="Texture2D" uid="uid://cobbabsxb6075" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0034.png" id="152_6pmtc"]
+[ext_resource type="Texture2D" uid="uid://c67xosnkqwxdo" path="res://Art/Hallucinations/Hallucinations/WindowPeeperA_0035.png" id="153_x7qjx"]
+[ext_resource type="PackedScene" uid="uid://bo5r5n43cylq8" path="res://Shaders/grain.tscn" id="154_t35t8"]
+[ext_resource type="PackedScene" uid="uid://bnryh240opje2" path="res://Machines/Radio/Radio.tscn" id="155_6ffv7"]
+[ext_resource type="PackedScene" uid="uid://dwomqkwph38nk" path="res://Machines/Tape Recorder/TapeRecorder.tscn" id="156_eonr2"]
+[ext_resource type="PackedScene" uid="uid://4f4yhgemlpn5" path="res://Machines/TapeSubmit/TapeSubmit.tscn" id="157_xlyyk"]
+[ext_resource type="PackedScene" uid="uid://bp2kmfy8f6ru2" path="res://Machines/Phone/Phone.tscn" id="158_k80os"]
+[ext_resource type="AudioStream" uid="uid://bjgyyjxr5bwkr" path="res://GameManagers/LevelManager/Levels/Audio/Gas funace_running.mp3" id="159_jflom"]
+[ext_resource type="AudioStream" uid="uid://b2t0icgyetu81" path="res://GameManagers/LevelManager/Levels/Audio/Static_electrical_1.mp3" id="160_n5a4w"]
+[ext_resource type="AudioStream" uid="uid://b7j5j48x4013y" path="res://GameManagers/LevelManager/Levels/Audio/Laugh_evil_deep_3.mp3" id="161_wb70l"]
+[ext_resource type="AudioStream" uid="uid://boamqwvvsn3s7" path="res://GameManagers/LevelManager/Levels/Audio/Drone_ominous.mp3" id="162_cwn4r"]
+[ext_resource type="PackedScene" uid="uid://bejtmxeodt37e" path="res://Inventory/InventoryUI/InventoryUI.tscn" id="163_l7mss"]
+[ext_resource type="PackedScene" uid="uid://s13vbyhcjtgu" path="res://Machines/TapeDispenser/TapeDispenser.tscn" id="164_0jj1f"]
+[ext_resource type="PackedScene" uid="uid://dst8gyqhe0u1h" path="res://Machines/Items/Meds/Inhaler.tscn" id="165_otycs"]
+[ext_resource type="PackedScene" uid="uid://bq7bemr3nmxm2" path="res://GameManagers/TextBox/TextBox.tscn" id="166_xvw4h"]
+[ext_resource type="Script" uid="uid://bycx7bxnlvvy5" path="res://GameManagers/TextBox/DialogueChunk.gd" id="167_0ed7s"]
+[ext_resource type="Script" uid="uid://bk806oyhudbgm" path="res://GameManagers/TextBox/DialogueLine.gd" id="168_pojac"]
+[ext_resource type="Script" uid="uid://dhuoiffi4y1vw" path="res://GameManagers/TextBox/DialogueRes.gd" id="169_1ragn"]
+[ext_resource type="Script" uid="uid://oek57s4uqacg" path="res://GameManagers/TutorialManager/TutorialManager.gd" id="170_40fcx"]
+[ext_resource type="PackedScene" uid="uid://b2en160274bqy" path="res://GameManagers/Jumpscare/jumpscare.tscn" id="171_ac1lo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1jsg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_3bpim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tnlqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bpegy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_krnwy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tniib")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7vo1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_1vr8k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_prikt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lhhbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ove1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_h68tx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_0a1r8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_alhfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_k7tlx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_etmnx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_jy6aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tur7a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_21vnt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_w1hik")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_errv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_6a8iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_08bca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ylao1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_5u1k6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_tcq3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_2kt0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_a3pe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_8g4pu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_6oqaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_tln5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_5j0kj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_8fcon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_032bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_g2hao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_3npyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_xpki6")
+}],
+"loop": false,
+"name": &"GhostChildA",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("47_oners")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_v4ykm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_pss72")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_6vxab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_s4i2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_0eqp0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_4xcjk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qfrlb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_fowqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_dlqjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_3eqbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_pq3dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_jmsjq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_5mbfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_fmyt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_7wri1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_j8bhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_l1s0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_sy8ju")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_inigc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_ufxbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_tbel6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_6321u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_1f0rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_ccvfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_oflxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_kevmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_bq1x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_14hcd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_3obaw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_6xvoo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_eakw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_3l64m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_n7n0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_k7gki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_ac1q8")
+}],
+"loop": false,
+"name": &"GhostChildB",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Nothing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("83_g507f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_6h5f5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_pfwag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_pb5vs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_my50k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_xypcs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_4x5mf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_njsct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_oc1mi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_jr5nm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_8c8gi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_gnx7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_fejye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_x0eoh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_t64k0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_hdb4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_mxuox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_thsce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_kiicx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_dui6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_y3msj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_yt5y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_kpgjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_on3l7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_dpfeq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_ne6ns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_xdv52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_i5ge0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_oq3gq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_247aj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_20l42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_wj6mk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_uwi77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_pq3gb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_0rhj0")
+}],
+"loop": false,
+"name": &"SeeingSpots",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("118_o181f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_q83x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_d17xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_leews")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_m1n42")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_63mow")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_yu0b6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_ocp08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_fqgpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_fs8rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_du8hv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_kwha4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_yci65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_1etwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_pk16w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_t8shr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_3hp3d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_tweui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_f77ma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_psum5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_iolg8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_4tac1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_r511u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_s22bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_qecvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_cisyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_b6bc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_ygckg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_oilpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_axh2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_v652p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_6dmsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_6jtlq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_wd3uq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_6pmtc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_x7qjx")
+}],
+"loop": false,
+"name": &"WindowPeeper",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_exc2f"]
+script = ExtResource("168_pojac")
+speaker = "Agent Smith"
+text = "We've been receiving new reports about some kind of black, almost shadow-like entity connected to these radio anomalies called the Shadow Man. If you see him, try to stop gaining madness for a few seconds and he should leave you alone. Good luck agent."
+metadata/_custom_type_script = "uid://bk806oyhudbgm"
+
+[sub_resource type="Resource" id="Resource_5utv0"]
+script = ExtResource("167_0ed7s")
+chunk_name = "intro"
+line_array = Array[ExtResource("168_pojac")]([SubResource("Resource_exc2f")])
+metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
+
+[sub_resource type="Resource" id="Resource_4r5xk"]
+script = ExtResource("169_1ragn")
+dialogue_chunks = Array[ExtResource("167_0ed7s")]([SubResource("Resource_5utv0")])
+metadata/_custom_type_script = "uid://dhuoiffi4y1vw"
+
+[node name="NightThree" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio", "inventory")]
+process_mode = 1
+script = ExtResource("1_mjgma")
+start_time = 9
+end_time = 17
+madness_add_amt = 0.4
+level_data = ExtResource("2_myt0u")
+hallucination_animations = NodePath("Background/Hallucinations")
+madness_audio1 = NodePath("Audio/MadnessAmbiance1")
+grain = NodePath("Background/Grain")
+madness_laugh_audio = NodePath("Audio/Laugh")
+madness_drone_audio = NodePath("Audio/Drone")
+jump_scare = NodePath("Jumpscare")
+tv = NodePath("Background/Base/Props/TV")
+recorder = NodePath("Interactables/TapeRecorder")
+radio = NodePath("Interactables/radio")
+inventory = NodePath("UI/InventoryUI")
+
+[node name="Background" type="Node2D" parent="." unique_id=1960895492]
+z_index = -1
+
+[node name="Base" type="Node2D" parent="Background" unique_id=185936348]
+z_index = -1
+
+[node name="RoomBase" type="TextureRect" parent="Background/Base" unique_id=1413269379]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("3_uk824")
+
+[node name="RoomBaseLighting" type="TextureRect" parent="Background/Base" unique_id=672071953]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("4_0w5dv")
+
+[node name="ColorRect2" type="ColorRect" parent="Background/Base" unique_id=231044382]
+z_index = -2
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 1
+color = Color(0.09, 0.09, 0.09, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="Background/Base" unique_id=743670864]
+z_index = -1
+position = Vector2(959, 536)
+energy = 10.42
+range_z_max = 1
+texture = ExtResource("4_0w5dv")
+script = ExtResource("5_wjvna")
+
+[node name="Props" type="Node2D" parent="Background/Base" unique_id=855165347]
+
+[node name="Props1" type="TextureRect" parent="Background/Base/Props" unique_id=1817163521]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("6_k7ffh")
+
+[node name="Props2" type="TextureRect" parent="Background/Base/Props" unique_id=911006635]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("7_lpejx")
+
+[node name="Props3" type="TextureRect" parent="Background/Base/Props" unique_id=1785365527]
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("8_iclgb")
+
+[node name="Props4" type="TextureRect" parent="Background/Base/Props" unique_id=452629189]
+visible = false
+texture_filter = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("9_radsw")
+
+[node name="TV" parent="Background/Base/Props" unique_id=1278799182 instance=ExtResource("10_5utv0")]
+
+[node name="Table" type="Sprite2D" parent="Background/Base" unique_id=689151304]
+texture_filter = 1
+position = Vector2(962, 526.00006)
+scale = Vector2(1.54, 1.54)
+texture = ExtResource("10_5r07f")
+
+[node name="Hallucinations" type="AnimatedSprite2D" parent="Background" unique_id=1322281634]
+position = Vector2(958, 541)
+sprite_frames = SubResource("SpriteFrames_u1jsg")
+animation = &"WindowPeeper"
+speed_scale = 2.0
+
+[node name="Grain" parent="Background" unique_id=758773583 instance=ExtResource("154_t35t8")]
+z_index = 6
+
+[node name="Interactables" type="Node2D" parent="." unique_id=241100467]
+z_index = 1
+
+[node name="radio" parent="Interactables" unique_id=909828567 node_paths=PackedStringArray("recorder", "level_manager") instance=ExtResource("155_6ffv7")]
+position = Vector2(307, 877)
+scale = Vector2(1.5, 1.5)
+recorder = NodePath("../TapeRecorder")
+level_manager = NodePath("../..")
+
+[node name="TapeRecorder" parent="Interactables" unique_id=1686385112 node_paths=PackedStringArray("level_manager") instance=ExtResource("156_eonr2")]
+position = Vector2(813, 675)
+scale = Vector2(2.3, 2.3)
+level_manager = NodePath("../..")
+record_length = 0.0
+
+[node name="TapeSubmit" parent="Interactables" unique_id=466805757 node_paths=PackedStringArray("level_manager") instance=ExtResource("157_xlyyk")]
+position = Vector2(1311, 814)
+level_manager = NodePath("../..")
+
+[node name="Phone" parent="Interactables" unique_id=767561474 node_paths=PackedStringArray("level_manager") instance=ExtResource("158_k80os")]
+position = Vector2(1709, 882.99994)
+scale = Vector2(0.645, 0.645)
+level_manager = NodePath("../..")
+
+[node name="Audio" type="Node2D" parent="." unique_id=1702804772]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Audio" unique_id=1356874992]
+stream = ExtResource("159_jflom")
+volume_db = -13.046
+autoplay = true
+parameters/looping = true
+
+[node name="MadnessAmbiance1" type="AudioStreamPlayer" parent="Audio" unique_id=454969409]
+stream = ExtResource("160_n5a4w")
+volume_db = -13.684
+autoplay = true
+parameters/looping = true
+
+[node name="Laugh" type="AudioStreamPlayer" parent="Audio" unique_id=312493923]
+stream = ExtResource("161_wb70l")
+volume_db = -5.559
+parameters/looping = false
+
+[node name="Drone" type="AudioStreamPlayer" parent="Audio" unique_id=1929668836]
+stream = ExtResource("162_cwn4r")
+parameters/looping = false
+
+[node name="UI" type="Control" parent="." unique_id=469153952]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryUI" parent="UI" unique_id=1928290319 node_paths=PackedStringArray("level_manager") instance=ExtResource("163_l7mss")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_left = 980.0
+offset_right = 980.0
+grow_vertical = 1
+level_manager = NodePath("../..")
+init_items = Array[PackedScene]([ExtResource("164_0jj1f"), ExtResource("165_otycs")])
+inhaler_uses = 2
+
+[node name="TextBox" parent="UI" unique_id=896158815 instance=ExtResource("166_xvw4h")]
+dialogue_res = SubResource("Resource_4r5xk")
+
+[node name="Tutorial" type="Node" parent="." unique_id=832874502 node_paths=PackedStringArray("text_box", "level_manager")]
+script = ExtResource("170_40fcx")
+tutorial_enabled = true
+text_box = NodePath("../UI/TextBox")
+level_manager = NodePath("..")
+
+[node name="Jumpscare" parent="." unique_id=513251383 instance=ExtResource("171_ac1lo")]

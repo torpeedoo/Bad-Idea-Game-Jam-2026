@@ -9,5 +9,6 @@
 [resource]
 script = ExtResource("1_itxh8")
 station_name = "Pork Soda Chips"
+station_freq = 105.0
 song_list = Array[ExtResource("2_4o7t3")]([ExtResource("3_3unup"), ExtResource("4_cflxi"), ExtResource("5_2p17d")])
 metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

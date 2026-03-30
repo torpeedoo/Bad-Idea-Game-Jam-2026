@@ -179,6 +179,7 @@ offset_top = 600.0
 offset_right = 1114.3252
 offset_bottom = 700.0
 theme = ExtResource("3_2x4r1")
+theme_override_font_sizes/font_size = 30
 text = "YES"
 
 [node name="NoButton" type="Button" parent="CanvasLayer/Control" unique_id=2088439991]
@@ -189,6 +190,7 @@ offset_top = 600.0
 offset_right = 934.0
 offset_bottom = 700.0
 theme = ExtResource("3_2x4r1")
+theme_override_font_sizes/font_size = 30
 text = "NO"
 
 [node name="ClickAudio" type="AudioStreamPlayer" parent="." unique_id=1600382713]

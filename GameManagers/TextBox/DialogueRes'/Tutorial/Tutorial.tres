@@ -71,7 +71,9 @@ metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
 [sub_resource type="Resource" id="Resource_tn8ku"]
 script = ExtResource("2_5lbce")
 speaker = "Agent Smith"
-text = "Good job recording two anomalies, agent! Seems like you've got the hang of this. Feel free to end the night when you're ready by using your phone."
+text = "Good job recording two anomalies, agent! Seems like you've got the hang of this. Feel free to end the night when you're ready by using your phone.
+
+(When the light on your phone is blinking green you'll know you're all set to end the night)"
 metadata/_custom_type_script = "uid://bk806oyhudbgm"
 
 [sub_resource type="Resource" id="Resource_wr1vq"]

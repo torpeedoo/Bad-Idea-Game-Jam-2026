@@ -30,6 +30,7 @@ func hide_scare_img():
 	scare_img.hide()
 
 func unscare():
+	get_tree().paused = false
 	hide_scare_img()
 	stinger_audio.playing = false
 	scream_audio.playing = false
@@ -45,6 +46,7 @@ func scare_trigger():
 	laugh_audio.play()
 
 func scare():
+	get_tree().paused = true
 	stinger_audio.play()
 	scream_audio.play()
 	show_scare_img()

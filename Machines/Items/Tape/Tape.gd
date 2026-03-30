@@ -59,6 +59,7 @@ func record_station(song: Song, recorded_dur: float, recording_str: float = 1.0)
 	recorded_duration = recorded_dur
 	recording_strendth = recording_str
 	if recorded_song:
+		print(recorded_song.song_name, " ", recorded_song.is_anomaly)
 		freq_label.text = str(recorded_song.song_name)
 	else:
 		freq_label.text = "Blank Tape"

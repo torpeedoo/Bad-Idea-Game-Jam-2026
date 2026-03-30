@@ -2,10 +2,13 @@ extends Control
 class_name InventoryUI
 
 @export var open_button: TextureButton
+@export var open_button_sprite: Sprite2D
 @export var close_button: TextureButton
 @export var inventory_base: Control
 @export var level_manager: LevelManager
 @export var interaction_audio: AudioStreamPlayer
+@export var shadowman: ShadowMan
+@export var anim_player: AnimationPlayer
 
 @export var inv_slots: Array[InventorySlot]
 @export var init_items: Array[PackedScene]
@@ -15,6 +18,7 @@ class_name InventoryUI
 
 var inv_open: bool = false
 var slots_enabled: bool = false
+var jumpscare_active: bool = false
 
 func _ready():
 	_init_slots()
@@ -24,6 +28,16 @@ func _ready():
 		open_button.pressed.connect(_open_inv)
 	if close_button:
 		close_button.pressed.connect(_close_inv)
+
+func activate_scare():
+	if inv_open: return
+	
+	anim_player.play("Transition")
+	jumpscare_active = true
+
+func deactivate_scare():
+	anim_player.play_backwards("Transition")
+	jumpscare_active = false
 
 func _init_slots():
 	for slot in inv_slots:
@@ -38,7 +52,6 @@ func _init_slots():
 				item_node.current_tapes = tapes
 				item_node.update_tape_sprites()
 			slot.set_item(item_node)
-			
 
 func update_slots():
 	for slot in inv_slots:
@@ -47,12 +60,17 @@ func update_slots():
 func _open_inv():
 	if inv_open: return
 	
-	slots_enabled = true
-	inv_open = true
-	open_button.hide()
-	inventory_base.show()
-	interaction_audio.play()
-	update_slots()
+	if jumpscare_active:
+		interaction_audio.play()
+		shadowman.trigger_scare()
+	else:
+		slots_enabled = true
+		inv_open = true
+		open_button.hide()
+		open_button_sprite.hide()
+		inventory_base.show()
+		interaction_audio.play()
+		update_slots()
 
 func _close_inv():
 	if !inv_open: return
@@ -60,6 +78,7 @@ func _close_inv():
 	slots_enabled = false
 	inv_open = false
 	open_button.show()
+	open_button_sprite.show()
 	inventory_base.hide()
 	interaction_audio.play()
 	update_slots()

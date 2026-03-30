@@ -25,6 +25,8 @@ var current_text: String = ""
 var visible_characters: int = 0
 var is_typing: bool = false
 
+var mouse_pos_cache: Vector2 = Vector2.ZERO
+
 
 func _ready():
 	if dialogue_control:
@@ -43,11 +45,11 @@ func _process(delta):
 		display_next_dialogue()
 
 
-# Load a dialogue chunk
 func load_dialogue_chunk(key: String, pause: bool):
 	if !dialogue_res.get_chunk(key): return
 	
 	if pause:
+		mouse_pos_cache = get_global_mouse_position()
 		get_tree().paused = true
 	
 	current_chunk = dialogue_res.get_chunk(key)
@@ -57,11 +59,11 @@ func load_dialogue_chunk(key: String, pause: bool):
 	display_dialogue(current_index)
 
 
-# Advance dialogue (call on click / input)
+
 func display_next_dialogue():
 	click_audio.play()
 	
-	# If typing, instantly finish line
+
 	if is_typing:
 		dialogue_text.text = current_text
 		is_typing = false
@@ -76,22 +78,20 @@ func display_next_dialogue():
 		display_dialogue(current_index)
 
 
-# Display a specific entry
 func display_dialogue(index: int):
 	if index < 0 or index >= current_chunk.line_array.size():
 		return
 	
 	var entry = current_chunk.line_array[index]
 	
-	# Get text + name safely
 	current_text = entry.text
 	var speaker_name = entry.speaker
 	
-	# Update UI
+
 	dialogue_text.text = ""
 	name_label.text = speaker_name
 	
-	# Hide name if narration
+
 	name_label.visible = speaker_name != ""
 	
 	visible_characters = 0
@@ -100,7 +100,7 @@ func display_dialogue(index: int):
 	type_timer.start()
 
 
-# Typewriter effect
+
 func _on_type_timer_timeout():
 	if not is_typing:
 		return
@@ -118,7 +118,10 @@ func end_dialogue():
 	current_chunk = null
 	current_index = 0
 	hide_dialogue_control()
-	get_tree().paused = false 
+	if get_tree().paused:
+		Input.warp_mouse(mouse_pos_cache)
+		mouse_pos_cache = Vector2.ZERO
+		get_tree().paused = false 
 	chunk_done.emit()
 
 

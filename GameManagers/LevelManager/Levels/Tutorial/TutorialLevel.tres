@@ -13,4 +13,5 @@ script = ExtResource("2_t5e56")
 level_name = "TestLevel"
 level_stations = Array[ExtResource("1_yntwp")]([ExtResource("4_1i2e1"), ExtResource("3_6rt1h"), ExtResource("4_buacb"), ExtResource("5_buacb"), ExtResource("6_axop2")])
 night_number = 1
+anomalies_pass_num = 2
 metadata/_custom_type_script = "uid://cojbqltk7b08q"

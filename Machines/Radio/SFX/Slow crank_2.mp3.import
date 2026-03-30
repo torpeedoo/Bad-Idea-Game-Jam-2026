@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw1fmjmmpdv3q"
+path="res://.godot/imported/Slow crank_2.mp3-1dd35c24df1f0dd6500b5b704d480272.mp3str"
+
+[deps]
+
+source_file="res://Machines/Radio/SFX/Slow crank_2.mp3"
+dest_files=["res://.godot/imported/Slow crank_2.mp3-1dd35c24df1f0dd6500b5b704d480272.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

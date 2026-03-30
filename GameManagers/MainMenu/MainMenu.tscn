@@ -4,41 +4,66 @@
 [ext_resource type="Script" uid="uid://k5kp85pcahw8" path="res://GameManagers/MainMenu/back_button.gd" id="2_4mwo0"]
 [ext_resource type="Script" uid="uid://ch1bj4oca401k" path="res://GameManagers/MainMenu/level_button.gd" id="2_5k017"]
 [ext_resource type="Script" uid="uid://b8tk7g0eu8u" path="res://GameManagers/MainMenu/MainMenuButton.gd" id="2_eait5"]
-[ext_resource type="Texture2D" uid="uid://dytr8d5i7n7cf" path="res://GameManagers/LevelManager/Levels/Art/RoomBasePurpleShader.png" id="3_0nep4"]
 [ext_resource type="AudioStream" uid="uid://ygobmfvnv1q0" path="res://Music/In Game Music/main thme_ (revised).mp3" id="4_2wvvl"]
-[ext_resource type="Script" uid="uid://dhgyhl36wjd7c" path="res://GameManagers/LevelManager/Levels/Tutorial/lightFlicker.gd" id="4_alxn2"]
-[ext_resource type="Texture2D" uid="uid://b38iuljfs1cgc" path="res://GameManagers/LevelManager/Levels/Art/RoomBase.png" id="5_jk1vi"]
+[ext_resource type="Shader" uid="uid://d34xaay4e7xer" path="res://GameManagers/MainMenu/dither.gdshader" id="4_y0c1k"]
 [ext_resource type="AudioStream" uid="uid://dncx73yvamnql" path="res://Machines/Interaction/SFX/Button press-003.wav" id="5_kaocu"]
-[ext_resource type="Texture2D" uid="uid://b7mmwx7pidaah" path="res://GameManagers/LevelManager/Levels/Art/RoomProps1.png" id="5_o5ufx"]
-[ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="6_epdf4"]
-[ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="7_8pohn"]
-[ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="8_5q7l6"]
-[ext_resource type="Shader" uid="uid://b7jlgqiifasia" path="res://GameManagers/MainMenu/blur.gdshader" id="8_o5ufx"]
+[ext_resource type="Texture2D" uid="uid://bsk0ewu8xu8ld" path="res://Art/guy/jyfujy.png" id="10_8pohn"]
+[ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="10_frd3x"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
 [ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
 [ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="15_epdf4"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_epdf4"]
-shader = ExtResource("8_o5ufx")
-shader_parameter/blur_amount = 2.3740002077650004
-shader_parameter/mix_amount = 0.51600002451
-shader_parameter/color_over = Color(0, 0, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7crp"]
+shader = ExtResource("10_frd3x")
+shader_parameter/jitter_strength = 1.1590000550525
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 0.4070000193325
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = false
+shader_parameter/scale_strength = 0.0190000009025
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 6.422000257545
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 5.0
 
-[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("levels_button", "settings_button", "quit_button", "credits_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "credits_control", "level_button_array")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frd3x"]
+shader = ExtResource("4_y0c1k")
+shader_parameter/pixel_size = 2.2090000574274997
+shader_parameter/vhs_intensity = 2.890000137275
+shader_parameter/noise_intensity = 0.2710000128725
+shader_parameter/opacity = 0.31200001482
+
+[node name="MainMenu" type="Node2D" unique_id=1600039632 node_paths=PackedStringArray("music", "levels_button", "settings_button", "quit_button", "credits_button", "levels_control", "main_menu_control", "settings_control", "bg_control", "credits_control", "level_button_array")]
 scale = Vector2(1.135, 1.135)
 script = ExtResource("1_xqv8w")
-levels_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button")
-settings_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button2")
-quit_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button3")
-credits_button = NodePath("CanvasLayer/Menu/VBoxContainer/Button4")
-levels_control = NodePath("CanvasLayer/Levels")
-main_menu_control = NodePath("CanvasLayer/Menu")
-settings_control = NodePath("CanvasLayer/Settings")
+music = NodePath("Music/Theme")
+levels_button = NodePath("CanvasLayer/Control/Menu/VBoxContainer/Button")
+settings_button = NodePath("CanvasLayer/Control/Menu/VBoxContainer/Button2")
+quit_button = NodePath("CanvasLayer/Control/Menu/VBoxContainer/Button3")
+credits_button = NodePath("CanvasLayer/Control/Menu/VBoxContainer/Button4")
+levels_control = NodePath("CanvasLayer/Control/Levels")
+main_menu_control = NodePath("CanvasLayer/Control/Menu")
+settings_control = NodePath("CanvasLayer/Control/Settings")
 bg_control = NodePath("BG")
-credits_control = NodePath("CanvasLayer/Credits")
-level_button_array = [NodePath("CanvasLayer/Levels/VBoxContainer/Button"), NodePath("CanvasLayer/Levels/VBoxContainer/Button2")]
+credits_control = NodePath("CanvasLayer/Control/Credits")
+level_button_array = [NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button"), NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button2"), NodePath("CanvasLayer/Control/Levels/VBoxContainer/Button3")]
 parallax_strength = 10.0
-parallax_smoothing = 25.0
+parallax_smoothing = 2.5
 
 [node name="BG" type="Control" parent="." unique_id=259279974]
 z_index = -5
@@ -53,83 +78,219 @@ offset_bottom = -49.339207
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Base" type="Node2D" parent="BG" unique_id=1514654068]
-z_index = -1
+[node name="base2" type="Node2D" parent="BG" unique_id=1724785140]
 
-[node name="RoomBase" type="TextureRect" parent="BG/Base" unique_id=537705224]
+[node name="Sprite2D7" type="Sprite2D" parent="BG/base2" unique_id=1175074282]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("5_jk1vi")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1412.3348, 579.7357)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="RoomBaseLighting" type="TextureRect" parent="BG/Base" unique_id=1312253261]
+[node name="Sprite2D31" type="Sprite2D" parent="BG/base2" unique_id=677079798]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("3_0nep4")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(643.1719, 272.24673)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="ColorRect2" type="ColorRect" parent="BG/Base" unique_id=1338367294]
-z_index = -2
-offset_right = 1920.0
-offset_bottom = 1080.0
-mouse_filter = 1
-color = Color(0.072842635, 0.072842635, 0.072842635, 1)
-
-[node name="Props" type="Node2D" parent="BG/Base" unique_id=1499660754]
-
-[node name="Props1" type="TextureRect" parent="BG/Base/Props" unique_id=1743404121]
+[node name="Sprite2D20" type="Sprite2D" parent="BG/base2" unique_id=441151569]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("5_o5ufx")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1761.2335, 386.78418)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="Props2" type="TextureRect" parent="BG/Base/Props" unique_id=1433677658]
+[node name="Sprite2D21" type="Sprite2D" parent="BG/base2" unique_id=1292966307]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("6_epdf4")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1568.282, 334.80176)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="Props3" type="TextureRect" parent="BG/Base/Props" unique_id=2055862758]
-visible = false
+[node name="Sprite2D16" type="Sprite2D" parent="BG/base2" unique_id=816252647]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("7_8pohn")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(772.68726, 463.43616)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="Props4" type="TextureRect" parent="BG/Base/Props" unique_id=1781499202]
-visible = false
+[node name="Sprite2D19" type="Sprite2D" parent="BG/base2" unique_id=1820855836]
 texture_filter = 1
-offset_right = 1920.0
-offset_bottom = 1080.0
-texture = ExtResource("8_5q7l6")
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1340.0881, 413.21585)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
-[node name="PointLight2D" type="PointLight2D" parent="BG" unique_id=1943190275]
-position = Vector2(959, 536)
-energy = 7.02
-texture = ExtResource("3_0nep4")
-script = ExtResource("4_alxn2")
-base_energy = 5.0
-flicker_strength = 1.0
+[node name="Sprite2D17" type="Sprite2D" parent="BG/base2" unique_id=1496357929]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(186.78418, 444.9339)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D18" type="Sprite2D" parent="BG/base2" unique_id=2027728458]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1055.5066, 415.85907)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D15" type="Sprite2D" parent="BG/base2" unique_id=1507423548]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(438.76654, 417.62112)
+scale = Vector2(1.9649999, 1.9649999)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D8" type="Sprite2D" parent="BG/base2" unique_id=970173510]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1119.8239, 633.4802)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D9" type="Sprite2D" parent="BG/base2" unique_id=1972513009]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1713.6565, 570.9251)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D10" type="Sprite2D" parent="BG/base2" unique_id=2092513215]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(835.24243, 650.2203)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D11" type="Sprite2D" parent="BG/base2" unique_id=74128726]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1265.1984, 662.55505)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D12" type="Sprite2D" parent="BG/base2" unique_id=359690367]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(567.4009, 654.6256)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D13" type="Sprite2D" parent="BG/base2" unique_id=2011847196]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(850.2202, 673.12775)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D14" type="Sprite2D" parent="BG/base2" unique_id=882312245]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(272.24677, 639.6476)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D22" type="Sprite2D" parent="BG/base2" unique_id=1079571067]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(810.1645, 1019.88434)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D23" type="Sprite2D" parent="BG/base2" unique_id=1329272322]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1240.1205, 1032.2191)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D27" type="Sprite2D" parent="BG/base2" unique_id=862704811]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1647.1688, 1080.6774)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D29" type="Sprite2D" parent="BG/base2" unique_id=1132746969]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1647.1688, 1080.6774)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D24" type="Sprite2D" parent="BG/base2" unique_id=51551632]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(542.32294, 1024.2897)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D25" type="Sprite2D" parent="BG/base2" unique_id=122840315]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(825.1423, 1042.7917)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D26" type="Sprite2D" parent="BG/base2" unique_id=436275075]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(247.16884, 1009.31165)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D28" type="Sprite2D" parent="BG/base2" unique_id=1507663263]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(973.5683, 1230.837)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D30" type="Sprite2D" parent="BG/base2" unique_id=1601706058]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(1496.0354, 1135.6829)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
+
+[node name="Sprite2D32" type="Sprite2D" parent="BG/base2" unique_id=1074562116]
+texture_filter = 1
+material = SubResource("ShaderMaterial_j7crp")
+position = Vector2(623.7886, 1044.934)
+scale = Vector2(1.965, 1.965)
+texture = ExtResource("10_8pohn")
 
 [node name="ColorRect3" type="ColorRect" parent="BG" unique_id=882854891]
-material = SubResource("ShaderMaterial_epdf4")
+material = SubResource("ShaderMaterial_frd3x")
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 mouse_filter = 1
+color = Color(0.3437928, 0.37754768, 0.42478228, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045201008]
 
-[node name="Menu" type="Control" parent="CanvasLayer" unique_id=1993580033]
-visible = false
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=2001472782]
 layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -403.0
+offset_right = -403.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=1993580033]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu" unique_id=2083051663]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Menu" unique_id=2083051663]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,34 +304,34 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=162984787 node_paths=PackedStringArray("click_sfx")]
+[node name="Button" type="Button" parent="CanvasLayer/Control/Menu/VBoxContainer" unique_id=162984787 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Levels"
 script = ExtResource("2_eait5")
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="Button2" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=200842792 node_paths=PackedStringArray("click_sfx")]
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Menu/VBoxContainer" unique_id=200842792 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Settings"
 script = ExtResource("2_eait5")
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="Button4" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=95164132 node_paths=PackedStringArray("click_sfx")]
+[node name="Button4" type="Button" parent="CanvasLayer/Control/Menu/VBoxContainer" unique_id=95164132 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Credits"
 script = ExtResource("2_eait5")
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="Button3" type="Button" parent="CanvasLayer/Menu/VBoxContainer" unique_id=141855756 node_paths=PackedStringArray("click_sfx")]
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Menu/VBoxContainer" unique_id=141855756 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("11_0nep4")
@@ -178,18 +339,18 @@ theme_override_font_sizes/font_size = 50
 disabled = true
 text = "QUIT"
 script = ExtResource("2_eait5")
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="Levels" type="Control" parent="CanvasLayer" unique_id=611158325]
+[node name="Levels" type="Control" parent="CanvasLayer/Control" unique_id=611158325]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Levels" unique_id=1613318174]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Levels" unique_id=1613318174]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -203,7 +364,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="CanvasLayer/Levels/VBoxContainer" unique_id=1886793416 node_paths=PackedStringArray("click_sfx")]
+[node name="Button" type="Button" parent="CanvasLayer/Control/Levels/VBoxContainer" unique_id=1886793416 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -212,9 +373,9 @@ theme_override_font_sizes/font_size = 50
 text = "Night One"
 script = ExtResource("2_5k017")
 level_path = "res://GameManagers/LevelManager/Levels/Tutorial/TutorialLevel.tscn"
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="Button2" type="Button" parent="CanvasLayer/Levels/VBoxContainer" unique_id=1426920442 node_paths=PackedStringArray("click_sfx")]
+[node name="Button2" type="Button" parent="CanvasLayer/Control/Levels/VBoxContainer" unique_id=1426920442 node_paths=PackedStringArray("click_sfx")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -224,13 +385,25 @@ disabled = true
 text = "Night Two"
 script = ExtResource("2_5k017")
 level_path = "res://GameManagers/LevelManager/Levels/Night2/NightTwo.tscn"
-click_sfx = NodePath("../../../../SFX/Click")
+click_sfx = NodePath("../../../../../SFX/Click")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Levels/VBoxContainer" unique_id=187866478]
+[node name="Button3" type="Button" parent="CanvasLayer/Control/Levels/VBoxContainer" unique_id=1494840581 node_paths=PackedStringArray("click_sfx")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("11_0nep4")
+theme_override_font_sizes/font_size = 50
+disabled = true
+text = "Night Three"
+script = ExtResource("2_5k017")
+level_path = "res://GameManagers/LevelManager/Levels/Night3/NightThree.tscn"
+click_sfx = NodePath("../../../../../SFX/Click")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Levels/VBoxContainer" unique_id=187866478]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Levels/VBoxContainer/MarginContainer" unique_id=604067174 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/Levels/VBoxContainer/MarginContainer" unique_id=604067174 node_paths=PackedStringArray("menu_manager", "click_sfx")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -239,19 +412,19 @@ theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 script = ExtResource("2_4mwo0")
-menu_manager = NodePath("../../../../..")
-click_sfx = NodePath("../../../../../SFX/Click")
+menu_manager = NodePath("../../../../../..")
+click_sfx = NodePath("../../../../../../SFX/Click")
 
-[node name="Settings" type="Control" parent="CanvasLayer" unique_id=1731378302]
+[node name="Settings" type="Control" parent="CanvasLayer/Control" unique_id=1731378302]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Settings" unique_id=802021960]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Settings" unique_id=802021960]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -266,22 +439,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("11_0nep4")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Settings/PanelContainer" unique_id=1950696524]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Settings/PanelContainer" unique_id=1950696524]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/PanelContainer/MarginContainer" unique_id=916404527]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Settings/PanelContainer/MarginContainer" unique_id=916404527]
 layout_mode = 2
 script = ExtResource("13_alxn2")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer" unique_id=27078895]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Settings/PanelContainer/MarginContainer/VBoxContainer" unique_id=27078895]
 layout_mode = 2
 theme_override_constants/margin_top = 50
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Settings/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1929403891 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/Settings/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1929403891 node_paths=PackedStringArray("menu_manager", "click_sfx")]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -289,19 +462,19 @@ theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 30
 text = "Back"
 script = ExtResource("2_4mwo0")
-menu_manager = NodePath("../../../../../../..")
-click_sfx = NodePath("../../../../../../../SFX/Click")
+menu_manager = NodePath("../../../../../../../..")
+click_sfx = NodePath("../../../../../../../../SFX/Click")
 
-[node name="Credits" type="Control" parent="CanvasLayer" unique_id=923272251]
+[node name="Credits" type="Control" parent="CanvasLayer/Control" unique_id=923272251]
 visible = false
-layout_mode = 3
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Credits" unique_id=1359149927]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Credits" unique_id=1359149927]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -315,29 +488,29 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=643973335]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=643973335]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer2" unique_id=1245187622]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer2" unique_id=1245187622]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Main Team"
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1753877734]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1753877734]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1520507590]
+[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1520507590]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer10" unique_id=752958995]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer10" unique_id=752958995]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Lead Developer    - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer10" unique_id=1847649148]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer10" unique_id=1847649148]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
@@ -345,16 +518,16 @@ text = "YesMeMarcus"
 underline = 1
 uri = "https://yesmemarcus.itch.io/"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1891537365]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1891537365]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer3" unique_id=1102311214]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer3" unique_id=1102311214]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Lead Artist       - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer3" unique_id=1595250660]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer3" unique_id=1595250660]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
@@ -362,73 +535,73 @@ text = "BrushingBlooms"
 underline = 1
 uri = "https://www.brushingblooms.com/"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1099490815]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1099490815]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer4" unique_id=1600210996]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer4" unique_id=1600210996]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Music/Lead SFX    - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer4" unique_id=1748986902]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer4" unique_id=1748986902]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
 text = "Demian_Chameleon"
 underline = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=349807359]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=349807359]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=656481349]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=656481349]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer5" unique_id=775026233]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer5" unique_id=775026233]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer5" unique_id=1902097321]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer5" unique_id=1902097321]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Contributors"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=453828815]
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=453828815]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=669372279]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=669372279]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=77859012]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=77859012]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "SFX         - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer7" unique_id=1339345947]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=1339345947]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "PenguinSphen"
 underline = 1
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1674144429]
+[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1674144429]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=1933540458]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=1933540458]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=657375885]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=657375885]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "SFX         - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer9" unique_id=765198243]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=765198243]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
@@ -436,40 +609,40 @@ text = "YourPalRob"
 underline = 1
 uri = "https://yourpalrob.itch.io/"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=2008417941]
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=2008417941]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=460216951]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=460216951]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=748979470]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=748979470]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Programming - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer6" unique_id=650522170]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=650522170]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Jun"
 underline = 1
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=1721810210]
+[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1721810210]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=1000880518]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=1000880518]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=45988599]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=45988599]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Music       - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Credits/VBoxContainer/HBoxContainer8" unique_id=1578472420]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=1578472420]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
@@ -477,11 +650,11 @@ text = "Utopia Quartet"
 underline = 1
 uri = "https://www.youtube.com/@colinhoulihansax"
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Credits/VBoxContainer" unique_id=402085468]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=402085468]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Credits/VBoxContainer" unique_id=812309839 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=812309839 node_paths=PackedStringArray("menu_manager", "click_sfx")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -489,8 +662,8 @@ theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 script = ExtResource("2_4mwo0")
-menu_manager = NodePath("../../../..")
-click_sfx = NodePath("../../../../SFX/Click")
+menu_manager = NodePath("../../../../..")
+click_sfx = NodePath("../../../../../SFX/Click")
 
 [node name="Music" type="Node" parent="." unique_id=1753872319]
 

@@ -2,6 +2,8 @@ extends Node2D
 class_name MainMenuManager
 
 @export_category("Refs")
+@export_subgroup("audio")
+@export var music: AudioStreamPlayer
 @export_subgroup("Buttons")
 @export var levels_button: Button
 @export var settings_button: Button
@@ -83,6 +85,7 @@ func update_levels():
 func _process(delta):
 	if !bg_control:
 		return
+	if !music.playing: music.play()
 	var mouse := get_viewport().get_mouse_position()
 	var offset := (mouse + _screen_center) / _screen_center * parallax_strength * -1.0
 	bg_control.position = lerp(bg_control.position, _bg_origin + offset, parallax_smoothing * delta)

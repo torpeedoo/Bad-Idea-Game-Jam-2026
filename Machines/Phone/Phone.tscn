@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cwpm1ulk31pth" path="res://Machines/Phone/Art/BPhoneSheet.png" id="2_ove81"]
 [ext_resource type="FontFile" uid="uid://dtjou6fnpw361" path="res://Fonts/radio_2/radio.ttf" id="3_bvju8"]
 [ext_resource type="AudioStream" uid="uid://5wfcutc4kn50" path="res://Machines/Interaction/SFX/Menu_click_3.mp3" id="3_ove81"]
+[ext_resource type="Texture2D" uid="uid://dcuhnpjyt67u2" path="res://Art/SfxButtonGlow.png" id="4_0refr"]
+[ext_resource type="Shader" uid="uid://d154h47ciw7n2" path="res://Shaders/Jitter.gdshader" id="4_fjvfv"]
+[ext_resource type="AudioStream" uid="uid://cjmbvncqyw4s" path="res://Music/Sfx/other/Phone number input.wav" id="7_fjbdj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ove81"]
 atlas = ExtResource("2_ove81")
@@ -21,6 +24,42 @@ region = Rect2(410.36285, 187.7302, 181.81818, 38.181824)
 atlas = ExtResource("2_ove81")
 region = Rect2(413.45465, 317.6364, 172.72736, 30)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fjbdj"]
+shader = ExtResource("4_fjvfv")
+shader_parameter/jitter_strength = 2.0
+shader_parameter/jitter_speed = 8.0
+shader_parameter/jitter_frequency = 12.0
+shader_parameter/separate_xy = true
+shader_parameter/time_offset = 0.0
+shader_parameter/enable_rotation = true
+shader_parameter/rotation_strength = 5.0
+shader_parameter/rotation_speed = 3.0
+shader_parameter/rotation_frequency = 4.0
+shader_parameter/enable_scaling = true
+shader_parameter/scale_strength = 0.1
+shader_parameter/scale_speed = 2.5
+shader_parameter/scale_frequency = 6.0
+shader_parameter/base_scale = 1.0
+shader_parameter/text_color = Color(1, 1, 1, 1)
+shader_parameter/use_custom_color = false
+shader_parameter/shake_intensity = 0.5
+shader_parameter/enable_pixelation = true
+shader_parameter/pixel_size = 4.0
+shader_parameter/adaptive_pixels = true
+shader_parameter/enable_outline = true
+shader_parameter/outline_color = Color(0, 0, 0, 1)
+shader_parameter/outline_thickness = 1.0
+shader_parameter/chromatic_aberration = false
+shader_parameter/aberration_strength = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjbdj"]
+atlas = ExtResource("4_0refr")
+region = Rect2(320, 156, 137, 129)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnvx6"]
+atlas = ExtResource("4_0refr")
+region = Rect2(50.900833, 89.69421, 114.04956, 100.82644)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_0refr"]
 atlas = ExtResource("2_ove81")
 region = Rect2(387.09348, 591.7606, 216.5026, 402.99487)
@@ -28,12 +67,16 @@ region = Rect2(387.09348, 591.7606, 216.5026, 402.99487)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5ua4"]
 size = Vector2(284, 791)
 
-[node name="Phone" type="Node2D" unique_id=767561474 node_paths=PackedStringArray("time_label", "end_time_label", "anomalies_found_label", "anomalies_goal_label", "interaction_area", "click_sfx")]
+[node name="Phone" type="Node2D" unique_id=767561474 node_paths=PackedStringArray("time_label", "end_time_label", "anomalies_found_label", "anomalies_goal_label", "green_light", "red_light", "blink_timer", "success_sound", "interaction_area", "click_sfx")]
 script = ExtResource("1_m5ua4")
 time_label = NodePath("BgPhone/Time")
 end_time_label = NodePath("BgPhone/EndTime")
 anomalies_found_label = NodePath("BgPhone/AnomaliesFound")
 anomalies_goal_label = NodePath("BgPhone/AnomaliesGoal")
+green_light = NodePath("BgPhone/green_light")
+red_light = NodePath("BgPhone/red_light")
+blink_timer = NodePath("light_blink")
+success_sound = NodePath("success")
 interaction_area = NodePath("Area2D")
 click_sfx = NodePath("AudioStreamPlayer")
 
@@ -103,6 +146,20 @@ theme_override_font_sizes/font_size = 11
 text = "TEST"
 metadata/_edit_use_anchors_ = true
 
+[node name="green_light" type="Sprite2D" parent="BgPhone" unique_id=1201312700]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_fjbdj")
+position = Vector2(86, -496)
+texture = SubResource("AtlasTexture_fjbdj")
+
+[node name="red_light" type="Sprite2D" parent="BgPhone" unique_id=352118587]
+visible = false
+texture_filter = 1
+material = SubResource("ShaderMaterial_fjbdj")
+position = Vector2(89, -496)
+texture = SubResource("AtlasTexture_jnvx6")
+
 [node name="Buttons" type="Node2D" parent="." unique_id=996396751]
 
 [node name="Sprite2D" type="Sprite2D" parent="Buttons" unique_id=657232692]
@@ -119,3 +176,11 @@ shape = SubResource("RectangleShape2D_m5ua4")
 stream = ExtResource("3_ove81")
 volume_db = -14.368
 bus = &"SFX"
+
+[node name="success" type="AudioStreamPlayer" parent="." unique_id=1088112981]
+stream = ExtResource("7_fjbdj")
+volume_db = -14.368
+bus = &"SFX"
+
+[node name="light_blink" type="Timer" parent="." unique_id=22787715]
+autostart = true

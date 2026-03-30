@@ -135,6 +135,7 @@ _data = {
 }
 
 [node name="Jumpscare" type="Node2D" unique_id=513251383 node_paths=PackedStringArray("scare_img", "dither_img", "anim_player", "stinger_audio", "scream_audio", "laugh_audio", "scare_on_screen_timer", "leadup_timer")]
+process_mode = 3
 script = ExtResource("1_5nmh0")
 scare_img = NodePath("CanvasLayer/TextureRect")
 dither_img = NodePath("CanvasLayer/ColorRect")

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfunu4gpjx8e5" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps2.png" id="7_ajpqk"]
 [ext_resource type="Texture2D" uid="uid://iberrcxfoseq" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps3.png" id="8_nkvi1"]
 [ext_resource type="Texture2D" uid="uid://b7f6irgrsrtlm" path="res://GameManagers/LevelManager/Levels/Art/RoomsProps4.png" id="9_yidfs"]
+[ext_resource type="PackedScene" uid="uid://ch1xbdff76msi" path="res://GameManagers/Jumpscare/TV/TV.tscn" id="10_1jbed"]
 [ext_resource type="Texture2D" uid="uid://uradegqwlmke" path="res://Art/Table.png" id="10_ip32e"]
 [ext_resource type="Texture2D" uid="uid://dhscitmatuqbk" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0000.png" id="11_3l34y"]
 [ext_resource type="Texture2D" uid="uid://cl3706o1u1x75" path="res://Art/Hallucinations/Hallucinations/GhostChildA_0001.png" id="12_d8qua"]
@@ -647,17 +648,12 @@ chunk_name = "intro"
 line_array = Array[ExtResource("168_s3y1i")]([SubResource("Resource_61o4g"), SubResource("Resource_7i7mf")])
 metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
 
-[sub_resource type="Resource" id="Resource_r8cja"]
-script = ExtResource("167_7i7mf")
-chunk_name = "anomaly_submitted"
-metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
-
 [sub_resource type="Resource" id="Resource_4r5xk"]
 script = ExtResource("169_1jbed")
-dialogue_chunks = Array[ExtResource("167_7i7mf")]([SubResource("Resource_5lbce"), SubResource("Resource_r8cja")])
+dialogue_chunks = Array[ExtResource("167_7i7mf")]([SubResource("Resource_5lbce")])
 metadata/_custom_type_script = "uid://dhuoiffi4y1vw"
 
-[node name="NightTwo" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "recorder", "radio")]
+[node name="NightTwo" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio")]
 process_mode = 1
 script = ExtResource("1_10mx2")
 start_time = 9
@@ -670,6 +666,7 @@ grain = NodePath("Background/Grain")
 madness_laugh_audio = NodePath("Audio/Laugh")
 madness_drone_audio = NodePath("Audio/Drone")
 jump_scare = NodePath("Jumpscare")
+tv = NodePath("Background/Base/Props/TV")
 recorder = NodePath("Interactables/TapeRecorder")
 radio = NodePath("Interactables/radio")
 
@@ -721,7 +718,6 @@ offset_bottom = 1080.0
 texture = ExtResource("7_ajpqk")
 
 [node name="Props3" type="TextureRect" parent="Background/Base/Props" unique_id=1785365527]
-visible = false
 texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
@@ -733,6 +729,8 @@ texture_filter = 1
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = ExtResource("9_yidfs")
+
+[node name="TV" parent="Background/Base/Props" unique_id=1278799182 instance=ExtResource("10_1jbed")]
 
 [node name="Table" type="Sprite2D" parent="Background/Base" unique_id=689151304]
 texture_filter = 1
@@ -759,7 +757,7 @@ recorder = NodePath("../TapeRecorder")
 level_manager = NodePath("../..")
 
 [node name="TapeRecorder" parent="Interactables" unique_id=1686385112 node_paths=PackedStringArray("level_manager") instance=ExtResource("156_m66yg")]
-position = Vector2(810.00006, 673.00006)
+position = Vector2(816, 671)
 scale = Vector2(2.3, 2.3)
 level_manager = NodePath("../..")
 record_length = 0.0
