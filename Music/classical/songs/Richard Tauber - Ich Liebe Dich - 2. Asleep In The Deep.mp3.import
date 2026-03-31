@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://iu48y0u0pfdh"
+path="res://.godot/imported/Richard Tauber - Ich Liebe Dich - 2. Asleep In The Deep.mp3-3ac67cc4e123bba3f1723fc1d4fdebd6.mp3str"
+
+[deps]
+
+source_file="res://Music/classical/songs/Richard Tauber - Ich Liebe Dich - 2. Asleep In The Deep.mp3"
+dest_files=["res://.godot/imported/Richard Tauber - Ich Liebe Dich - 2. Asleep In The Deep.mp3-3ac67cc4e123bba3f1723fc1d4fdebd6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

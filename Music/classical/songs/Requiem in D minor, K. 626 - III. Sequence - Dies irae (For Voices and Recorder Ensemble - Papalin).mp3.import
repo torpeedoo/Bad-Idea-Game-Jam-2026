@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2706myn8eowl"
+path="res://.godot/imported/Requiem in D minor, K. 626 - III. Sequence - Dies irae (For Voices and Recorder Ensemble - Papalin).mp3-ec062d177b0fdf04cbbd4e9d6ece42a4.mp3str"
+
+[deps]
+
+source_file="res://Music/classical/songs/Requiem in D minor, K. 626 - III. Sequence - Dies irae (For Voices and Recorder Ensemble - Papalin).mp3"
+dest_files=["res://.godot/imported/Requiem in D minor, K. 626 - III. Sequence - Dies irae (For Voices and Recorder Ensemble - Papalin).mp3-ec062d177b0fdf04cbbd4e9d6ece42a4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

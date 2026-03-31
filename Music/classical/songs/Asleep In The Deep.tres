@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dq0ikb18eim4r"]
+
+[ext_resource type="AudioStream" uid="uid://iu48y0u0pfdh" path="res://Music/classical/songs/Richard Tauber - Ich Liebe Dich - 2. Asleep In The Deep.mp3" id="1_mseho"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_0mnp6"]
+
+[resource]
+script = ExtResource("2_0mnp6")
+normal_audiostream = ExtResource("1_mseho")
+song_name = "Asleep In The Deep"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

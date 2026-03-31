@@ -20,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://cjl6v5btpr5kp" path="res://Music/Pork Soda Chips (Synth Pop)/Tobias.tres" id="12_51yk2"]
 [ext_resource type="Script" uid="uid://cojbqltk7b08q" path="res://GameManagers/LevelManager/Levels/Core/LevelData.gd" id="13_b2w6t"]
 [ext_resource type="Resource" uid="uid://dxa1tmx2oekdy" path="res://Music/Sfx/Morse/Morse.tres" id="19_xf1xp"]
+[ext_resource type="Resource" uid="uid://cfmbbsttx2feq" path="res://Music/classical/Classical.tres" id="20_04l35"]
 
 [sub_resource type="Resource" id="Resource_mhl4o"]
 script = ExtResource("1_qfy4d")
@@ -62,7 +63,7 @@ metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
 [resource]
 script = ExtResource("13_b2w6t")
 level_name = "Night Three"
-level_stations = Array[ExtResource("1_qfy4d")]([SubResource("Resource_mhl4o"), SubResource("Resource_du1h3"), SubResource("Resource_0vlmo"), SubResource("Resource_xeb1h"), SubResource("Resource_aoll4"), ExtResource("19_xf1xp")])
+level_stations = Array[ExtResource("1_qfy4d")]([SubResource("Resource_mhl4o"), SubResource("Resource_du1h3"), SubResource("Resource_0vlmo"), SubResource("Resource_xeb1h"), SubResource("Resource_aoll4"), ExtResource("19_xf1xp"), ExtResource("20_04l35")])
 night_number = 3
 anomalies_pass_num = 3
 metadata/_custom_type_script = "uid://cojbqltk7b08q"

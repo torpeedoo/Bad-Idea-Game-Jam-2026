@@ -1,10 +1,6 @@
 extends VBoxContainer
 
-const AUDIO_BUSES: Array[String] = [
-	"Radio",
-	"Menu Music",
-	"SFX",
-]
+const AUDIO_BUSES: Array[String] = ["Radio","Menu Music","SFX",]
 
 const SETTINGS_SAVE_PATH: String = "user://settings.cfg"
 const FONT_PATH: String = "res://Fonts/clacon2.ttf"
@@ -25,6 +21,8 @@ func _ready() -> void:
 
 func _move_back_button_to_bottom() -> void:
 	var back_button := $MarginContainer
+	var fullscreen_button := $CheckBox
+	move_child(fullscreen_button, get_child_count() - 1)
 	move_child(back_button, get_child_count() - 1)
 
 func _build_sliders() -> void:

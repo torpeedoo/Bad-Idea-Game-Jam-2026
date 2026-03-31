@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://cp16y4x7574fd" path="res://GameManagers/MainMenu/quit_button.gd" id="10_o5ufx"]
 [ext_resource type="Theme" uid="uid://dn3b8vtpaigao" path="res://theme.tres" id="11_0nep4"]
 [ext_resource type="Script" uid="uid://bmedyx24qjoj8" path="res://GameManagers/MainMenu/Settings.gd" id="13_alxn2"]
+[ext_resource type="Script" uid="uid://c82xbhnnlkpp7" path="res://GameManagers/MainMenu/fullscreeb_check.gd" id="14_epdf4"]
 [ext_resource type="AudioStream" uid="uid://ck0x5yk8tfgqx" path="res://Machines/Interaction/SFX/computer-mouse-click-352734_short.mp3" id="15_alxn2"]
 [ext_resource type="FontFile" uid="uid://c3gnmplene5pm" path="res://Fonts/clacon2.ttf" id="15_epdf4"]
 
@@ -376,6 +377,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Menu" type="Control" parent="CanvasLayer/Control" unique_id=1993580033]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -548,6 +550,13 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 script = ExtResource("13_alxn2")
 
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer/Control/Settings/PanelContainer/MarginContainer/VBoxContainer" unique_id=893437756]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Fullscreen"
+script = ExtResource("14_epdf4")
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Settings/PanelContainer/MarginContainer/VBoxContainer" unique_id=27078895]
 layout_mode = 2
 theme_override_constants/margin_top = 50
@@ -564,7 +573,6 @@ menu_manager = NodePath("../../../../../../../..")
 click_sfx = NodePath("../../../../../../../../SFX/Click")
 
 [node name="Credits" type="Control" parent="CanvasLayer/Control" unique_id=923272251]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -572,43 +580,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Credits" unique_id=1359149927]
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control/Credits" unique_id=540907933]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -452.0
+offset_top = -285.0
+offset_right = 452.0
+offset_bottom = 285.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("11_0nep4")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=643973335]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer" unique_id=335338658]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer" unique_id=1359149927]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer2" unique_id=1245187622]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=643973335]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1245187622]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Main Team"
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1753877734]
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1753877734]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1520507590]
+[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1520507590]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer10" unique_id=752958995]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer10" unique_id=752958995]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Lead Developer    - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer10" unique_id=1847649148]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer10" unique_id=1847649148]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
@@ -616,16 +635,16 @@ text = "YesMeMarcus"
 underline = 1
 uri = "https://yesmemarcus.itch.io/"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1891537365]
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1891537365]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer3" unique_id=1102311214]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1102311214]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Lead Artist       - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer3" unique_id=1595250660]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=1595250660]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
@@ -633,73 +652,74 @@ text = "BrushingBlooms"
 underline = 1
 uri = "https://www.brushingblooms.com/"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1099490815]
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1099490815]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer4" unique_id=1600210996]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1600210996]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 50
 text = "Music/Lead SFX    - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer4" unique_id=1748986902]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1748986902]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 45
 text = "Demian_Chameleon"
 underline = 1
+uri = "https://demian-chameleon.itch.io/"
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=349807359]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=349807359]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=656481349]
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=656481349]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer5" unique_id=775026233]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=775026233]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer5" unique_id=1902097321]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=1902097321]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Contributors"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=453828815]
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=453828815]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=669372279]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=669372279]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=77859012]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=77859012]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "SFX         - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer7" unique_id=1339345947]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1339345947]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "PenguinSphen"
 underline = 1
 
-[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1674144429]
+[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1674144429]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=1933540458]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer9" unique_id=1933540458]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=657375885]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer9" unique_id=657375885]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "SFX         - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer9" unique_id=765198243]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer9" unique_id=765198243]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
@@ -707,20 +727,20 @@ text = "YourPalRob"
 underline = 1
 uri = "https://yourpalrob.itch.io/"
 
-[node name="HBoxContainer11" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=586231754]
+[node name="HBoxContainer11" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=586231754]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=866158848]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer11" unique_id=866158848]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=1715273910]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer11" unique_id=1715273910]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Voice Acting- "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer11" unique_id=2087780351]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer11" unique_id=2087780351]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
@@ -728,40 +748,40 @@ text = "Faker"
 underline = 1
 uri = "https://www.instagram.com/matskii_"
 
-[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=2008417941]
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=2008417941]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=460216951]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=460216951]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=748979470]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=748979470]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Programming - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer6" unique_id=650522170]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer6" unique_id=650522170]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Jun"
 underline = 1
 
-[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=1721810210]
+[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=1721810210]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=1000880518]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=1000880518]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=45988599]
+[node name="Label" type="Label" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=45988599]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
 text = "Music       - "
 
-[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/VBoxContainer/HBoxContainer8" unique_id=1578472420]
+[node name="LinkButton" type="LinkButton" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer8" unique_id=1578472420]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("15_epdf4")
 theme_override_font_sizes/font_size = 30
@@ -769,11 +789,11 @@ text = "Utopia Quartet"
 underline = 1
 uri = "https://www.youtube.com/@colinhoulihansax"
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=402085468]
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=402085468]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="BackButton" type="Button" parent="CanvasLayer/Control/Credits/VBoxContainer" unique_id=812309839 node_paths=PackedStringArray("menu_manager", "click_sfx")]
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/Credits/PanelContainer/MarginContainer/VBoxContainer" unique_id=812309839 node_paths=PackedStringArray("menu_manager", "click_sfx")]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 size_flags_vertical = 3
@@ -781,8 +801,8 @@ theme = ExtResource("11_0nep4")
 theme_override_font_sizes/font_size = 50
 text = "Back"
 script = ExtResource("2_4mwo0")
-menu_manager = NodePath("../../../../..")
-click_sfx = NodePath("../../../../../SFX/Click")
+menu_manager = NodePath("../../../../../../..")
+click_sfx = NodePath("../../../../../../../SFX/Click")
 
 [node name="Music" type="Node" parent="." unique_id=1753872319]
 

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://dpt0fanq32dma"]
+
+[ext_resource type="AudioStream" uid="uid://dnqr3bcweejvh" path="res://Music/classical/songs/Goldberg Variations, BWV 988 - 06 - Variatio 5 a 1 ovvero 2 Clav..mp3" id="1_bn2lr"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_ivmqf"]
+
+[resource]
+script = ExtResource("2_ivmqf")
+normal_audiostream = ExtResource("1_bn2lr")
+song_name = "Goldberg Variations"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

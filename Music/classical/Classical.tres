@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Station" format=3 uid="uid://cfmbbsttx2feq"]
+
+[ext_resource type="Script" uid="uid://c5j8wvg8vdqda" path="res://Machines/Radio/Stations/Core/Station.gd" id="1_fkc1k"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_q8ynd"]
+[ext_resource type="Resource" uid="uid://dq0ikb18eim4r" path="res://Music/classical/songs/Asleep In The Deep.tres" id="4_8h7ot"]
+[ext_resource type="Resource" uid="uid://dpt0fanq32dma" path="res://Music/classical/songs/Goldberg Variations.tres" id="7_an847"]
+[ext_resource type="Resource" uid="uid://cy4h0otnrt4iu" path="res://Music/classical/songs/Nocturne.tres" id="8_33s6g"]
+[ext_resource type="Resource" uid="uid://5ropkcdh11vl" path="res://Music/classical/songs/Requiem.tres" id="9_3urq2"]
+[ext_resource type="Resource" uid="uid://db8da2em6m5rf" path="res://Music/classical/songs/Symphony no. 5.tres" id="10_ioevg"]
+[ext_resource type="Resource" uid="uid://pxkb4u5blwi3" path="res://Music/classical/songs/Torrent Etude.tres" id="11_etfqa"]
+
+[resource]
+script = ExtResource("1_fkc1k")
+station_name = "Classical"
+station_freq = 13.0
+am_fm = 0
+song_list = Array[ExtResource("2_q8ynd")]([ExtResource("4_8h7ot"), ExtResource("7_an847"), ExtResource("8_33s6g"), ExtResource("9_3urq2"), ExtResource("10_ioevg"), ExtResource("11_etfqa")])
+metadata/_custom_type_script = "uid://c5j8wvg8vdqda"

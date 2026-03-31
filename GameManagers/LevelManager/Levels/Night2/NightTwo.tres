@@ -13,6 +13,7 @@
 [ext_resource type="Resource" uid="uid://cgc33mtei48bl" path="res://Music/Sfx/TTS/SongRes/bodies.tres" id="10_yfwqq"]
 [ext_resource type="Resource" uid="uid://dwe8ah7cwhgvx" path="res://Music/Sfx/TTS/SongRes/nation.tres" id="11_jwfor"]
 [ext_resource type="Resource" uid="uid://bpih1imudft3d" path="res://Music/Sfx/TTS/SongRes/trains.tres" id="12_iggpe"]
+[ext_resource type="Resource" uid="uid://cfmbbsttx2feq" path="res://Music/classical/Classical.tres" id="13_6brhj"]
 
 [sub_resource type="Resource" id="Resource_f43av"]
 script = ExtResource("1_lhfsl")
@@ -24,7 +25,7 @@ metadata/_custom_type_script = "uid://c5j8wvg8vdqda"
 [resource]
 script = ExtResource("7_7e248")
 level_name = "Night Two"
-level_stations = Array[ExtResource("1_lhfsl")]([ExtResource("2_ro06l"), ExtResource("3_flpx7"), ExtResource("4_uoo6q"), ExtResource("5_68icb"), SubResource("Resource_f43av")])
+level_stations = Array[ExtResource("1_lhfsl")]([ExtResource("2_ro06l"), ExtResource("3_flpx7"), ExtResource("4_uoo6q"), ExtResource("5_68icb"), SubResource("Resource_f43av"), ExtResource("13_6brhj")])
 night_number = 2
 anomalies_pass_num = 2
 metadata/_custom_type_script = "uid://cojbqltk7b08q"

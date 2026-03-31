@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://5ropkcdh11vl"]
+
+[ext_resource type="AudioStream" uid="uid://d2706myn8eowl" path="res://Music/classical/songs/Requiem in D minor, K. 626 - III. Sequence - Dies irae (For Voices and Recorder Ensemble - Papalin).mp3" id="1_jascl"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_4sa2a"]
+
+[resource]
+script = ExtResource("2_4sa2a")
+normal_audiostream = ExtResource("1_jascl")
+song_name = "Requiem"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

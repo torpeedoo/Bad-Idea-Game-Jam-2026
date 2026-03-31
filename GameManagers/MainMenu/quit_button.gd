@@ -5,6 +5,7 @@ extends MainMenuButton
 func _ready():
 	if OS.has_feature("web"):
 		disabled = true
+		hide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

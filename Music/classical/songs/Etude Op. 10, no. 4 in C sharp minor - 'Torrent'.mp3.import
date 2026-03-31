@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cfte5vujctjct"
+path="res://.godot/imported/Etude Op. 10, no. 4 in C sharp minor - 'Torrent'.mp3-6c35428fbf18a18d2228ec37d4dc5a8e.mp3str"
+
+[deps]
+
+source_file="res://Music/classical/songs/Etude Op. 10, no. 4 in C sharp minor - 'Torrent'.mp3"
+dest_files=["res://.godot/imported/Etude Op. 10, no. 4 in C sharp minor - 'Torrent'.mp3-6c35428fbf18a18d2228ec37d4dc5a8e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

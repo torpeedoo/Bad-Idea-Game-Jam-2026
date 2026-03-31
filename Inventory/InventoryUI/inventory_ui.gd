@@ -30,8 +30,7 @@ func _ready():
 		close_button.pressed.connect(_close_inv)
 
 func activate_scare():
-	if inv_open: return
-	
+	_close_inv()
 	anim_player.play("Transition")
 	jumpscare_active = true
 

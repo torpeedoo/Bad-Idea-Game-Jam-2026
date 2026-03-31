@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://db8da2em6m5rf"]
+
+[ext_resource type="AudioStream" uid="uid://7etj57d3eklb" path="res://Music/classical/songs/Symphony no. 5 in Cm, Op. 67 - I. Allegro con brio (For Recorder Ensemble - Papalin).mp3" id="1_oyfau"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_j1fr8"]
+
+[resource]
+script = ExtResource("2_j1fr8")
+normal_audiostream = ExtResource("1_oyfau")
+song_name = "Symphony no. 5"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

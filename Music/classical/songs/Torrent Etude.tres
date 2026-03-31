@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://pxkb4u5blwi3"]
+
+[ext_resource type="AudioStream" uid="uid://cfte5vujctjct" path="res://Music/classical/songs/Etude Op. 10, no. 4 in C sharp minor - 'Torrent'.mp3" id="1_5xv6b"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_gj6l2"]
+
+[resource]
+script = ExtResource("2_gj6l2")
+normal_audiostream = ExtResource("1_5xv6b")
+song_name = "Torrent Etude"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

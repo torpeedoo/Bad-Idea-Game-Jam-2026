@@ -168,7 +168,6 @@
 [ext_resource type="PackedScene" uid="uid://dst8gyqhe0u1h" path="res://Machines/Items/Meds/Inhaler.tscn" id="165_otycs"]
 [ext_resource type="PackedScene" uid="uid://bq7bemr3nmxm2" path="res://GameManagers/TextBox/TextBox.tscn" id="166_xvw4h"]
 [ext_resource type="Script" uid="uid://bycx7bxnlvvy5" path="res://GameManagers/TextBox/DialogueChunk.gd" id="167_0ed7s"]
-[ext_resource type="Script" uid="uid://bk806oyhudbgm" path="res://GameManagers/TextBox/DialogueLine.gd" id="168_pojac"]
 [ext_resource type="Script" uid="uid://dhuoiffi4y1vw" path="res://GameManagers/TextBox/DialogueRes.gd" id="169_1ragn"]
 [ext_resource type="Script" uid="uid://oek57s4uqacg" path="res://GameManagers/TutorialManager/TutorialManager.gd" id="170_40fcx"]
 [ext_resource type="PackedScene" uid="uid://b2en160274bqy" path="res://GameManagers/Jumpscare/jumpscare.tscn" id="171_ac1lo"]
@@ -630,21 +629,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Resource" id="Resource_exc2f"]
-script = ExtResource("168_pojac")
-speaker = "Agent Smith"
-text = "We've been receiving new reports about some kind of black, almost shadow-like entity connected to these radio anomalies called the Shadow Man. If you see him, try to stop gaining madness for a few seconds and he should leave you alone. Good luck agent."
-metadata/_custom_type_script = "uid://bk806oyhudbgm"
-
-[sub_resource type="Resource" id="Resource_5utv0"]
-script = ExtResource("167_0ed7s")
-chunk_name = "intro"
-line_array = Array[ExtResource("168_pojac")]([SubResource("Resource_exc2f")])
-metadata/_custom_type_script = "uid://bycx7bxnlvvy5"
-
 [sub_resource type="Resource" id="Resource_4r5xk"]
 script = ExtResource("169_1ragn")
-dialogue_chunks = Array[ExtResource("167_0ed7s")]([SubResource("Resource_5utv0")])
 metadata/_custom_type_script = "uid://dhuoiffi4y1vw"
 
 [node name="NightThree" type="Node2D" unique_id=1230966180 node_paths=PackedStringArray("hallucination_animations", "madness_audio1", "grain", "madness_laugh_audio", "madness_drone_audio", "jump_scare", "tv", "recorder", "radio", "inventory", "ambiance")]

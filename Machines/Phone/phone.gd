@@ -57,7 +57,6 @@ func on_hour_pass():
 	time_label.text = "Time: "+str(level_manager.current_time)
 
 func _on_mouse_entered():
-	print("hi")
 	_tween_scale(HOVER_SCALE)
 
 func _on_mouse_exited():
@@ -74,9 +73,10 @@ func _on_click():
 	get_tree().current_scene.add_child(popup)
 	
 	popup.hide()
-	popup.popup_text = "End night?"
+	if level_manager.anomalies_found >= level_manager.level_data.anomalies_pass_num:
+		popup.popup_text = "End night?"
+	else:
+		popup.popup_text = "Abort night? (progress not saved)"
 	popup.set_label_text()
 	popup.confirmed.connect(level_manager.end_level)
 	popup.show()
-	
-	print("Popup shown")

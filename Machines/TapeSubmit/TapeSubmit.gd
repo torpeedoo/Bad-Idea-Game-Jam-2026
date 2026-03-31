@@ -49,20 +49,24 @@ func start_next_anim():
 func anim_over():
 	start_next_anim()
 
+func found_anomaly_after_anim():
+	screen_anim.animation_finished.disconnect(found_anomaly_after_anim)
+	add_anomaly_success()
+
 func analyze_tape(tape: Tape):
 	play_anim("Analyzing")
 	
 	if tape.is_song_anomaly() and tape.recorded_song not in level_manager.anomalies_recorded:
-		level_manager.anomaly_submitted.emit()
 		play_anim("Success")
+		screen_anim.animation_finished.connect(found_anomaly_after_anim)
 		level_manager.anomalies_recorded.append(tape.recorded_song)
-		add_anomaly_success()
 	else:
 		play_anim("Fail")
 		
 	enabled = true
 
 func add_anomaly_success():
+	level_manager.anomaly_submitted.emit()
 	level_manager.anomalies_found += 1
 
 func _delete_tape():

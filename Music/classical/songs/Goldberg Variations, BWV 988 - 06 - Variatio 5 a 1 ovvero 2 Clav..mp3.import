@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dnqr3bcweejvh"
+path="res://.godot/imported/Goldberg Variations, BWV 988 - 06 - Variatio 5 a 1 ovvero 2 Clav..mp3-7f50297eaf0558e655be4f64e1f60b30.mp3str"
+
+[deps]
+
+source_file="res://Music/classical/songs/Goldberg Variations, BWV 988 - 06 - Variatio 5 a 1 ovvero 2 Clav..mp3"
+dest_files=["res://.godot/imported/Goldberg Variations, BWV 988 - 06 - Variatio 5 a 1 ovvero 2 Clav..mp3-7f50297eaf0558e655be4f64e1f60b30.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

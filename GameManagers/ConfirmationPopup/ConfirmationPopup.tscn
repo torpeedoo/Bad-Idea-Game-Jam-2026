@@ -164,13 +164,13 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control" unique_id=438279152]
 layout_mode = 0
-offset_left = 646.0
-offset_top = 416.0
-offset_right = 1310.0
-offset_bottom = 458.0
+offset_left = 486.0
+offset_top = 425.0
+offset_right = 1461.0
+offset_bottom = 467.0
 theme_override_fonts/font = ExtResource("2_6fuua")
 theme_override_font_sizes/font_size = 50
-text = "ARE YOU SURE YOU WANT TO END THE NIGHT?"
+text = "End night?"
 horizontal_alignment = 1
 
 [node name="YesButton" type="Button" parent="CanvasLayer/Control" unique_id=1235478395 node_paths=PackedStringArray("hover_audio")]

@@ -746,7 +746,7 @@ animation = &"WindowPeeper"
 speed_scale = 2.0
 
 [node name="Grain" parent="Background" unique_id=758773583 instance=ExtResource("154_8eexx")]
-z_index = 6
+z_index = 100
 
 [node name="Interactables" type="Node2D" parent="." unique_id=241100467]
 z_index = 1

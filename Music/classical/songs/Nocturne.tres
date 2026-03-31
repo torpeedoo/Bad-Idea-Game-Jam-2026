@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Song" format=3 uid="uid://cy4h0otnrt4iu"]
+
+[ext_resource type="AudioStream" uid="uid://ciqb0k78fdllw" path="res://Music/classical/songs/Nocturne in E flat major, Op. 9 no. 2.mp3" id="1_q0kwi"]
+[ext_resource type="Script" uid="uid://cuolgvdwc6gmc" path="res://Machines/Radio/Stations/Core/Song.gd" id="2_g0s7b"]
+
+[resource]
+script = ExtResource("2_g0s7b")
+normal_audiostream = ExtResource("1_q0kwi")
+song_name = "Nocturne"
+metadata/_custom_type_script = "uid://cuolgvdwc6gmc"

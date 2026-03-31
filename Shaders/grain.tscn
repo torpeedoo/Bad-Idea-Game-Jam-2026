@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dh25d2p2ttvgm" path="res://Shaders/grain.gd" id="2_q2fw2"]
 
 [node name="Grain" type="ColorRect" unique_id=758773583]
+z_index = 100
 material = ExtResource("1_5ith1")
 offset_right = 1920.0
 offset_bottom = 1080.0
